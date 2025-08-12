@@ -1,20 +1,17 @@
 /**
- * Data for an event that happens when an entity is removed
- * from the world (for example, the entity is unloaded because
- * it is not close to players.)
+ * 实体从世界中移除时发生的事件数据（例如，因为实体不在玩家附近而被卸载）。
  */
 export class EntityRemoveAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Id of the entity that was removed.
+     * 被移除的实体 ID。
      *
      */
     readonly removedEntityId: string;
     /**
      * @remarks
-     * Identifier of the type of the entity removed - for example,
-     * 'minecraft:skeleton'.
+     * 被移除的实体类型标识符 - 例如，'minecraft:skeleton'。
      *
      */
     readonly typeId: string;

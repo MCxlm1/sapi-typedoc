@@ -1,51 +1,45 @@
 /* IMPORT */ import { EntityComponent, EntityDefinitionFeedItem, Trigger } from '../index';
 
 /**
- * Adds a timer for the entity to grow up. It can be
- * accelerated by giving the entity the items it likes as
- * defined by feedItems.
+ * 为实体添加成长计时器。可以通过给实体提供它喜欢的物品（由 feedItems 定义）来加速成长。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityAgeableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Amount of time before the entity grows up, -1 for always a
-     * baby.
+     * 实体成长所需的时间，-1 表示永远是幼体。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly duration: number;
     /**
      * @remarks
-     * Event that runs when this entity grows up.
+     * 实体成长时运行的事件。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly growUp: Trigger;
     /**
      * @remarks
-     * The feed item used will transform into this item upon
-     * successful interaction.
+     * 使用的饲料物品在成功交互后将转化为该物品。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly transformToItem: string;
     static readonly componentId = 'minecraft:ageable';
     /**
      * @remarks
-     * List of items that the entity drops when it grows up.
+     * 实体成长时掉落的物品列表。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getDropItems(): string[];
     /**
      * @remarks
-     * List of items that can be fed to the entity. Includes 'item'
-     * for the item name and 'growth' to define how much time it
-     * grows up by.
+     * 可以喂给实体的物品列表。包括用于物品名称的 'item' 和定义成长时间的 'growth'。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getFeedItems(): EntityDefinitionFeedItem[];
 }

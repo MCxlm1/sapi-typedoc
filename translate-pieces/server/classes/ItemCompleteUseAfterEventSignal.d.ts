@@ -1,15 +1,13 @@
 /* IMPORT */ import { ItemCompleteUseAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to the completion of
- * charging for a chargeable item.
+ * 管理与可充能物品完成充能相关的回调。
  */
 export class ItemCompleteUseAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when a chargeable item
-     * completes charging.
+     * 添加一个回调，当可充能物品完成充能时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class ItemCompleteUseAfterEventSignal {
     subscribe(callback: (arg0: ItemCompleteUseAfterEvent) => void): (arg0: ItemCompleteUseAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when a chargeable item
-     * completes charging.
+     * 从可充能物品完成充能的回调中移除一个回调。
      *
      * @worldMutation
      *

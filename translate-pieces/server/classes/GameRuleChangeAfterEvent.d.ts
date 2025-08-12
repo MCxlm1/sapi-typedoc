@@ -1,22 +1,19 @@
 /* IMPORT */ import { GameRule } from '../index';
 
 /**
- * Contains information regarding a changed world.gameRules
- * property.
+ * 包含世界.gameRules属性变化的相关信息。
  */
 export class GameRuleChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The rule identifier pertaining to the changed
-     * world.gameRules property.
+     * 与变化的 world.gameRules 属性相关的规则标识符。
      *
      */
     readonly rule: GameRule;
     /**
      * @remarks
-     * The value of the world.gameRules property after being
-     * changed.
+     * world.gameRules 属性变化后的值。
      *
      */
     readonly value: boolean | number;

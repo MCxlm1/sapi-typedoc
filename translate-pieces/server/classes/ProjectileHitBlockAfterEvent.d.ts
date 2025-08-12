@@ -1,48 +1,40 @@
-/* IMPORT */ import { BlockHitInformation, Dimension, Entity, Vector3 } from '../index';
+/* IMPORT */ import { Block, Entity, Vector3 } from '../index';
 
 /**
- * Contains information related to a projectile hitting a
- * block.
+ * 包含抛射物击中方块事件的相关信息。
  */
 export class ProjectileHitBlockAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Dimension where this projectile hit took place.
+     * 被击中的方块。
      *
      */
-    readonly dimension: Dimension;
+    readonly block: Block;
     /**
      * @remarks
-     * Direction vector of the projectile as it hit a block.
+     * 生成抛射物的实体。可能是 undefined。
      *
      */
-    readonly hitVector: Vector3;
+    readonly creator: Entity | undefined;
     /**
      * @remarks
-     * Location where the projectile hit occurred.
-     *
-     */
-    readonly location: Vector3;
-    /**
-     * @remarks
-     * Entity for the projectile that hit a block.
+     * 抛射物实体。
      *
      */
     readonly projectile: Entity;
     /**
      * @remarks
-     * Optional source entity that fired the projectile.
+     * 抛射物击中方块的位置。
      *
      */
-    readonly source?: Entity;
+    readonly hitVector: Vector3;
     /**
      * @remarks
-     * Contains additional information about the block that was hit
-     * by the projectile.
+     * 包含有关被抛射物击中的方块的额外信息。
      *
      * @worldMutation
      *
      */
-    getBlockHit(): BlockHitInformation;
+    getBlockHit(): Block;
 }

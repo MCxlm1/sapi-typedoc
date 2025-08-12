@@ -1,15 +1,13 @@
 /* IMPORT */ import { TargetBlockHitAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to when a target block
- * is hit.
+ * 管理与目标方块被击中相关的回调。
  */
 export class TargetBlockHitAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when a target block is
-     * hit.
+     * 添加一个回调，当目标方块被击中时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class TargetBlockHitAfterEventSignal {
     subscribe(callback: (arg0: TargetBlockHitAfterEvent) => void): (arg0: TargetBlockHitAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when a target block is
-     * hit.
+     * 从目标方块被击中的回调中移除一个回调。
      *
      * @worldMutation
      *

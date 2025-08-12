@@ -1,28 +1,23 @@
-/* IMPORT */ import { InputEventOptions, PlayerButtonInputAfterEvent } from '../index';
+/* IMPORT */ import { PlayerButtonInputAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to player inputs.
+ * 管理与玩家按钮输入相关的回调。
  */
 export class PlayerButtonInputAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called after the player
-     * performs an input.
+     * 添加一个回调，当 {@link InputButton} 状态改变时将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      */
-    subscribe(
-        callback: (arg0: PlayerButtonInputAfterEvent) => void,
-        options?: InputEventOptions,
-    ): (arg0: PlayerButtonInputAfterEvent) => void;
+    subscribe(callback: (arg0: PlayerButtonInputAfterEvent) => void): (arg0: PlayerButtonInputAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called after the player
-     * performs an input.
+     * 从玩家按钮输入的回调中移除一个回调。
      *
      * @worldMutation
      *

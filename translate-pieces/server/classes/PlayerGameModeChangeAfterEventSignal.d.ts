@@ -1,15 +1,13 @@
 /* IMPORT */ import { PlayerGameModeChangeAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to after a players game
- * mode is changed.
+ * 管理与玩家游戏模式变化相关的回调。
  */
 export class PlayerGameModeChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called after a players game
-     * mode is changed.
+     * 添加一个回调，当玩家游戏模式变化时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class PlayerGameModeChangeAfterEventSignal {
     subscribe(callback: (arg0: PlayerGameModeChangeAfterEvent) => void): (arg0: PlayerGameModeChangeAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called after a players game
-     * mode is changed.
+     * 从玩家游戏模式变化的回调中移除一个回调。
      *
      * @worldMutation
      *

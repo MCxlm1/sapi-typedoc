@@ -1,15 +1,14 @@
 /* IMPORT */ import { PlayerSpawnAfterEvent } from '../index';
 
 /**
- * Registers an event when a player is spawned (or re-spawned
- * after death) and fully ready within the world.
+ * 管理与玩家生成或重生相关的回调。
  */
 export class PlayerSpawnAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Registers a new event receiver for this particular type of
-     * event.
+     * 添加一个回调，当玩家生成或重生时将被调用。
+     * 注意，此事件中的附加标志将告诉您玩家是刚加入后生成还是重生。
      *
      * @worldMutation
      *
@@ -19,7 +18,7 @@ export class PlayerSpawnAfterEventSignal {
     subscribe(callback: (arg0: PlayerSpawnAfterEvent) => void): (arg0: PlayerSpawnAfterEvent) => void;
     /**
      * @remarks
-     * De-registers an event receiver for the player spawn event.
+     * 从玩家生成或重生的回调中移除一个回调。
      *
      * @worldMutation
      *

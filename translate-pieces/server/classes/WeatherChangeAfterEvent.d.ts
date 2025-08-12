@@ -1,27 +1,20 @@
 /* IMPORT */ import { WeatherType } from '../index';
 
 /**
- * Contains information related to changes in weather in the
- * environment.
+ * 包含天气变化事件的相关信息。
  */
 export class WeatherChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Dimension in which the weather has changed.
+     * 天气变化前的天气类型。
      *
      */
-    readonly dimension: string;
+    readonly fromWeather: WeatherType;
     /**
      * @remarks
-     * The weather type after the weather was changed.
+     * 天气变化后的天气类型。
      *
      */
-    readonly newWeather: WeatherType;
-    /**
-     * @remarks
-     * The weather type before the weather was changed.
-     *
-     */
-    readonly previousWeather: WeatherType;
+    readonly toWeather: WeatherType;
 }

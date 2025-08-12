@@ -1,8 +1,7 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * When added, this component signifies that this entity can be
- * stacked.
+ * 添加后，此组件表示该实体可以堆叠。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityIsStackableComponent extends EntityComponent {

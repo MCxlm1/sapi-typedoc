@@ -1,67 +1,64 @@
 /* IMPORT */ import { EntityComponent, Player } from '../index';
 
 /**
- * Contains options for taming a rideable entity based on the
- * entity that mounts it.
+ * 包含基于骑乘它的实体来驯服可骑乘实体的选项。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityTameMountComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Returns true if the entity is tamed.
+     * 如果实体被驯服则返回 true。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly isTamed: boolean;
     /**
      * @remarks
-     * Returns true if the entity is tamed by a player.
+     * 如果实体被玩家驯服则返回 true。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly isTamedToPlayer: boolean;
     /**
      * @remarks
-     * Returns the player that has tamed the entity, or 'undefined'
-     * if entity is not tamed by a player.
+     * 返回驯服该实体的玩家，如果实体未被玩家驯服则返回 'undefined'。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly tamedToPlayer?: Player;
     /**
      * @remarks
-     * Returns the id of player that has tamed the entity, or
-     * 'undefined' if entity is not tamed.
+     * 返回驯服该实体的玩家 ID，如果实体未被驯服则返回 'undefined'。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly tamedToPlayerId?: string;
     static readonly componentId = 'minecraft:tamemount';
     /**
      * @remarks
-     * Sets this rideable entity as tamed.
+     * 将此可骑乘实体设置为已驯服。
      *
      * @worldMutation
      *
      * @param showParticles
-     * Whether to show effect particles when this entity is tamed.
-     * @throws This function can throw errors.
+     * 驯服此实体时是否显示效果粒子。
+     * @throws 此函数可能抛出错误。
      */
     tame(showParticles: boolean): void;
     /**
      * @remarks
-     * Sets this rideable entity as tamed by the given player.
+     * 将此可骑乘实体设置为由给定玩家驯服。
      *
      * @worldMutation
      *
      * @param showParticles
-     * Whether to show effect particles when this entity is tamed.
+     * 驯服此实体时是否显示效果粒子。
      * @param player
-     * The player that this entity should be tamed by.
+     * 应该驯服此实体的玩家。
      * @returns
-     * Returns true if the entity was tamed.
-     * @throws This function can throw errors.
+     * 如果实体被驯服则返回 true。
+     * @throws 此函数可能抛出错误。
      */
     tameToPlayer(showParticles: boolean, player: Player): boolean;
 }

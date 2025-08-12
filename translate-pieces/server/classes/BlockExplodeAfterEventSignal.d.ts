@@ -1,15 +1,13 @@
 /* IMPORT */ import { BlockExplodeAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to when an explosion
- * occurs, as it impacts individual blocks.
+ * 管理与爆炸影响单个方块相关的回调。
  */
 export class BlockExplodeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when an explosion
-     * occurs, as it impacts individual blocks.
+     * 添加一个回调，当爆炸影响单个方块时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class BlockExplodeAfterEventSignal {
     subscribe(callback: (arg0: BlockExplodeAfterEvent) => void): (arg0: BlockExplodeAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when an explosion
-     * occurs, as it impacts individual blocks.
+     * 从爆炸影响单个方块的回调中移除一个回调。
      *
      * @worldMutation
      *

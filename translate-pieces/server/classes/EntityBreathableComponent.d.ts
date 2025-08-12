@@ -1,8 +1,7 @@
 /* IMPORT */ import { BlockPermutation, EntityComponent } from '../index';
 
 /**
- * Defines what blocks this entity can breathe in and gives
- * them the ability to suffocate.
+ * 定义此实体可以在哪些方块中呼吸，并赋予它们窒息的能力。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityBreathableComponent extends EntityComponent {
@@ -10,94 +9,91 @@ export class EntityBreathableComponent extends EntityComponent {
     /**
      * @beta
      * @remarks
-     * The current air supply of the entity.
+     * 实体的当前空气供应量。
      *
      * @worldMutation
      *
      * @throws
-     * Will throw an error if the air supply is out of bounds
-     * [suffocationTime, maxAirSupply].
+     * 如果空气供应量超出范围 [suffocationTime, maxAirSupply] 则抛出错误。
      */
     airSupply: number;
     /**
      * @remarks
-     * If true, this entity can breathe in air.
+     * 如果为 true，则此实体可以在空气中呼吸。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly breathesAir: boolean;
     /**
      * @remarks
-     * If true, this entity can breathe in lava.
+     * 如果为 true，则此实体可以在熔岩中呼吸。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly breathesLava: boolean;
     /**
      * @remarks
-     * If true, this entity can breathe in solid blocks.
+     * 如果为 true，则此实体可以在固体方块中呼吸。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly breathesSolids: boolean;
     /**
      * @remarks
-     * If true, this entity can breathe in water.
+     * 如果为 true，则此实体可以在水中呼吸。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly breathesWater: boolean;
     /**
      * @beta
      * @remarks
-     * If true, the entity is able to breathe.
+     * 如果为 true，则实体能够呼吸。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canBreathe: boolean;
     /**
      * @remarks
-     * If true, this entity will have visible bubbles while in
-     * water.
+     * 如果为 true，则此实体在水中时将有可见的气泡。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly generatesBubbles: boolean;
     /**
      * @remarks
-     * Time in seconds to recover breath to maximum.
+     * 恢复呼吸到最大值所需的时间（秒）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly inhaleTime: number;
     /**
      * @remarks
-     * Time in seconds between suffocation damage.
+     * 窒息伤害之间的时间（秒）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly suffocateTime: number;
     /**
      * @remarks
-     * Time in seconds the entity can hold its breath.
+     * 实体可以屏住呼吸的时间（秒）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly totalSupply: number;
     static readonly componentId = 'minecraft:breathable';
     /**
      * @remarks
-     * List of blocks this entity can breathe in, in addition to
-     * the separate properties for classes of blocks.
+     * 此实体可以呼吸的方块列表，除了各类方块的单独属性之外。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getBreatheBlocks(): BlockPermutation[];
     /**
      * @remarks
-     * List of blocks this entity can't breathe in.
+     * 此实体无法呼吸的方块列表。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getNonBreatheBlocks(): BlockPermutation[];
 }

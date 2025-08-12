@@ -1,28 +1,23 @@
 /* IMPORT */ import { PlayerDimensionChangeAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to successful player
- * dimension changes.
+ * 管理与玩家维度变化相关的回调。
  */
 export class PlayerDimensionChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Subscribes the specified callback to a player dimension
-     * change after event.
+     * 添加一个回调，当玩家移动到不同维度时将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      */
-    subscribe(
-        callback: (arg0: PlayerDimensionChangeAfterEvent) => void,
-    ): (arg0: PlayerDimensionChangeAfterEvent) => void;
+    subscribe(callback: (arg0: PlayerDimensionChangeAfterEvent) => void): (arg0: PlayerDimensionChangeAfterEvent) => void;
     /**
      * @remarks
-     * Removes the specified callback from a player dimension
-     * change after event.
+     * 从玩家维度变化的回调中移除一个回调。
      *
      * @worldMutation
      *

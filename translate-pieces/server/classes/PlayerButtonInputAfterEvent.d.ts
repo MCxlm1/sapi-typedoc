@@ -1,25 +1,25 @@
 /* IMPORT */ import { ButtonState, InputButton, Player } from '../index';
 
 /**
- * Event data for when a player presses a button.
+ * 玩家按下按钮时的事件数据。
  */
 export class PlayerButtonInputAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The button this event is about.
+     * 此事件涉及的按钮。
      *
      */
     readonly button: InputButton;
     /**
      * @remarks
-     * The state that this button transferred to.
+     * 此按钮转换到的状态。
      *
      */
     readonly newButtonState: ButtonState;
     /**
      * @remarks
-     * The player that performed the input event.
+     * 执行输入事件的玩家。
      *
      */
     readonly player: Player;

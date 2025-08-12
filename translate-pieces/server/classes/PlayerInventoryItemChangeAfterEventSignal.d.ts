@@ -1,33 +1,25 @@
-/* IMPORT */ import { InventoryItemEventOptions, PlayerInventoryItemChangeAfterEvent } from '../index';
+/* IMPORT */ import { PlayerInventoryItemChangeAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected after a player's
- * inventory item is changed.
+ * 管理与玩家库存物品变化相关的回调。
  */
 export class PlayerInventoryItemChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called after a player's
-     * inventory item is changed.
+     * 添加一个回调，当物品被添加或从玩家库存中移除时将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      * @param callback
-     * Function callback that is called when this event fires.
-     * @param options
-     * Additional filtering options for the event subscription.
+     * 回调函数，当事件触发时调用。
      */
-    subscribe(
-        callback: (arg0: PlayerInventoryItemChangeAfterEvent) => void,
-        options?: InventoryItemEventOptions,
-    ): (arg0: PlayerInventoryItemChangeAfterEvent) => void;
+    subscribe(callback: (arg0: PlayerInventoryItemChangeAfterEvent) => void): (arg0: PlayerInventoryItemChangeAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called after a player's
-     * inventory item is changed.
+     * 从玩家库存物品变化的回调中移除一个回调。
      *
      * @worldMutation
      *

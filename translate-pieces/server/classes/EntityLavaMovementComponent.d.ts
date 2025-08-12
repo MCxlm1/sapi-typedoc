@@ -1,7 +1,7 @@
 /* IMPORT */ import { EntityAttributeComponent } from '../index';
 
 /**
- * Defines the base movement speed in lava of this entity.
+ * 定义此实体在熔岩中的基础移动速度。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityLavaMovementComponent extends EntityAttributeComponent {

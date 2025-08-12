@@ -1,7 +1,7 @@
 /* IMPORT */ import { EntityAttributeComponent } from '../index';
 
 /**
- * Defines the general movement speed of this entity.
+ * 定义此实体的一般移动速度。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityMovementComponent extends EntityAttributeComponent {

@@ -1,28 +1,23 @@
 /* IMPORT */ import { PlayerInteractWithEntityAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to after a player
- * interacts with an entity.
+ * 管理与玩家与实体交互相关的回调。
  */
 export class PlayerInteractWithEntityAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called after a player interacts
-     * with an entity.
+     * 添加一个回调，当玩家与实体交互时将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      */
-    subscribe(
-        callback: (arg0: PlayerInteractWithEntityAfterEvent) => void,
-    ): (arg0: PlayerInteractWithEntityAfterEvent) => void;
+    subscribe(callback: (arg0: PlayerInteractWithEntityAfterEvent) => void): (arg0: PlayerInteractWithEntityAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called after a player
-     * interacts with an entity.
+     * 从玩家与实体交互的回调中移除一个回调。
      *
      * @worldMutation
      *

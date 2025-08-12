@@ -1,8 +1,7 @@
 /* IMPORT */ import { Entity, EntityComponent, Seat } from '../index';
 
 /**
- * When added, this component adds the capability that an
- * entity can be ridden by another entity.
+ * 添加后，此组件将添加实体可以被另一个实体骑乘的功能。
  * @seeExample minibiomes.ts
  */
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -10,116 +9,107 @@ export class EntityRideableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Zero-based index of the seat that can used to control this
-     * entity.
+     * 可用于控制此实体的座位的从零开始的索引。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly controllingSeat: number;
     /**
      * @remarks
-     * Determines whether interactions are not supported if the
-     * entity is crouching.
+     * 确定如果实体蹲下是否不支持交互。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly crouchingSkipInteract: boolean;
     /**
      * @remarks
-     * Set of text that should be displayed when a player is
-     * looking to ride on this entity (commonly with touch-screen
-     * controls).
+     * 当玩家想要骑乘此实体时应显示的一组文本（通常使用触摸屏控件）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly interactText: string;
     /**
      * @remarks
-     * The max width a mob can be to be a passenger.
+     * 作为乘客的实体的最大宽度。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly passengerMaxWidth: number;
     /**
      * @remarks
-     * If true, this entity will pull in entities that are in the
-     * correct family_types into any available seat.
+     * 如果为 true，则此实体将把正确 family_types 中的实体拉入任何可用座位。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly pullInEntities: boolean;
     /**
      * @remarks
-     * If true, this entity will be picked when looked at by the
-     * rider.
+     * 如果为 true，则当骑手看向此实体时将选择此实体。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly riderCanInteract: boolean;
     /**
      * @remarks
-     * Number of seats for riders defined for this entity.
+     * 为此实体定义的骑手座位数量。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly seatCount: number;
     static readonly componentId = 'minecraft:rideable';
     /**
      * @remarks
-     * Adds an entity to this entity as a rider.
+     * 将实体添加到此实体作为骑手。
      *
      * @worldMutation
      *
      * @param rider
-     * Entity that will become the rider of this entity.
+     * 将成为此实体骑手的实体。
      * @returns
-     * True if the rider entity was successfully added.
-     * @throws This function can throw errors.
+     * 如果骑手实体已成功添加则返回 true。
+     * @throws 此函数可能抛出错误。
      * @seeExample minibiomes.ts
      */
     addRider(rider: Entity): boolean;
     /**
      * @remarks
-     * Ejects the specified rider of this entity.
+     * 将指定的骑手从此实体中弹出。
      *
      * @worldMutation
      *
      * @param rider
-     * Entity that should be ejected from this entity.
-     * @throws This function can throw errors.
+     * 应该从此实体中弹出的实体。
+     * @throws 此函数可能抛出错误。
      */
     ejectRider(rider: Entity): void;
     /**
      * @remarks
-     * Ejects all riders of this entity.
+     * 将所有骑手从此实体中弹出。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     ejectRiders(): void;
     /**
      * @remarks
-     * A string-list of entity types that this entity can support
-     * as riders.
+     * 此实体可以支持作为骑手的实体类型的字符串列表。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getFamilyTypes(): string[];
     /**
      * @remarks
-     * Gets a list of the all the entities currently riding this
-     * entity.
+     * 获取当前骑乘此实体的所有实体的列表。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getRiders(): Entity[];
     /**
      * @remarks
-     * Gets a list of positions and number of riders for each
-     * position for entities riding this entity.
+     * 获取骑乘此实体的实体的位置和每个位置的骑手数量列表。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getSeats(): Seat[];
 }

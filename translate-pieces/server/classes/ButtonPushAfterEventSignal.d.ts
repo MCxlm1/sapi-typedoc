@@ -1,15 +1,14 @@
 /* IMPORT */ import { ButtonPushAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to when a button is
- * pushed.
+ * 管理与按钮被按下相关的回调。
  * @seeExample buttonPushEvent.ts
  */
 export class ButtonPushAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when a button is pushed.
+     * 添加一个回调，当按钮被按下时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +18,7 @@ export class ButtonPushAfterEventSignal {
     subscribe(callback: (arg0: ButtonPushAfterEvent) => void): (arg0: ButtonPushAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when a button is
-     * pushed.
+     * 从按钮被按下的回调中移除一个回调。
      *
      * @worldMutation
      *

@@ -1,8 +1,7 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * When added, this component signifies that this entity this
- * currently on fire.
+ * 添加后，此组件表示该实体当前正在燃烧。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityIsIgnitedComponent extends EntityComponent {

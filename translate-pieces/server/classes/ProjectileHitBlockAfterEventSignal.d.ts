@@ -1,15 +1,13 @@
 /* IMPORT */ import { ProjectileHitBlockAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to when a projectile
- * hits a block.
+ * 管理与抛射物击中方块相关的回调。
  */
 export class ProjectileHitBlockAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when a projectile hits a
-     * block.
+     * 添加一个回调，当抛射物击中方块时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class ProjectileHitBlockAfterEventSignal {
     subscribe(callback: (arg0: ProjectileHitBlockAfterEvent) => void): (arg0: ProjectileHitBlockAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when a projectile hits
-     * a block.
+     * 从抛射物击中方块的回调中移除一个回调。
      *
      * @worldMutation
      *

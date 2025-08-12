@@ -1,8 +1,7 @@
 /* IMPORT */ import { ContainerSlot, EntityComponent, EquipmentSlot, InvalidEntityError, ItemStack } from '../index';
 
 /**
- * Provides access to a mob's equipment slots. This component
- * exists on player entities.
+ * 提供对生物装备槽的访问。此组件存在于玩家实体上。
  * @seeExample givePlayerElytra.ts
  */
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -10,18 +9,18 @@ export class EntityEquippableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Returns the total Armor level of the owner.
+     * 返回拥有者的总护甲等级。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly totalArmor: number;
     /**
      * @remarks
-     * Returns the total Toughness level of the owner.
+     * 返回拥有者的总韧性等级。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
@@ -29,40 +28,37 @@ export class EntityEquippableComponent extends EntityComponent {
     static readonly componentId = 'minecraft:equippable';
     /**
      * @remarks
-     * Gets the equipped item for the given EquipmentSlot.
+     * 获取给定装备槽的已装备物品。
      *
      * @param equipmentSlot
-     * The equipment slot. e.g. "head", "chest", "offhand"
+     * 装备槽。例如 "head", "chest", "offhand"
      * @returns
-     * Returns the item equipped to the given EquipmentSlot. If
-     * empty, returns undefined.
-     * @throws This function can throw errors.
+     * 返回装备到给定装备槽的物品。如果为空，则返回 undefined。
+     * @throws 此函数可能抛出错误。
      */
     getEquipment(equipmentSlot: EquipmentSlot): ItemStack | undefined;
     /**
      * @remarks
-     * Gets the ContainerSlot corresponding to the given
-     * EquipmentSlot.
+     * 获取与给定装备槽对应的容器槽。
      *
      * @param equipmentSlot
-     * The equipment slot. e.g. "head", "chest", "offhand".
+     * 装备槽。例如 "head", "chest", "offhand"。
      * @returns
-     * Returns the ContainerSlot corresponding to the given
-     * EquipmentSlot.
-     * @throws This function can throw errors.
+     * 返回与给定装备槽对应的容器槽。
+     * @throws 此函数可能抛出错误。
      */
     getEquipmentSlot(equipmentSlot: EquipmentSlot): ContainerSlot;
     /**
      * @remarks
-     * Replaces the item in the given EquipmentSlot.
+     * 替换给定装备槽中的物品。
      *
      * @worldMutation
      *
      * @param equipmentSlot
-     * The equipment slot. e.g. "head", "chest", "offhand".
+     * 装备槽。例如 "head", "chest", "offhand"。
      * @param itemStack
-     * The item to equip. If undefined, clears the slot.
-     * @throws This function can throw errors.
+     * 要装备的物品。如果为 undefined，则清空该槽。
+     * @throws 此函数可能抛出错误。
      */
     setEquipment(equipmentSlot: EquipmentSlot, itemStack?: ItemStack): boolean;
 }

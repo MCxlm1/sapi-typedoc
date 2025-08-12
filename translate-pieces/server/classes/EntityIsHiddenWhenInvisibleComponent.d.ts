@@ -1,8 +1,7 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * When added, this component signifies that this entity can
- * hide from hostile mobs while invisible.
+ * 添加后，此组件表示该实体在隐身时可以躲避敌对生物。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityIsHiddenWhenInvisibleComponent extends EntityComponent {

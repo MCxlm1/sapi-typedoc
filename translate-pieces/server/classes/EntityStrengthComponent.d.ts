@@ -1,27 +1,23 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * Defines the entity's ability to carry items. An entity with
- * a higher strength would have higher potential carry capacity
- * and more item slots.
+ * 定义实体携带物品的能力。强度更高的实体将具有更高的潜在携带能力和更多物品槽位。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityStrengthComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Maximum strength of this entity, as defined in the entity
-     * type definition.
+     * 此实体的最大强度，如实体类型定义中所定义。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly max: number;
     /**
      * @remarks
-     * Current value of the strength component that has been set
-     * for entities.
+     * 为实体设置的强度组件的当前值。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly value: number;
     static readonly componentId = 'minecraft:strength';

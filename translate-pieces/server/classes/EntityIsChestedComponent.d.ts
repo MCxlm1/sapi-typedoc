@@ -1,8 +1,7 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * When added, this component signifies that this entity is
- * currently carrying a chest.
+ * 添加后，此组件表示该实体当前携带箱子。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityIsChestedComponent extends EntityComponent {

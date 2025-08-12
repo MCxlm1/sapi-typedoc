@@ -1,23 +1,23 @@
 /* IMPORT */ import { Camera, ClientSystemInfo, CommandPermissionLevel, DimensionLocation, Entity, GameMode, GraphicsMode, InputInfo, InvalidEntityError, ItemStack, LocationInUnloadedChunkError, LocationOutOfWorldBoundariesError, MolangVariableMap, MusicOptions, PlayerAimAssist, PlayerInputPermissions, PlayerPermissionLevel, PlayerSoundOptions, RawMessage, RawMessageError, ScreenDisplay, Vector3 } from '../index';
 
 /**
- * Represents a player within the world.
+ * 表示世界中的一个玩家。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class Player extends Entity {
     private constructor();
     /**
      * @remarks
-     * The player's Camera.
+     * 玩家的相机。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly camera: Camera;
     /**
      * @remarks
-     * Contains the player's device information.
+     * 包含玩家的设备信息。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly clientSystemInfo: ClientSystemInfo;
     /**
@@ -28,82 +28,76 @@ export class Player extends Entity {
     commandPermissionLevel: CommandPermissionLevel;
     /**
      * @remarks
-     * Gets the current graphics mode of the player's client. This
-     * can be changed in the Video section of the settings menu
-     * based on what hardware is available.
+     * 获取玩家客户端的当前图形模式。这可以在设置菜单的视频部分根据可用硬件进行更改。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly graphicsMode: GraphicsMode;
     /**
      * @remarks
-     * Contains the player's input information.
+     * 包含玩家的输入信息。
      *
      */
     readonly inputInfo: InputInfo;
     /**
      * @remarks
-     * Input permissions of the player.
+     * 玩家的输入权限。
      *
      */
     readonly inputPermissions: PlayerInputPermissions;
     /**
      * @remarks
-     * If true, the player is currently emoting.
+     * 如果为 true，则玩家当前正在使用表情。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly isEmoting: boolean;
     /**
      * @remarks
-     * Whether the player is flying. For example, in Creative or
-     * Spectator mode.
+     * 玩家是否正在飞行。例如，在创造或旁观者模式下。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly isFlying: boolean;
     /**
      * @remarks
-     * Whether the player is gliding with Elytra.
+     * 玩家是否正在使用鞘翅滑翔。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly isGliding: boolean;
     /**
      * @remarks
-     * Whether the player is jumping. This will remain true while
-     * the player is holding the jump action.
+     * 玩家是否正在跳跃。当玩家按住跳跃键时，此值将保持为 true。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly isJumping: boolean;
     /**
      * @remarks
-     * The current overall level for the player, based on their
-     * experience.
+     * 基于玩家经验的当前总体等级。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly level: number;
     /**
      * @remarks
-     * Name of the player.
+     * 玩家的名称。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly name: string;
     /**
      * @remarks
-     * Contains methods for manipulating the on-screen display of a
-     * Player.
+     * 包含用于操作玩家屏幕显示的方法。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly onScreenDisplay: ScreenDisplay;
     /**
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
@@ -116,209 +110,191 @@ export class Player extends Entity {
     selectedSlotIndex: number;
     /**
      * @remarks
-     * The overall total set of experience needed to achieve the
-     * next level for a player.
+     * 玩家达到下一级所需的经验总数。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly totalXpNeededForNextLevel: number;
     /**
      * @remarks
-     * The current set of experience achieved for the player.
+     * 玩家当前获得的经验值。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly xpEarnedAtCurrentLevel: number;
     /**
      * @remarks
-     * Adds/removes experience to/from the Player and returns the
-     * current experience of the Player.
+     * 为玩家添加/减少经验值并返回玩家的当前经验值。
      *
      * @worldMutation
      *
      * @param amount
-     * Amount of experience to add. Note that this can be negative.
-     * Min/max bounds at -2^24 ~ 2^24
+     * 要添加的经验值。注意，这可以是负数。
+     * 最小/最大值限制在 -2^24 ~ 2^24
      * @returns
-     * Returns the current experience of the Player.
-     * @throws This function can throw errors.
+     * 返回玩家的当前经验值。
+     * @throws 此函数可能抛出错误。
      */
     addExperience(amount: number): number;
     /**
      * @remarks
-     * Adds/removes level to/from the Player and returns the
-     * current level of the Player.
+     * 为玩家添加/减少等级并返回玩家的当前等级。
      *
      * @worldMutation
      *
      * @param amount
-     * Amount to add to the player. Min/max bounds at -2^24 ~ 2^24
+     * 要添加到玩家的等级数。最小/最大值限制在 -2^24 ~ 2^24
      * @returns
-     * Returns the current level of the Player.
-     * @throws This function can throw errors.
+     * 返回玩家的当前等级。
+     * @throws 此函数可能抛出错误。
      */
     addLevels(amount: number): number;
     /**
      * @remarks
-     * For this player, removes all overrides of any Entity
-     * Properties on the target Entity. This change is not applied
-     * until the next tick and will not apply to other players.
+     * 对于此玩家，移除目标实体上所有实体属性的覆盖。此更改直到下一刻才会应用，并且不会应用于其他玩家。
      *
      * @worldMutation
      *
      * @param targetEntity
-     * The Entity whose Entity Property overrides are being
-     * cleared.
+     * 实体属性覆盖被清除的实体。
      * @throws
-     * Throws if the entity is invalid.
+     * 如果实体无效则抛出异常。
      */
     clearPropertyOverridesForEntity(targetEntity: Entity): void;
     /**
      * @beta
      * @remarks
-     * Eats an item, providing the item's hunger and saturation
-     * effects to the player. Can only be used on food items.
+     * 食用一个物品，将该物品的饥饿度和饱和度效果提供给玩家。只能用于食物物品。
      *
      * @worldMutation
      *
      * @param itemStack
-     * The item to eat.
+     * 要食用的物品。
      * @throws
-     * Throws if the item is not a food item.
+     * 如果物品不是食物则抛出异常。
      */
     eatItem(itemStack: ItemStack): void;
     /**
      * @beta
      * @remarks
-     * The player's aim-assist settings.
+     * 玩家的辅助瞄准设置。
      *
      */
     getAimAssist(): PlayerAimAssist;
     /**
      * @remarks
-     * Retrieves the active gamemode for this player, if specified.
+     * 检索此玩家的活动游戏模式（如果已指定）。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getGameMode(): GameMode;
     /**
      * @remarks
-     * Gets the current item cooldown time for a particular
-     * cooldown category.
+     * 获取特定冷却类别当前的物品冷却时间。
      *
      * @param cooldownCategory
-     * Specifies the cooldown category to retrieve the current
-     * cooldown for.
-     * @throws This function can throw errors.
+     * 指定要检索当前冷却时间的冷却类别。
+     * @throws 此函数可能抛出错误。
      */
     getItemCooldown(cooldownCategory: string): number;
     /**
      * @remarks
-     * Gets the current spawn point of the player.
+     * 获取玩家的当前出生点。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getSpawnPoint(): DimensionLocation | undefined;
     /**
      * @remarks
-     *  Gets the total experience of the Player.
+     * 获取玩家的总经验值。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getTotalXp(): number;
     /**
      * @remarks
-     * Plays a music track that only this particular player can
-     * hear.
+     * 播放只有该特定玩家能听到的音乐轨道。
      *
      * @worldMutation
      *
      * @param trackId
-     * Identifier of the music track to play.
+     * 要播放的音乐轨道标识符。
      * @param musicOptions
-     * Additional options for the music track.
-     * @throws This function can throw errors.
+     * 音乐轨道的附加选项。
+     * @throws 此函数可能抛出错误。
      */
     playMusic(trackId: string, musicOptions?: MusicOptions): void;
     /**
      * @remarks
-     * Plays a sound that only this particular player can hear.
+     * 播放只有该特定玩家能听到的声音。
      *
      * @worldMutation
      *
      * @param soundOptions
-     * Additional optional options for the sound.
-     * @throws This function can throw errors.
+     * 声音的附加可选选项。
+     * @throws 此函数可能抛出错误。
      * @seeExample playMusicAndSound.ts
      */
     playSound(soundId: string, soundOptions?: PlayerSoundOptions): void;
     /**
      * @beta
      * @remarks
-     * This is an internal-facing method for posting a system
-     * message to downstream clients.
+     * 这是一个面向内部的方法，用于向下游客户端发布系统消息。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     postClientMessage(id: string, value: string): void;
     /**
      * @remarks
-     * Queues an additional music track that only this particular
-     * player can hear. If a track is not playing, a music track
-     * will play.
+     * 为该特定玩家排队播放额外的音乐轨道。如果没有正在播放的轨道，则会播放音乐轨道。
      *
      * @worldMutation
      *
      * @param trackId
-     * Identifier of the music track to play.
+     * 要播放的音乐轨道标识符。
      * @param musicOptions
-     * Additional options for the music track.
+     * 音乐轨道的附加选项。
      * @throws
-     * An error will be thrown if volume is less than 0.0.
-     * An error will be thrown if fade is less than 0.0.
+     * 如果音量小于 0.0 则抛出错误。
+     * 如果淡出时间小于 0.0 则抛出错误。
      *
      */
     queueMusic(trackId: string, musicOptions?: MusicOptions): void;
     /**
      * @remarks
-     * For this player, removes the override on an Entity Property.
-     * This change is not applied until the next tick and will not
-     * apply to other players.
+     * 对于此玩家，移除实体属性的覆盖。此更改直到下一刻才会应用，并且不会应用于其他玩家。
      *
      * @worldMutation
      *
      * @param targetEntity
-     * The Entity whose Entity Property override is being removed.
+     * 实体属性覆盖被移除的实体。
      * @param identifier
-     * The Entity Property identifier.
+     * 实体属性标识符。
      * @throws
-     * Throws if the entity is invalid.
-     * Throws if an invalid identifier is provided.
-     * Throws if the provided value type does not match the
-     * property type.
+     * 如果实体无效则抛出异常。
+     * 如果提供了无效标识符则抛出异常。
+     * 如果提供的值类型与属性类型不匹配则抛出异常。
      */
     removePropertyOverrideForEntity(targetEntity: Entity, identifier: string): void;
     /**
      * @remarks
-     * Resets the level of the player.
+     * 重置玩家的等级。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     resetLevel(): void;
     /**
      * @remarks
-     * Sends a message to the player.
+     * 向玩家发送消息。
      *
      * @param message
-     * The message to be displayed.
+     * 要显示的消息。
      * @throws
-     * This method can throw if the provided {@link RawMessage} is
-     * in an invalid format. For example, if an empty `name` string
-     * is provided to `score`.
+     * 如果提供的 {@link RawMessage} 格式无效，此方法可能抛出异常。例如，如果向 `score` 提供了空的 `name` 字符串。
      *
      * {@link InvalidEntityError}
      *
@@ -332,50 +308,42 @@ export class Player extends Entity {
     sendMessage(message: (RawMessage | string)[] | RawMessage | string): void;
     /**
      * @remarks
-     * Sets a gamemode override for this player.
+     * 为此玩家设置游戏模式覆盖。
      *
      * @worldMutation
      *
      * @param gameMode
-     * Active gamemode.
-     * @throws This function can throw errors.
+     * 活动游戏模式。
+     * @throws 此函数可能抛出错误。
      */
     setGameMode(gameMode?: GameMode): void;
     /**
      * @remarks
-     * For this player, overrides an Entity Property on the target
-     * Entity to the provided value. This property must be client
-     * synced. This change is not applied until the next tick and
-     * will not apply to other players.
+     * 对于此玩家，将目标实体上的实体属性覆盖为提供的值。此属性必须与客户端同步。此更改直到下一刻才会应用，并且不会应用于其他玩家。
      *
      * @worldMutation
      *
      * @param targetEntity
-     * The Entity whose Entity Property is being overriden.
+     * 实体属性被覆盖的实体。
      * @param identifier
-     * The Entity Property identifier.
+     * 实体属性标识符。
      * @param value
-     * The override value. The provided type must be compatible
-     * with the type specified in the entity's definition.
+     * 覆盖值。提供的类型必须与实体定义中指定的类型兼容。
      * @throws
-     * Throws if the entity is invalid.
-     * Throws if an invalid identifier is provided.
-     * Throws if the provided value type does not match the
-     * property type.
-     * Throws if the provided value is outside the expected range
-     * (int, float properties).
-     * Throws if the provided string value does not match the set
-     * of accepted enum values (enum properties)
+     * 如果实体无效则抛出异常。
+     * 如果提供了无效标识符则抛出异常。
+     * 如果提供的值类型与属性类型不匹配则抛出异常。
+     * 如果提供的值超出预期范围（整数、浮点数属性）则抛出异常。
+     * 如果提供的字符串值与接受的枚举值集合不匹配（枚举属性）则抛出异常。
      */
     setPropertyOverrideForEntity(targetEntity: Entity, identifier: string, value: boolean | number | string): void;
     /**
      * @remarks
-     * Sets the current starting spawn point for this particular
-     * player.
+     * 为该特定玩家设置当前的起始出生点。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      *
      * {@link Error}
      *
@@ -384,19 +352,17 @@ export class Player extends Entity {
     setSpawnPoint(spawnPoint?: DimensionLocation): void;
     /**
      * @remarks
-     * Creates a new particle emitter at a specified location in
-     * the world. Only visible to the target player.
+     * 在世界的指定位置创建新的粒子发射器。仅对目标玩家可见。
      *
      * @worldMutation
      *
      * @param effectName
-     * Identifier of the particle to create.
+     * 要创建的粒子标识符。
      * @param location
-     * The location at which to create the particle emitter.
+     * 创建粒子发射器的位置。
      * @param molangVariables
-     * A set of optional, customizable variables that can be
-     * adjusted for this particle.
-     * @throws This function can throw errors.
+     * 一组可选的可自定义变量，可以为此粒子进行调整。
+     * @throws 此函数可能抛出错误。
      *
      * {@link Error}
      *
@@ -408,51 +374,48 @@ export class Player extends Entity {
     spawnParticle(effectName: string, location: Vector3, molangVariables?: MolangVariableMap): void;
     /**
      * @remarks
-     * Sets the item cooldown time for a particular cooldown
-     * category.
+     * 设置特定冷却类别的物品冷却时间。
      *
      * @worldMutation
      *
      * @param cooldownCategory
-     * Specifies the cooldown category to retrieve the current
-     * cooldown for.
+     * 指定要检索当前冷却时间的冷却类别。
      * @param tickDuration
-     * Duration in ticks of the item cooldown.
-     * @throws This function can throw errors.
+     * 物品冷却的刻持续时间。
+     * @throws 此函数可能抛出错误。
      */
     startItemCooldown(cooldownCategory: string, tickDuration: number): void;
     /**
      * @beta
      * @remarks
-     * Stops all sounds from playing for this particular player.
+     * 停止为此特定玩家播放的所有声音。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     stopAllSounds(): void;
     /**
      * @remarks
-     * Stops any music tracks from playing for this particular
-     * player.
+     * 停止为此特定玩家播放的任何音乐轨道。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     stopMusic(): void;
     /**
      * @beta
      * @remarks
-     * Stops a sound from playing for this particular player.
+     * 停止为此特定玩家播放的声音。
      *
      * @worldMutation
      *
      * @param soundId
-     * Identifier of the sound.
-     * @throws This function can throw errors.
+     * 声音的标识符。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */

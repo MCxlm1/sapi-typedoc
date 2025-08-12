@@ -1,20 +1,19 @@
 /* IMPORT */ import { Entity } from '../index';
 
 /**
- * Contains information related to an entity hitting (melee
- * attacking) another entity.
+ * 包含实体击中实体事件的相关信息。
  */
 export class EntityHitEntityAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Entity that made a hit/melee attack.
+     * 执行击中动作的实体。
      *
      */
-    readonly damagingEntity: Entity;
+    readonly hittingEntity: Entity;
     /**
      * @remarks
-     * Entity that was hit by the attack.
+     * 被击中的实体。
      *
      */
     readonly hitEntity: Entity;

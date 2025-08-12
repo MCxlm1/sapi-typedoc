@@ -1,15 +1,13 @@
 /* IMPORT */ import { ItemReleaseUseAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to the releasing of
- * charging for a chargeable item.
+ * 管理与可充能物品释放充能相关的回调。
  */
 export class ItemReleaseUseAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when a chargeable item
-     * is released from charging.
+     * 添加一个回调，当可充能物品从充能中释放时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class ItemReleaseUseAfterEventSignal {
     subscribe(callback: (arg0: ItemReleaseUseAfterEvent) => void): (arg0: ItemReleaseUseAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when a chargeable item
-     * is released from charging.
+     * 从可充能物品释放充能的回调中移除一个回调。
      *
      * @worldMutation
      *

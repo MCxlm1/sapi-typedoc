@@ -1,33 +1,23 @@
-/* IMPORT */ import { HotbarEventOptions, PlayerHotbarSelectedSlotChangeAfterEvent } from '../index';
+/* IMPORT */ import { PlayerHotbarSelectedSlotChangeAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected after a player selected
- * hotbar slot is changed.
+ * 管理与玩家快捷栏选中槽位变化相关的回调。
  */
 export class PlayerHotbarSelectedSlotChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called after a player selected
-     * hotbar slot is changed.
+     * 添加一个回调，当玩家选择的槽位改变时将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
-     * @param callback
-     * Function callback that is called when this event fires.
-     * @param options
-     * Additional filtering options for the event subscription.
      */
-    subscribe(
-        callback: (arg0: PlayerHotbarSelectedSlotChangeAfterEvent) => void,
-        options?: HotbarEventOptions,
-    ): (arg0: PlayerHotbarSelectedSlotChangeAfterEvent) => void;
+    subscribe(callback: (arg0: PlayerHotbarSelectedSlotChangeAfterEvent) => void): (arg0: PlayerHotbarSelectedSlotChangeAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called after a player selected
-     * hotbar slot is changed.
+     * 从玩家选择槽位改变的回调中移除一个回调。
      *
      * @worldMutation
      *

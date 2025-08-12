@@ -1,61 +1,58 @@
 /* IMPORT */ import { EntityComponent, ItemStack, Player } from '../index';
 
 /**
- * Defines the rules for an entity to be tamed by the player.
+ * 定义实体被玩家驯服的规则。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityTameableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Returns a set of items that can be used to tame this entity.
+     * 返回可用于驯服此实体的一组物品。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly getTameItems: ItemStack[];
     /**
      * @remarks
-     * Returns true if the entity is tamed by player.
+     * 如果实体被玩家驯服则返回 true。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly isTamed: boolean;
     /**
      * @remarks
-     * The chance of taming the entity with each item use between
-     * 0.0 and 1.0, where 1.0 is 100%
+     * 每次使用物品驯服实体的概率，介于 0.0 和 1.0 之间，其中 1.0 表示 100%
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly probability: number;
     /**
      * @remarks
-     * Returns the player that has tamed the entity, or 'undefined'
-     * if entity is not tamed.
+     * 返回驯服该实体的玩家，如果实体未被驯服则返回 'undefined'。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly tamedToPlayer?: Player;
     /**
      * @remarks
-     * Returns the id of player that has tamed the entity, or
-     * 'undefined' if entity is not tamed.
+     * 返回驯服该实体的玩家 ID，如果实体未被驯服则返回 'undefined'。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly tamedToPlayerId?: string;
     static readonly componentId = 'minecraft:tameable';
     /**
      * @remarks
-     * Set this entity as tamed by the given player.
+     * 将此实体设置为由给定玩家驯服。
      *
      * @worldMutation
      *
      * @param player
-     * The player that this entity should be tamed by.
+     * 应该驯服此实体的玩家。
      * @returns
-     * Returns true if the entity was tamed.
-     * @throws This function can throw errors.
+     * 如果实体被驯服则返回 true。
+     * @throws 此函数可能抛出错误。
      */
     tame(player: Player): boolean;
 }

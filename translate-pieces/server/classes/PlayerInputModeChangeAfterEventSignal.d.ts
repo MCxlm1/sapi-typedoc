@@ -1,27 +1,23 @@
 /* IMPORT */ import { PlayerInputModeChangeAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to player input mode.
+ * 管理与玩家输入模式变化相关的回调。
  */
 export class PlayerInputModeChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called after the player input
-     * mode changes.
+     * 添加一个回调，当玩家的 {@link InputMode} 改变时将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      */
-    subscribe(
-        callback: (arg0: PlayerInputModeChangeAfterEvent) => void,
-    ): (arg0: PlayerInputModeChangeAfterEvent) => void;
+    subscribe(callback: (arg0: PlayerInputModeChangeAfterEvent) => void): (arg0: PlayerInputModeChangeAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called after the player input
-     * mode changes.
+     * 从玩家输入模式改变的回调中移除一个回调。
      *
      * @worldMutation
      *

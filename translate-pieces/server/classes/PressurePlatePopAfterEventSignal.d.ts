@@ -1,15 +1,13 @@
 /* IMPORT */ import { PressurePlatePopAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to when a pressure
- * plate is popped.
+ * 管理与压力板弹起相关的回调。
  */
 export class PressurePlatePopAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when a pressure plate is
-     * popped.
+     * 添加一个回调，当压力板弹起（即，压力板上没有实体）时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class PressurePlatePopAfterEventSignal {
     subscribe(callback: (arg0: PressurePlatePopAfterEvent) => void): (arg0: PressurePlatePopAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when a pressure plate
-     * is popped.
+     * 从压力板弹起的回调中移除一个回调。
      *
      * @worldMutation
      *

@@ -1,15 +1,13 @@
 /* IMPORT */ import { ItemStartUseAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to the start of
- * charging for a chargeable item.
+ * 管理与可充能物品开始充能相关的回调。
  */
 export class ItemStartUseAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when a chargeable item
-     * starts charging.
+     * 添加一个回调，当可充能物品开始充能时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class ItemStartUseAfterEventSignal {
     subscribe(callback: (arg0: ItemStartUseAfterEvent) => void): (arg0: ItemStartUseAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when a chargeable item
-     * starts charging.
+     * 从可充能物品开始充能的回调中移除一个回调。
      *
      * @worldMutation
      *

@@ -1,28 +1,25 @@
 /* IMPORT */ import { DefinitionModifier, Entity } from '../index';
 
 /**
- * Contains information related to firing of a data driven
- * entity event - for example, the minecraft:ageable_grow_up
- * event on a chicken.
+ * 包含数据驱动实体事件触发的相关信息 - 例如，鸡的 minecraft:ageable_grow_up 事件。
  */
 export class DataDrivenEntityTriggerAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Entity that the event triggered on.
+     * 触发事件的实体。
      *
      */
     readonly entity: Entity;
     /**
      * @remarks
-     * Name of the data driven event being triggered.
+     * 正在触发的数据驱动事件的名称。
      *
      */
     readonly eventId: string;
     /**
      * @remarks
-     * An updateable list of modifications to component state that
-     * are the effect of this triggered event.
+     * 可更新的组件状态修改列表，这些修改是此触发事件的效果。
      *
      */
     getModifiers(): DefinitionModifier[];

@@ -1,20 +1,19 @@
-/* IMPORT */ import { Entity, EntityDamageSource } from '../index';
+/* IMPORT */ import { Entity, ItemStack } from '../index';
 
 /**
- * Contains data related to the death of an entity in the game.
+ * 包含实体死亡事件的相关信息。
  */
 export class EntityDieAfterEvent {
     private constructor();
     /**
      * @remarks
-     * If specified, provides more information on the source of
-     * damage that caused the death of this entity.
+     * 死亡实体上的物品堆。可能是 undefined。
      *
      */
-    readonly damageSource: EntityDamageSource;
+    readonly damageSource: ItemStack | undefined;
     /**
      * @remarks
-     * Now-dead entity object.
+     * 已死亡的实体。
      *
      */
     readonly deadEntity: Entity;

@@ -1,27 +1,25 @@
 /* IMPORT */ import { ItemStack, Player } from '../index';
 
 /**
- * Contains information related to a chargeable item starting
- * to be charged.
+ * 包含可充能物品开始充能的相关信息。
  */
 export class ItemStartUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The impacted item stack that is starting to be charged.
+     * 开始充能的受影响物品堆。
      *
      */
     readonly itemStack: ItemStack;
     /**
      * @remarks
-     * Returns the source entity that triggered this item event.
+     * 返回触发此物品事件的源实体。
      *
      */
     readonly source: Player;
     /**
      * @remarks
-     * Returns the time, in ticks, for the remaining duration left
-     * before the charge completes its cycle.
+     * 返回充能完成其循环前剩余持续时间的刻数。
      *
      */
     readonly useDuration: number;

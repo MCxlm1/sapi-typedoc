@@ -1,16 +1,13 @@
 /* IMPORT */ import { LeverActionAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to lever moves
- * (activates or deactivates).
- * @seeExample leverActionEvent.ts
+ * 管理与拉杆操作相关的回调。
  */
 export class LeverActionAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when a lever is moved
-     * (activates or deactivates).
+     * 添加一个回调，当拉动拉杆时将被调用。
      *
      * @worldMutation
      *
@@ -20,8 +17,7 @@ export class LeverActionAfterEventSignal {
     subscribe(callback: (arg0: LeverActionAfterEvent) => void): (arg0: LeverActionAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when a lever is moved
-     * (activates or deactivates).
+     * 从拉动拉杆的回调中移除一个回调。
      *
      * @worldMutation
      *

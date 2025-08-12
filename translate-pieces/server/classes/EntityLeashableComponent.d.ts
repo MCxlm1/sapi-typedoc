@@ -1,86 +1,80 @@
 /* IMPORT */ import { Entity, EntityComponent } from '../index';
 
 /**
- * Allows the entity to be leashed. Defines the conditions and
- * events for when an entity is leashed.
+ * 允许实体被拴绳牵引。定义实体被拴绳牵引时的条件和事件。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityLeashableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Returns true if another entity can 'steal' the leashed
-     * entity by attaching their own leash to it.
+     * 如果另一个实体可以通过附加自己的拴绳来"偷走"被拴绳的实体，则返回 true。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canBeStolen: boolean;
     /**
      * @remarks
-     * Distance in blocks at which the leash stiffens, restricting
-     * movement.
+     * 拴绳变硬限制移动的距离（以方块为单位）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly hardDistance: number;
     /**
      * @remarks
-     * Returns true if the entity is leashed.
+     * 如果实体被拴绳牵引则返回 true。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly isLeashed: boolean;
     /**
      * @remarks
-     * Entity that is holding the leash.
+     * 持有拴绳的实体。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly leashHolder?: Entity;
     /**
      * @remarks
-     * Identifier of entity that is holding the leash.
+     * 持有拴绳的实体标识符。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly leashHolderEntityId?: string;
     /**
      * @remarks
-     * Distance in blocks at which the leash breaks.
+     * 拴绳断裂的距离（以方块为单位）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly maxDistance: number;
     /**
      * @remarks
-     * Distance in blocks at which the 'spring' effect starts
-     * acting to keep this entity close to the entity that leashed
-     * it.
+     * "弹簧"效果开始作用以使此实体靠近拴住它的实体的距离（以方块为单位）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly softDistance: number;
     static readonly componentId = 'minecraft:leashable';
     /**
      * @remarks
-     * Leashes this entity to another entity.
+     * 将此实体拴绳牵引到另一个实体。
      *
      * @worldMutation
      *
      * @param leashHolder
-     * The entity to leash this entity to.
+     * 要将此实体拴绳牵引到的实体。
      * @throws
-     * Throws if the entity to leash to is over the max distance,
-     * and if the player is dead or in spectator mode.
+     * 如果要拴绳牵引的实体超出最大距离，或者玩家已死亡或处于旁观者模式，则抛出异常。
      */
     leashTo(leashHolder: Entity): void;
     /**
      * @remarks
-     * Unleashes this entity if it is leashed to another entity.
+     * 如果此实体被拴绳牵引到另一个实体，则将其解开。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     unleash(): void;
 }

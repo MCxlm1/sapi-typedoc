@@ -1,11 +1,8 @@
 /* IMPORT */ import { Entity, EntityComponent, ProjectileShootOptions, Vector3 } from '../index';
 
 /**
- * The projectile component controls the properties of a
- * projectile entity and allows it to be shot in a given
- * direction.
- * This component is present when the entity has the
- * minecraft:projectile component.
+ * 投射物组件控制投射物实体的属性，并允许其朝给定方向发射。
+ * 当实体具有 minecraft:projectile 组件时，该组件存在。
  * @seeExample shootArrow.ts
  */
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -13,8 +10,7 @@ export class EntityProjectileComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * The fraction of the projectile's speed maintained every tick
-     * while traveling through air.
+     * 投射物在空气中飞行时每刻保持的速度比例。
      *
      * @worldMutation
      *
@@ -22,10 +18,8 @@ export class EntityProjectileComponent extends EntityComponent {
     airInertia: number;
     /**
      * @remarks
-     * If true, the entity will be set on fire when hurt. The
-     * default burn duration is 5 seconds. This duration can be
-     * modified via the onFireTime property. The entity will not
-     * catch fire if immune or if the entity is wet.
+     * 如果为 true，则实体在受伤时会被点燃。默认燃烧持续时间为 5 秒。
+     * 可以通过 onFireTime 属性修改此持续时间。如果实体免疫或实体处于潮湿状态，则不会着火。
      *
      * @worldMutation
      *
@@ -33,8 +27,7 @@ export class EntityProjectileComponent extends EntityComponent {
     catchFireOnHurt: boolean;
     /**
      * @remarks
-     * If true, the projectile will spawn crit particles when hit
-     * by a player. E.g. Player attacking a Shulker bullet.
+     * 如果为 true，则投射物被玩家击中时会产生暴击粒子。例如：玩家攻击潜影贝子弹。
      *
      * @worldMutation
      *
@@ -42,8 +35,7 @@ export class EntityProjectileComponent extends EntityComponent {
     critParticlesOnProjectileHurt: boolean;
     /**
      * @remarks
-     * If true, the projectile will be destroyed when it takes
-     * damage. E.g. Player attacking a Shulker bullet.
+     * 如果为 true，则投射物受到伤害时会被摧毁。例如：玩家攻击潜影贝子弹。
      *
      * @worldMutation
      *
@@ -51,11 +43,8 @@ export class EntityProjectileComponent extends EntityComponent {
     destroyOnProjectileHurt: boolean;
     /**
      * @remarks
-     * The gravity applied to the projectile. When the entity is
-     * not on the ground, subtracts this amount from the
-     * projectile’s change in vertical position every tick. The
-     * higher the value, the faster the projectile falls. If
-     * negative, the entity will rise instead of fall.
+     * 应用于投射物的重力。当实体不在地面上时，每刻从投射物的垂直位置变化中减去此数值。
+     * 数值越高，投射物下落越快。如果为负数，实体将上升而不是下降。
      *
      * @worldMutation
      *
@@ -63,7 +52,7 @@ export class EntityProjectileComponent extends EntityComponent {
     gravity: number;
     /**
      * @remarks
-     * The sound that plays when the projectile hits an entity.
+     * 投射物击中实体时播放的声音。
      *
      * @worldMutation
      *
@@ -71,7 +60,7 @@ export class EntityProjectileComponent extends EntityComponent {
     hitEntitySound?: string;
     /**
      * @remarks
-     * The sound that plays when the projectile hits a block.
+     * 投射物击中方块时播放的声音。
      *
      * @worldMutation
      *
@@ -79,7 +68,7 @@ export class EntityProjectileComponent extends EntityComponent {
     hitGroundSound?: string;
     /**
      * @remarks
-     * The particle that spawns when the projectile hits something.
+     * 投射物击中物体时产生的粒子。
      *
      * @worldMutation
      *
@@ -87,10 +76,8 @@ export class EntityProjectileComponent extends EntityComponent {
     hitParticle?: string;
     /**
      * @remarks
-     * If true and the weather is thunder and the entity has line
-     * of sight to the sky, the entity will be struck by lightning
-     * when hit. E.g. A thrown Trident with the Channeling
-     * enchantment.
+     * 如果为 true 且天气为雷雨，实体能够看到天空，则击中时实体会被闪电击中。
+     * 例如：带有引雷附魔的投掷三叉戟。
      *
      * @worldMutation
      *
@@ -98,8 +85,7 @@ export class EntityProjectileComponent extends EntityComponent {
     lightningStrikeOnHit: boolean;
     /**
      * @remarks
-     * The fraction of the projectile's speed maintained every tick
-     * while traveling through a liquid.
+     * 投射物在液体中飞行时每刻保持的速度比例。
      *
      * @worldMutation
      *
@@ -107,8 +93,7 @@ export class EntityProjectileComponent extends EntityComponent {
     liquidInertia: number;
     /**
      * @remarks
-     * Duration in seconds that the entity hit will be on fire for
-     * when catchFireOnHurt is set to true.
+     * 当 catchFireOnHurt 设置为 true 时，被击中实体着火的持续时间（秒）。
      *
      * @worldMutation
      *
@@ -116,9 +101,8 @@ export class EntityProjectileComponent extends EntityComponent {
     onFireTime: number;
     /**
      * @remarks
-     * The owner of the projectile. This is used to determine what
-     * the projectile can collide with and damage. It also
-     * determines which entity is assigned as the attacker.
+     * 投射物的所有者。这用于确定投射物可以与什么碰撞和造成伤害。
+     * 它还确定哪个实体被指定为攻击者。
      *
      * @worldMutation
      *
@@ -126,8 +110,7 @@ export class EntityProjectileComponent extends EntityComponent {
     owner?: Entity;
     /**
      * @remarks
-     * If true, the projectile will bounce off mobs when no damage
-     * is taken. E.g. A spawning wither.
+     * 如果为 true，则投射物在未受到伤害时会从生物身上弹开。例如：生成时的凋灵。
      *
      * @worldMutation
      *
@@ -135,9 +118,8 @@ export class EntityProjectileComponent extends EntityComponent {
     shouldBounceOnHit: boolean;
     /**
      * @remarks
-     * If true, the projectile will stop moving when an entity is
-     * hit as thought it had been blocked. E.g. Thrown trident on
-     * hit behavior.
+     * 如果为 true，则投射物击中实体时会停止移动，就像被阻挡了一样。
+     * 例如：投掷三叉戟的击中行为。
      *
      * @worldMutation
      *
@@ -146,18 +128,16 @@ export class EntityProjectileComponent extends EntityComponent {
     static readonly componentId = 'minecraft:projectile';
     /**
      * @remarks
-     * Shoots the projectile with a given velocity. The projectile
-     * will be shot from its current location.
+     * 以给定速度发射投射物。投射物将从其当前位置发射。
      *
      * @worldMutation
      *
      * @param velocity
-     * The velocity to fire the projectile. This controls both the
-     * speed and direction which which the projectile will be shot.
+     * 发射投射物的速度。这控制了投射物发射的速度和方向。
      * @param options
-     * Optional configuration for the shoot.
+     * 发射的可选配置。
      * @throws
-     * Throws if the component or entity no longer exist.
+     * 如果组件或实体不再存在则抛出异常。
      */
     shoot(velocity: Vector3, options?: ProjectileShootOptions): void;
 }

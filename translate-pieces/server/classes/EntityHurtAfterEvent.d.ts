@@ -1,26 +1,19 @@
-/* IMPORT */ import { Entity, EntityDamageSource } from '../index';
+/* IMPORT */ import { Entity, ItemStack } from '../index';
 
 /**
- * Contains information related to an entity getting hurt.
+ * 包含实体受伤事件的相关信息。
  */
 export class EntityHurtAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Describes the amount of damage caused.
+     * 伤害来源。可能是 undefined。
      *
      */
-    readonly damage: number;
+    readonly damageSource: ItemStack | undefined;
     /**
      * @remarks
-     * Source information on the entity that may have applied this
-     * damage.
-     *
-     */
-    readonly damageSource: EntityDamageSource;
-    /**
-     * @remarks
-     * Entity that was hurt.
+     * 受伤的实体。
      *
      */
     readonly hurtEntity: Entity;

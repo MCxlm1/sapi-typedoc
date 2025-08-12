@@ -1,17 +1,16 @@
 /* IMPORT */ import { Component, Entity, InvalidEntityError } from '../index';
 
 /**
- * Base class for downstream entity components.
+ * 下游实体组件的基类。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityComponent extends Component {
     private constructor();
     /**
      * @remarks
-     * The entity that owns this component. The entity will be
-     * undefined if it has been removed.
+     * 拥有此组件的实体。如果实体已被移除，则该实体将为 undefined。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */

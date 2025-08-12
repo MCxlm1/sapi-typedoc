@@ -1,13 +1,13 @@
 /* IMPORT */ import { AimAssistRegistry, CommandError, Difficulty, Dimension, Entity, EntityQueryOptions, GameRules, LocationOutOfWorldBoundariesError, LootTableManager, MoonPhase, MusicOptions, Player, RawMessage, Scoreboard, Structure, StructureManager, TimeOfDay, Vector3, WorldAfterEvents, WorldBeforeEvents, minecraftcommon } from '../index';
 
 /**
- * 表示一个世界。包含了世界的各种状态，即一系列维度以及 Minecraft 的环境。
+ * 代表一个 Minecraft 世界。包含世界的各种状态，包括维度和环境数据。
  */
 export class World {
     private constructor();
     /**
      * @remarks
-     * 包含适用于整个世界的一组事件。事件回调以延迟方式调用。事件回调以读写模式执行。
+     * 包含适用于整个世界的事件集合。事件回调以延迟方式执行。事件回调以读写模式运行。
      *
      * @earlyExecution
      *
@@ -15,7 +15,7 @@ export class World {
     readonly afterEvents: WorldAfterEvents;
     /**
      * @remarks
-     * 包含适用于整个世界的一组事件。事件回调立即调用。事件回调以只读模式执行。
+     * 包含适用于整个世界的事件集合。事件回调立即执行。事件回调以只读模式运行。
      *
      * @earlyExecution
      *
@@ -31,7 +31,7 @@ export class World {
     readonly isHardcore: boolean;
     /**
      * @remarks
-     * 全局的、唯一的记分板对象。
+     * 全局唯一的记分板对象。
      *
      */
     readonly scoreboard: Scoreboard;
@@ -44,7 +44,7 @@ export class World {
     /**
      * @beta
      * @remarks
-     * 仅供内部使用的方法，用于在客户端和服务器之间广播特定消息。
+     * 内部使用的方法，用于在客户端和服务器之间广播特定消息。
      *
      * @worldMutation
      *
@@ -241,7 +241,7 @@ export class World {
     playMusic(trackId: string, musicOptions?: MusicOptions): void;
     /**
      * @remarks
-     * 将音乐添加到播放列表。如果没有任何正在播放的音乐，将会开始播放音乐。播放列表中的音乐将会按照添加顺序播放（需要更多测试）。
+     * 将音乐添加到播放列表。如果没有任何正在播放的音乐，将会开始播放音乐。播放列表中的音乐将会按照添加顺序播放。
      *
      * @worldMutation
      *
@@ -361,7 +361,7 @@ export class World {
     setTimeOfDay(timeOfDay: number | TimeOfDay): void;
     /**
      * @remarks
-     * 停止客户端中正在播放的所有音乐曲目（需要更多测试）。
+     * 停止客户端中正在播放的所有音乐曲目。
      *
      * @worldMutation
      *

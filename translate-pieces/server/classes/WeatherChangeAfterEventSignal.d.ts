@@ -1,13 +1,13 @@
 /* IMPORT */ import { WeatherChangeAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to weather changing.
+ * 管理与天气变化相关的回调。
  */
 export class WeatherChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when weather changes.
+     * 添加一个回调，当 Minecraft 中的天气变化时将被调用。
      *
      * @worldMutation
      *
@@ -17,7 +17,7 @@ export class WeatherChangeAfterEventSignal {
     subscribe(callback: (arg0: WeatherChangeAfterEvent) => void): (arg0: WeatherChangeAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when weather changes.
+     * 从天气变化的回调中移除一个回调。
      *
      * @worldMutation
      *

@@ -1,16 +1,20 @@
-/* IMPORT */ import { BlockEvent, Entity } from '../index';
+/* IMPORT */ import { Block, Player } from '../index';
 
 /**
- * Contains information related to changes to a button push.
- * @seeExample buttonPushEvent.ts
+ * 包含按钮按下事件的相关信息。
  */
-// @ts-ignore Class inheritance allowed for native defined classes
-export class ButtonPushAfterEvent extends BlockEvent {
+export class ButtonPushAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Optional source that triggered the button push.
+     * 被按下的按钮方块。
      *
      */
-    readonly source: Entity;
+    readonly block: Block;
+    /**
+     * @remarks
+     * 按下按钮的玩家。
+     *
+     */
+    readonly player: Player;
 }

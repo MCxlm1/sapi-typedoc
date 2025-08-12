@@ -1,55 +1,49 @@
 /* IMPORT */ import { Block, Direction, ItemStack, Player, Vector3 } from '../index';
 
 /**
- * Contains information regarding an event after a player
- * successfully interacts with a block.
+ * 包含玩家成功与方块交互后事件的相关信息。
  */
 export class PlayerInteractWithBlockAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The ItemStack before the interaction succeeded, or undefined
-     * if hand is empty.
+     * 交互成功前的 ItemStack，如果手空则为 undefined。
      *
      */
     readonly beforeItemStack?: ItemStack;
     /**
      * @remarks
-     * The block that will be interacted with.
+     * 将要交互的方块。
      *
      */
     readonly block: Block;
     /**
      * @remarks
-     * The face of the block that is being interacted with.
+     * 正在交互的方块面。
      *
      */
     readonly blockFace: Direction;
     /**
      * @remarks
-     * Location relative to the bottom north-west corner of the
-     * block where the item is placed.
+     * 相对于方块底部西北角的放置位置。
      *
      */
     readonly faceLocation: Vector3;
     /**
      * @remarks
-     * This value will be true if the event was triggered on
-     * players initial interaction button press and false on events
-     * triggered from holding the interaction button.
+     * 如果事件由玩家初始交互按钮按下触发则为 true，如果由按住交互按钮触发的事件则为 false。
      *
      */
     readonly isFirstEvent: boolean;
     /**
      * @remarks
-     * The ItemStack after the interaction succeeded, or undefined
-     * if hand is empty.
+     * 交互成功后的 ItemStack，如果手空则为 undefined。
      *
      */
     readonly itemStack?: ItemStack;
     /**
      * @remarks
-     * Source Player for this event.
+     * 此事件的源玩家。
      *
      */
     readonly player: Player;

@@ -1,22 +1,20 @@
 /* IMPORT */ import { ItemStack, Player } from '../index';
 
 /**
- * Contains information related to an item being used on a
- * block. This event fires when an item used by a player
- * successfully triggers an entity interaction.
+ * 包含物品使用事件的相关信息。
  */
 export class ItemUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The impacted item stack that is being used.
+     * 正在使用的物品堆。
      *
      */
-    itemStack: ItemStack;
+    readonly itemStack: ItemStack;
     /**
      * @remarks
-     * Returns the source entity that triggered this item event.
+     * 使用物品的玩家。
      *
      */
-    readonly source: Player;
+    readonly player: Player;
 }

@@ -1,16 +1,15 @@
 /* IMPORT */ import { BlockRaycastHit, BlockRaycastOptions, CommandError, CommandResult, Dimension, Effect, EffectType, EntityApplyDamageByProjectileOptions, EntityApplyDamageOptions, EntityComponent, EntityComponentReturnType, EntityComponentTypes, EntityEffectOptions, EntityQueryOptions, EntityRaycastHit, EntityRaycastOptions, InvalidEntityError, PlayAnimationOptions, ScoreboardIdentity, TeleportOptions, TicksPerSecond, Vector2, Vector3, VectorXZ, minecraftcommon } from '../index';
 
 /**
- * Represents the state of an entity (a mob, the player, or
- * other moving objects like minecarts) in the world.
+ * 表示世界中的一个实体状态（可以是生物、玩家或其他移动对象，例如矿车）。
  */
 export class Entity {
     private constructor();
     /**
      * @remarks
-     * Dimension that the entity is currently within.
+     * 实体当前所在的维度。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -19,70 +18,63 @@ export class Entity {
     readonly dimension: Dimension;
     /**
      * @remarks
-     * Unique identifier of the entity. This identifier is intended
-     * to be consistent across loads of a world instance. No
-     * meaning should be inferred from the value and structure of
-     * this unique identifier - do not parse or interpret it. This
-     * property is accessible even if {@link Entity.isValid} is
-     * false.
+     * 实体的唯一标识符。该标识符在世界实例加载期间保持一致。
+     * 不要解析或解释此唯一标识符的值和结构，它没有特定含义。
+     * 即使 {@link Entity.isValid} 为 false，此属性也可访问。
      *
      */
     readonly id: string;
     /**
      * @remarks
-     * Whether the entity is touching a climbable block. For
-     * example, a player next to a ladder or a spider next to a
-     * stone wall.
+     * 实体是否正在接触可攀爬方块。
+     * 例如，玩家在梯子旁边或蜘蛛在石墙旁边。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly isClimbing: boolean;
     /**
      * @remarks
-     * Whether the entity has a fall distance greater than 0, or
-     * greater than 1 while gliding.
+     * 实体的坠落距离是否大于0，或者滑翔时是否大于1。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly isFalling: boolean;
     /**
      * @remarks
-     * Whether any part of the entity is inside a water block.
+     * 实体的任何部分是否在水中。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly isInWater: boolean;
     /**
      * @remarks
-     * Whether the entity is on top of a solid block. This property
-     * may behave in unexpected ways. This property will always be
-     * true when an Entity is first spawned, and if the Entity has
-     * no gravity this property may be incorrect.
+     * 实体是否站在固体方块上。
+     * 当实体首次生成时此属性始终为 true，
+     * 如果实体没有重力，此属性可能不正确。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly isOnGround: boolean;
     /**
      * @remarks
-     * If true, the entity is currently sleeping.
+     * 实体是否正在睡觉。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly isSleeping: boolean;
     /**
      * @remarks
-     * Whether the entity is sneaking - that is, moving more slowly
-     * and more quietly.
+     * 实体是否正在潜行，即移动得更慢更安静。
      *
      * @worldMutation
      *
@@ -90,55 +82,52 @@ export class Entity {
     isSneaking: boolean;
     /**
      * @remarks
-     * Whether the entity is sprinting. For example, a player using
-     * the sprint action, an ocelot running away or a pig boosting
-     * with Carrot on a Stick.
+     * 实体是否正在冲刺。
+     * 例如，使用冲刺动作的玩家、逃跑的豹猫或使用胡萝卜钓竿加速的猪。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly isSprinting: boolean;
     /**
      * @remarks
-     * Whether the entity is in the swimming state. For example, a
-     * player using the swim action or a fish in water.
+     * 实体是否处于游泳状态。
+     * 例如，使用游泳动作的玩家或水中的鱼。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly isSwimming: boolean;
     /**
      * @remarks
-     * Returns whether the entity can be manipulated by script. A
-     * Player is considered valid when it's EntityLifetimeState is
-     * set to Loaded.
+     * 返回实体是否可以被脚本操作。
+     * 当 Player 的 EntityLifetimeState 设置为 Loaded 时，该 Player 被视为有效。
      *
      */
     readonly isValid: boolean;
     /**
      * @remarks
-     * Key for the localization of this entity's name used in .lang
-     * files.
+     * 用于 .lang 文件中实体名称本地化的键。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly localizationKey: string;
     /**
      * @remarks
-     * Current location of the entity.
+     * 实体的当前位置。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly location: Vector3;
     /**
      * @remarks
-     * Given name of the entity.
+     * 实体的命名。
      *
      * @worldMutation
      *
@@ -146,52 +135,48 @@ export class Entity {
     nameTag: string;
     /**
      * @remarks
-     * Returns a scoreboard identity that represents this entity.
-     * Will remain valid when the entity is killed.
+     * 返回代表此实体的记分板身份。
+     * 即使实体被杀死，该身份也将保持有效。
      *
      */
     readonly scoreboardIdentity?: ScoreboardIdentity;
     /**
      * @beta
      * @remarks
-     * Retrieves or sets an entity that is used as the target of
-     * AI-related behaviors, like attacking. If the entity
-     * currently has no target returns undefined.
+     * 获取或设置用作 AI 相关行为目标的实体，例如攻击。
+     * 如果实体当前没有目标，则返回 undefined。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidEntityError}
      */
     readonly target?: Entity;
     /**
      * @remarks
-     * Identifier of the type of the entity - for example,
-     * 'minecraft:skeleton'. This property is accessible even if
-     * {@link Entity.isValid} is false.
+     * 实体类型的标识符。
+     * 例如，'minecraft:skeleton'。
+     * 即使 {@link Entity.isValid} 为 false，此属性也可访问。
      *
      */
     readonly typeId: string;
     /**
      * @remarks
-     * Adds or updates an effect, like poison, to the entity.
+     * 给实体添加或更新一个状态效果，例如中毒。
      *
      * @worldMutation
      *
      * @param effectType
-     * Type of effect to add to the entity.
+     * 要添加到实体的效果类型。
      * @param duration
-     * Amount of time, in ticks, for the effect to apply. There are
-     * 20 ticks per second. Use {@link TicksPerSecond} constant to
-     * convert between ticks and seconds. The value must be within
-     * the range [0, 20000000].
+     * 效果持续的时间，以刻为单位。每秒有 20 刻。
+     * 使用 {@link TicksPerSecond} 常量在刻和秒之间进行转换。
+     * 该值必须在 [0, 20000000] 范围内。
      * @param options
-     * Additional options for the effect.
+     * 效果的附加选项。
      * @returns
-     * Returns nothing if the effect was added or updated
-     * successfully. This can throw an error if the duration or
-     * amplifier are outside of the valid ranges, or if the effect
-     * does not exist.
-     * @throws This function can throw errors.
+     * 如果效果成功添加或更新则不返回任何内容。
+     * 如果持续时间或强度超出了有效范围，或者效果不存在，则可能抛出错误。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      *
@@ -204,17 +189,15 @@ export class Entity {
     addEffect(effectType: EffectType | string, duration: number, options?: EntityEffectOptions): Effect | undefined;
     /**
      * @remarks
-     * Adds a specified tag to an entity.
+     * 给实体添加指定的标签。
      *
      * @worldMutation
      *
      * @param tag
-     * Content of the tag to add. The tag must be less than 256
-     * characters.
+     * 要添加的标签内容。标签必须少于 256 个字符。
      * @returns
-     * Returns true if the tag was added successfully. This can
-     * fail if the tag already exists on the entity.
-     * @throws This function can throw errors.
+     * 如果标签成功添加则返回 true。如果标签已存在于实体上则可能失败。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      *
@@ -224,21 +207,18 @@ export class Entity {
     addTag(tag: string): boolean;
     /**
      * @remarks
-     * Applies a set of damage to an entity.
+     * 对实体应用一组伤害。
      *
      * @worldMutation
      *
      * @param amount
-     * Amount of damage to apply.
+     * 要应用的伤害量。
      * @param options
-     * Additional options about the source of damage, which may add
-     * additional effects or spur additional behaviors on this
-     * entity.
+     * 关于伤害来源的附加选项，可能添加额外效果或激发此实体上的附加行为。
      * @returns
-     * Whether the entity takes any damage. This can return false
-     * if the entity is invulnerable or if the damage applied is
-     * less than or equal to 0.
-     * @throws This function can throw errors.
+     * 实体是否受到任何伤害。
+     * 如果实体无敌或应用的伤害小于等于 0 则返回 false。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -250,14 +230,13 @@ export class Entity {
     applyDamage(amount: number, options?: EntityApplyDamageByProjectileOptions | EntityApplyDamageOptions): boolean;
     /**
      * @remarks
-     * Applies impulse vector to the current velocity of the
-     * entity.
+     * 对实体的当前速度应用冲量向量。
      *
      * @worldMutation
      *
      * @param vector
-     * Impulse vector.
-     * @throws This function can throw errors.
+     * 冲量向量。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      *
@@ -267,14 +246,13 @@ export class Entity {
     applyImpulse(vector: Vector3): void;
     /**
      * @remarks
-     * Applies impulse vector to the current velocity of the
-     * entity.
+     * 对实体的当前速度应用冲量向量。
      *
      * @worldMutation
      *
      * @param verticalStrength
-     * Knockback strength for the vertical vector.
-     * @throws This function can throw errors.
+     * 垂直方向的击退强度。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      *
@@ -284,21 +262,20 @@ export class Entity {
     applyKnockback(horizontalForce: VectorXZ, verticalStrength: number): void;
     /**
      * @remarks
-     * Clears all dynamic properties that have been set on this
-     * entity.
+     * 清除在此实体上设置的所有动态属性。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     clearDynamicProperties(): void;
     /**
      * @remarks
-     * Sets the current velocity of the Entity to zero.
+     * 将实体的当前速度设置为零。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      * @seeExample applyImpulse.ts
@@ -306,19 +283,18 @@ export class Entity {
     clearVelocity(): void;
     /**
      * @remarks
-     * Extinguishes the fire if the entity is on fire. Note that
-     * you can call getComponent('minecraft:onfire') and, if
-     * present, the entity is on fire.
+     * 如果实体着火，则熄灭火焰。
+     * 注意，你可以调用 getComponent('minecraft:onfire')，
+     * 如果存在，则实体正在着火。
      *
      * @worldMutation
      *
      * @param useEffects
-     * Whether to show any visual effects connected to the
-     * extinguishing.
-     * Defaults to: true
+     * 是否显示与熄灭相关的视觉效果。
+     * 默认值: true
      * @returns
-     * Returns whether the entity was on fire.
-     * @throws This function can throw errors.
+     * 返回实体是否着火。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      * @seeExample setOnFire.ts
@@ -326,103 +302,90 @@ export class Entity {
     extinguishFire(useEffects?: boolean): boolean;
     /**
      * @remarks
-     * Returns the first intersecting block from the direction that
-     * this entity is looking at.
+     * 返回从实体视线方向看的第一个相交方块。
      *
      * @param options
-     * Additional configuration options for the ray cast.
+     * 射线追踪的附加配置选项。
      * @returns
-     * Returns the first intersecting block from the direction that
-     * this entity is looking at.
-     * @throws This function can throw errors.
+     * 返回从实体视线方向看的第一个相交方块。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getBlockFromViewDirection(options?: BlockRaycastOptions): BlockRaycastHit | undefined;
     /**
      * @remarks
-     * Gets a component (that represents additional capabilities)
-     * for an entity.
+     * 获取实体的组件（代表附加功能）。
      *
      * @param componentId
-     * The identifier of the component (e.g., 'minecraft:health').
-     * If no namespace prefix is specified, 'minecraft:' is
-     * assumed. Available component IDs can be found as part of the
-     * {@link EntityComponentTypes} enum.
+     * 组件的标识符（例如，'minecraft:health'）。
+     * 如果未指定命名空间前缀，则假定为 'minecraft:'。
+     * 可用的组件 ID 可在 {@link EntityComponentTypes} 枚举中找到。
      * @returns
-     * Returns the component if it exists on the entity, otherwise
-     * undefined.
-     * @throws This function can throw errors.
+     * 如果组件存在于实体上则返回该组件，否则返回 undefined。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getComponent<T extends string>(componentId: T): EntityComponentReturnType<T> | undefined;
     /**
      * @remarks
-     * Returns all components that are both present on this entity
-     * and supported by the API.
+     * 返回此实体上存在且受 API 支持的所有组件。
      *
      * @returns
-     * Returns all components that are both present on this entity
-     * and supported by the API.
-     * @throws This function can throw errors.
+     * 返回此实体上存在且受 API 支持的所有组件。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getComponents(): EntityComponent[];
     /**
      * @remarks
-     * Returns a property value.
+     * 返回属性值。
      *
      * @param identifier
-     * The property identifier.
+     * 属性标识符。
      * @returns
-     * Returns the value for the property, or undefined if the
-     * property has not been set.
-     * @throws This function can throw errors.
+     * 返回属性的值，如果属性未设置则返回 undefined。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getDynamicProperty(identifier: string): boolean | number | string | Vector3 | undefined;
     /**
      * @remarks
-     * Returns the available set of dynamic property identifiers
-     * that have been used on this entity.
+     * 返回在此实体上使用的所有动态属性标识符集合。
      *
      * @returns
-     * A string array of the dynamic properties set on this entity.
-     * @throws This function can throw errors.
+     * 返回在此实体上设置的动态属性字符串数组。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getDynamicPropertyIds(): string[];
     /**
      * @remarks
-     * Returns the total size, in bytes, of all the dynamic
-     * properties that are currently stored for this entity. This
-     * includes the size of both the key and the value.  This can
-     * be useful for diagnosing performance warning signs - if, for
-     * example, an entity has many megabytes of associated dynamic
-     * properties, it may be slow to load on various devices.
+     * 返回当前存储在此实体上的所有动态属性的总大小（以字节为单位）。
+     * 这包括键和值的大小。
+     * 这对诊断性能警告标志很有用，例如，如果实体有大量相关的动态属性，
+     * 在各种设备上加载可能会很慢。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getDynamicPropertyTotalByteCount(): number;
     /**
      * @remarks
-     * Returns the effect for the specified EffectType on the
-     * entity, undefined if the effect is not present, or throws an
-     * error if the effect does not exist.
+     * 返回实体上指定 EffectType 的效果，
+     * 如果效果不存在则返回 undefined，如果效果不存在则抛出错误。
      *
      * @param effectType
-     * The effect identifier.
+     * 效果标识符。
      * @returns
-     * Effect object for the specified effect, undefined if the
-     * effect is not present, or throws an error if the effect does
-     * not exist.
-     * @throws This function can throw errors.
+     * 指定效果的效果对象，如果效果不存在则返回 undefined，
+     * 如果效果不存在则抛出错误。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -431,26 +394,24 @@ export class Entity {
     getEffect(effectType: EffectType | string): Effect | undefined;
     /**
      * @remarks
-     * Returns a set of effects applied to this entity.
+     * 返回应用于此实体的效果集合。
      *
      * @returns
-     * List of effects.
-     * @throws This function can throw errors.
+     * 效果列表。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getEffects(): Effect[];
     /**
      * @remarks
-     * Gets the entities that this entity is looking at by
-     * performing a ray cast from the view of this entity.
+     * 通过从此实体的视角执行射线追踪，获取此实体正在查看的实体。
      *
      * @param options
-     * Additional configuration options for the ray cast.
+     * 射线追踪的附加配置选项。
      * @returns
-     * Returns a set of entities from the direction that this
-     * entity is looking at.
-     * @throws This function can throw errors.
+     * 返回从此实体视线方向看到的实体集合。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -463,66 +424,63 @@ export class Entity {
     getEntitiesFromViewDirection(options?: EntityRaycastOptions): EntityRaycastHit[];
     /**
      * @remarks
-     * Returns the current location of the head component of this
-     * entity.
+     * 返回此实体头部组件的当前位置。
      *
      * @returns
-     * Returns the current location of the head component of this
-     * entity.
-     * @throws This function can throw errors.
+     * 返回此实体头部组件的当前位置。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getHeadLocation(): Vector3;
     /**
      * @remarks
-     * Gets an entity Property value. If the property was set using
-     * the setProperty function within the same tick, the updated
-     * value will not be reflected until the subsequent tick.
+     * 获取实体属性值。
+     * 如果在同一刻内使用 setProperty 函数设置了属性，
+     * 则更新后的值直到下一刻才会反映出来。
      *
      * @param identifier
-     * The entity Property identifier.
+     * 实体属性标识符。
      * @returns
-     * Returns the current property value. For enum properties, a
-     * string is returned. For float and int properties, a number
-     * is returned. For undefined properties, undefined is
-     * returned.
+     * 返回当前属性值。
+     * 对于枚举属性，返回字符串。
+     * 对于浮点数和整数属性，返回数字。
+     * 对于未定义的属性，返回 undefined。
      * @throws
-     * Throws if the entity is invalid.
+     * 如果实体无效则抛出异常。
      *
      * {@link InvalidEntityError}
      */
     getProperty(identifier: string): boolean | number | string | undefined;
     /**
      * @remarks
-     * Returns the current rotation component of this entity.
+     * 返回此实体的当前旋转组件。
      *
      * @returns
-     * Returns a Vec2 containing the rotation of this entity (in
-     * degrees).
-     * @throws This function can throw errors.
+     * 返回包含此实体旋转（以度为单位）的 Vec2。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getRotation(): Vector2;
     /**
      * @remarks
-     * Returns all tags associated with the entity.
+     * 返回与实体关联的所有标签。
      *
      * @returns
-     * An array containing all tags as strings.
-     * @throws This function can throw errors.
+     * 包含所有标签的字符串数组。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getTags(): string[];
     /**
      * @remarks
-     * Returns the current velocity vector of the entity.
+     * 返回实体的当前速度向量。
      *
      * @returns
-     * Returns the current velocity vector of the entity.
-     * @throws This function can throw errors.
+     * 返回实体的当前速度向量。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      * @seeExample getFireworkVelocity.ts
@@ -530,55 +488,52 @@ export class Entity {
     getVelocity(): Vector3;
     /**
      * @remarks
-     * Returns the current view direction of the entity.
+     * 返回实体的当前视线方向。
      *
      * @returns
-     * Returns the current view direction of the entity.
-     * @throws This function can throw errors.
+     * 返回实体的当前视线方向。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     getViewDirection(): Vector3;
     /**
      * @remarks
-     * Returns true if the specified component is present on this
-     * entity.
+     * 返回指定组件是否存在于该实体上。
      *
      * @param componentId
-     * The identifier of the component (e.g., 'minecraft:rideable')
-     * to retrieve. If no namespace prefix is specified,
-     * 'minecraft:' is assumed.
+     * 要检索的组件标识符（例如，'minecraft:rideable'）。
+     * 如果未指定命名空间前缀，则假定为 'minecraft:'。
      * @returns
-     * Returns true if the specified component is present on this
-     * entity.
-     * @throws This function can throw errors.
+     * 如果指定的组件存在于该实体上则返回 true。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     hasComponent(componentId: string): boolean;
     /**
      * @remarks
-     * Returns whether an entity has a particular tag.
+     * 返回实体是否具有特定标签。
      *
      * @param tag
-     * Identifier of the tag to test for.
+     * 要测试的标签标识符。
      * @returns
-     * Returns whether an entity has a particular tag.
-     * @throws This function can throw errors.
+     * 返回实体是否具有特定标签。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     hasTag(tag: string): boolean;
     /**
      * @remarks
-     * Kills this entity. The entity will drop loot as normal.
+     * 杀死此实体。实体将正常掉落战利品。
      *
      * @worldMutation
      *
      * @returns
-     * Returns true if entity can be killed (even if it is already
-     * dead), otherwise it returns false.
-     * @throws This function can throw errors.
+     * 如果实体可以被杀死（即使它已经死亡）则返回 true，
+     * 否则返回 false。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      * @seeExample tagsQuery.ts
@@ -586,17 +541,15 @@ export class Entity {
     kill(): boolean;
     /**
      * @remarks
-     * Sets the rotation of the entity to face a target location.
-     * Both pitch and yaw will be set, if applicable, such as for
-     * mobs where the pitch controls the head tilt and the yaw
-     * controls the body rotation.
+     * 设置实体的旋转以面向目标位置。
+     * 如果适用，将设置俯仰和偏航，例如对于生物，
+     * 俯仰控制头部倾斜，偏航控制身体旋转。
      *
      * @worldMutation
      *
      * @param targetLocation
-     * The target location that this entity should face/look
-     * towards.
-     * @throws This function can throw errors.
+     * 此实体应该面向/注视的目标位置。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      *
@@ -605,17 +558,17 @@ export class Entity {
     lookAt(targetLocation: Vector3): void;
     /**
      * @remarks
-     * Matches the entity against the passed in options. Uses the
-     * location of the entity for matching if the location is not
-     * specified in the passed in EntityQueryOptions.
+     * 根据传入的选项匹配实体。
+     * 如果在传入的 EntityQueryOptions 中未指定位置，
+     * 则使用实体的位置进行匹配。
      *
      * @param options
-     * The query to perform the match against.
+     * 要执行匹配的查询。
      * @returns
-     * Returns true if the entity matches the criteria in the
-     * passed in EntityQueryOptions, otherwise it returns false.
+     * 如果实体匹配传入的 EntityQueryOptions 中的条件则返回 true，
+     * 否则返回 false。
      * @throws
-     * Throws if the query options are misconfigured.
+     * 如果查询选项配置错误则抛出异常。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -626,29 +579,27 @@ export class Entity {
     matches(options: EntityQueryOptions): boolean;
     /**
      * @remarks
-     * Cause the entity to play the given animation.
+     * 使实体播放给定的动画。
      *
      * @worldMutation
      *
      * @param animationName
-     * The animation identifier. e.g. animation.creeper.swelling
+     * 动画标识符。例如 animation.creeper.swelling
      * @param options
-     * Additional options to control the playback and transitions
-     * of the animation.
-     * @throws This function can throw errors.
+     * 控制动画播放和转换的附加选项。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     playAnimation(animationName: string, options?: PlayAnimationOptions): void;
     /**
      * @remarks
-     * Immediately removes the entity from the world. The removed
-     * entity will not perform a death animation or drop loot upon
-     * removal.
+     * 立即从世界中移除实体。
+     * 移除的实体不会执行死亡动画或在移除时掉落战利品。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      *
@@ -657,17 +608,16 @@ export class Entity {
     remove(): void;
     /**
      * @remarks
-     * Removes the specified EffectType on the entity, or returns
-     * false if the effect is not present.
+     * 移除实体上的指定 EffectType，如果效果不存在则返回 false。
      *
      * @worldMutation
      *
      * @param effectType
-     * The effect identifier.
+     * 效果标识符。
      * @returns
-     * Returns true if the effect has been removed. Returns false
-     * if the effect is not found or does not exist.
-     * @throws This function can throw errors.
+     * 如果效果已移除则返回 true。
+     * 如果未找到效果或效果不存在则返回 false。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -676,36 +626,35 @@ export class Entity {
     removeEffect(effectType: EffectType | string): boolean;
     /**
      * @remarks
-     * Removes a specified tag from an entity.
+     * 从实体中移除指定的标签。
      *
      * @worldMutation
      *
      * @param tag
-     * Content of the tag to remove.
+     * 要移除的标签内容。
      * @returns
-     * Returns whether the tag existed on the entity.
-     * @throws This function can throw errors.
+     * 返回标签是否存在于实体上。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     removeTag(tag: string): boolean;
     /**
      * @remarks
-     * Resets an Entity Property back to its default value, as
-     * specified in the Entity's definition. This property change
-     * is not applied until the next tick.
+     * 将实体属性重置为其默认值，如实体定义中指定的那样。
+     * 此属性更改直到下一刻才会应用。
      *
      * @worldMutation
      *
      * @param identifier
-     * The Entity Property identifier.
+     * 实体属性标识符。
      * @returns
-     * Returns the default property value. For enum properties, a
-     * string is returned. For float and int properties, a number
-     * is returned. For undefined properties, undefined is
-     * returned.
+     * 返回默认属性值。
+     * 对于枚举属性，返回字符串。
+     * 对于浮点数和整数属性，返回数字。
+     * 对于未定义的属性，返回 undefined。
      * @throws
-     * Throws if the entity is invalid.
+     * 如果实体无效则抛出异常。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -716,17 +665,15 @@ export class Entity {
     resetProperty(identifier: string): boolean | number | string;
     /**
      * @remarks
-     * Runs a synchronous command on the entity.
+     * 在实体上运行同步命令。
      *
      * @worldMutation
      *
      * @param commandString
-     * The command string. Note: This should not include a leading
-     * forward slash.
+     * 命令字符串。注意：这不应包含前导斜杠。
      * @returns
-     * A command result containing whether the command was
-     * successful.
-     * @throws This function can throw errors.
+     * 包含命令是否成功的命令结果。
+     * @throws 此函数可能抛出错误。
      *
      * {@link CommandError}
      *
@@ -736,12 +683,11 @@ export class Entity {
     /**
      * @beta
      * @remarks
-     * Sets multiple dynamic properties with specific values.
+     * 设置具有特定值的多个动态属性。
      *
      * @param values
-     * A Record of key value pairs of the dynamic properties to
-     * set.
-     * @throws This function can throw errors.
+     * 要设置的动态属性的键值对记录。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      *
@@ -750,13 +696,13 @@ export class Entity {
     setDynamicProperties(values: Record<string, boolean | number | string | Vector3>): void;
     /**
      * @remarks
-     * Sets a specified property to a value.
+     * 将指定属性设置为值。
      *
      * @param identifier
-     * The property identifier.
+     * 属性标识符。
      * @param value
-     * Data value of the property to set.
-     * @throws This function can throw errors.
+     * 要设置的属性数据值。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      *
@@ -765,24 +711,22 @@ export class Entity {
     setDynamicProperty(identifier: string, value?: boolean | number | string | Vector3): void;
     /**
      * @remarks
-     * Sets an entity on fire (if it is not in water or rain). Note
-     * that you can call getComponent('minecraft:onfire') and, if
-     * present, the entity is on fire.
+     * 使实体着火（如果它不在水中或雨中）。
+     * 注意，你可以调用 getComponent('minecraft:onfire')，
+     * 如果存在，则实体正在着火。
      *
      * @worldMutation
      *
      * @param seconds
-     * Length of time to set the entity on fire.
+     * 设置实体着火的时间长度。
      * @param useEffects
-     * Whether side-effects should be applied (e.g. thawing freeze)
-     * and other conditions such as rain or fire protection should
-     * be taken into consideration.
-     * Defaults to: true
+     * 是否应用副作用（例如解冻冻结）
+     * 以及是否应考虑其他条件，如雨水或防火保护。
+     * 默认值: true
      * @returns
-     * Whether the entity was set on fire. This can fail if seconds
-     * is less than or equal to zero, the entity is wet or the
-     * entity is immune to fire.
-     * @throws This function can throw errors.
+     * 实体是否被点燃。
+     * 如果秒数小于或等于零、实体湿润或实体对火免疫，则此操作可能失败。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      * @seeExample setOnFire.ts
@@ -790,25 +734,21 @@ export class Entity {
     setOnFire(seconds: number, useEffects?: boolean): boolean;
     /**
      * @remarks
-     * Sets an Entity Property to the provided value. This property
-     * change is not applied until the next tick.
+     * 将实体属性设置为提供的值。
+     * 此属性更改直到下一刻才会应用。
      *
      * @worldMutation
      *
      * @param identifier
-     * The Entity Property identifier.
+     * 实体属性标识符。
      * @param value
-     * The property value. The provided type must be compatible
-     * with the type specified in the entity's definition.
+     * 属性值。提供的类型必须与实体定义中指定的类型兼容。
      * @throws
-     * Throws if the entity is invalid.
-     * Throws if an invalid identifier is provided.
-     * Throws if the provided value type does not match the
-     * property type.
-     * Throws if the provided value is outside the expected range
-     * (int, float properties).
-     * Throws if the provided string value does not match the set
-     * of accepted enum values (enum properties
+     * 如果实体无效则抛出异常。
+     * 如果提供了无效的标识符则抛出异常。
+     * 如果提供的值类型与属性类型不匹配则抛出异常。
+     * 如果提供的值超出预期范围（整数、浮点数属性）则抛出异常。
+     * 如果提供的字符串值与接受的枚举值集合不匹配（枚举属性）则抛出异常。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      *
@@ -819,30 +759,29 @@ export class Entity {
     setProperty(identifier: string, value: boolean | number | string): void;
     /**
      * @remarks
-     * Sets the main rotation of the entity.
+     * 设置实体的主要旋转。
      *
      * @worldMutation
      *
      * @param rotation
-     * The x and y rotation of the entity (in degrees). For most
-     * mobs, the x rotation controls the head tilt and the y
-     * rotation controls the body rotation.
-     * @throws This function can throw errors.
+     * 实体的 x 和 y 旋转（以度为单位）。
+     * 对于大多数生物，x 旋转控制头部倾斜，y 旋转控制身体旋转。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      */
     setRotation(rotation: Vector2): void;
     /**
      * @remarks
-     * Teleports the selected entity to a new location
+     * 将选定的实体传送到新位置
      *
      * @worldMutation
      *
      * @param location
-     * New location for the entity.
+     * 实体的新位置。
      * @param teleportOptions
-     * Options regarding the teleport operation.
-     * @throws This function can throw errors.
+     * 传送操作的选项。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      *
@@ -853,19 +792,17 @@ export class Entity {
     teleport(location: Vector3, teleportOptions?: TeleportOptions): void;
     /**
      * @remarks
-     * Triggers an entity type event. For every entity, a number of
-     * events are defined in an entities' definition for key entity
-     * behaviors; for example, creepers have a
-     * minecraft:start_exploding type event.
+     * 触发实体类型事件。
+     * 对于每个实体，在实体定义中都定义了许多事件用于关键实体行为；
+     * 例如，苦力怕有 minecraft:start_exploding 类型事件。
      *
      * @worldMutation
      *
      * @param eventName
-     * Name of the entity type event to trigger. If a namespace is
-     * not specified, minecraft: is assumed.
+     * 要触发的实体类型事件的名称。
+     * 如果未指定命名空间，则假定为 minecraft:。
      * @throws
-     * If the event is not defined in the definition of the entity,
-     * an error will be thrown.
+     * 如果事件未在实体定义中定义，则会抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -876,21 +813,19 @@ export class Entity {
     triggerEvent(eventName: string): void;
     /**
      * @remarks
-     * Attempts to try a teleport, but may not complete the
-     * teleport operation (for example, if there are blocks at the
-     * destination.)
+     * 尝试进行传送，但可能无法完成传送操作
+     * （例如，如果目标位置有方块）。
      *
      * @worldMutation
      *
      * @param location
-     * Location to teleport the entity to.
+     * 要传送实体的位置。
      * @param teleportOptions
-     * Options regarding the teleport operation.
+     * 传送操作的选项。
      * @returns
-     * Returns whether the teleport succeeded. This can fail if the
-     * destination chunk is unloaded or if the teleport would
-     * result in intersecting with blocks.
-     * @throws This function can throw errors.
+     * 返回传送是否成功。
+     * 如果目标区块未加载或者传送会导致与方块相交则可能失败。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidEntityError}
      *

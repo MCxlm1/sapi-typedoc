@@ -1,8 +1,7 @@
 /* IMPORT */ import { BlockEvent, BlockPistonComponent } from '../index';
 
 /**
- * Contains information related to changes to a piston
- * expanding or retracting.
+ * 包含活塞伸出或缩回变化的相关信息。
  * @seeExample pistonAfterEvent.ts
  */
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -10,13 +9,13 @@ export class PistonActivateAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * True if the piston is the process of expanding.
+     * 如果活塞正在伸出则为 true。
      *
      */
     readonly isExpanding: boolean;
     /**
      * @remarks
-     * Contains additional properties and details of the piston.
+     * 包含活塞的附加属性和详细信息。
      *
      */
     readonly piston: BlockPistonComponent;

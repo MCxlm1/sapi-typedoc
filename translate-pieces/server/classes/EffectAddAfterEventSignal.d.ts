@@ -1,29 +1,23 @@
-/* IMPORT */ import { EffectAddAfterEvent, EntityEventOptions } from '../index';
+/* IMPORT */ import { EffectAddAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to when an effect is
- * added to an entity.
+ * 管理与向实体添加效果相关的回调。
  */
 export class EffectAddAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when an effect is added
-     * to an entity.
+     * 添加一个回调，当向实体添加效果时将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      */
-    subscribe(
-        callback: (arg0: EffectAddAfterEvent) => void,
-        options?: EntityEventOptions,
-    ): (arg0: EffectAddAfterEvent) => void;
+    subscribe(callback: (arg0: EffectAddAfterEvent) => void): (arg0: EffectAddAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when an effect is added
-     * to an entity.
+     * 从向实体添加效果的回调中移除一个回调。
      *
      * @worldMutation
      *

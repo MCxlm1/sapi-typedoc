@@ -1,26 +1,23 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * When added, this component makes the entity spawn with a
- * rider of the specified entityType.
+ * 添加后，此组件使实体在特定条件下生成时带有指定 entityType 的骑手。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityAddRiderComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * The type of entity that is added as a rider for this entity
-     * when spawned under certain conditions.
+     * 在特定条件下生成此实体时作为骑手添加的实体类型。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly entityType: string;
     /**
      * @remarks
-     * Optional spawn event to trigger on the rider when that rider
-     * is spawned for this entity.
+     * 当骑手为此实体生成时，在该骑手身上触发的可选生成事件。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly spawnEvent: string;
     static readonly componentId = 'minecraft:addrider';

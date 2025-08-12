@@ -1,25 +1,25 @@
 /* IMPORT */ import { InputMode, Player } from '../index';
 
 /**
- * Event data for when a player input mode changes.
+ * 玩家输入模式更改时的事件数据。
  */
 export class PlayerInputModeChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The new input mode used by the player.
+     * 玩家使用的新输入模式。
      *
      */
     readonly newInputModeUsed: InputMode;
     /**
      * @remarks
-     * The player that had an input mode change.
+     * 输入模式发生更改的玩家。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * The previous input mode used by the player.
+     * 玩家之前使用的输入模式。
      *
      */
     readonly previousInputModeUsed: InputMode;

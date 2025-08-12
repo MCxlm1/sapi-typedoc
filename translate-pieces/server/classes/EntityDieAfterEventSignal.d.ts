@@ -1,36 +1,23 @@
-/* IMPORT */ import { EntityDieAfterEvent, EntityEventOptions } from '../index';
+/* IMPORT */ import { EntityDieAfterEvent } from '../index';
 
 /**
- * Supports registering for an event that fires after an entity
- * has died.
+ * 管理与实体死亡相关的回调。
  */
 export class EntityDieAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Subscribes to an event that fires when an entity dies.
+     * 添加一个回调，当实体死亡时将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
-     * @param callback
-     * Function to call when an entity dies.
-     * @param options
-     * Additional filtering options for when the subscription
-     * fires.
-     * @returns
-     * Returns the closure that can be used in future downstream
-     * calls to unsubscribe.
      */
-    subscribe(
-        callback: (arg0: EntityDieAfterEvent) => void,
-        options?: EntityEventOptions,
-    ): (arg0: EntityDieAfterEvent) => void;
+    subscribe(callback: (arg0: EntityDieAfterEvent) => void): (arg0: EntityDieAfterEvent) => void;
     /**
      * @remarks
-     * Stops this event from calling your function when an entity
-     * dies.
+     * 从实体死亡的回调中移除一个回调。
      *
      * @worldMutation
      *

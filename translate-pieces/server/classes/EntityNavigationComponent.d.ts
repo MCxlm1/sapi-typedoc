@@ -1,158 +1,142 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * Allows this entity to generate paths that include vertical
- * walls (for example, like Minecraft spiders do.)
+ * 允许此实体生成包含垂直墙壁的路径（例如，像Minecraft蜘蛛那样）。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityNavigationComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Tells the pathfinder to avoid blocks that cause damage when
-     * finding a path.
+     * 告诉路径查找器在寻找路径时避开会造成伤害的方块。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly avoidDamageBlocks: boolean;
     /**
      * @remarks
-     * Tells the pathfinder to avoid portals (like nether portals)
-     * when finding a path.
+     * 告诉路径查找器在寻找路径时避开传送门（如地狱传送门）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly avoidPortals: boolean;
     /**
      * @remarks
-     * Whether or not the pathfinder should avoid tiles that are
-     * exposed to the sun when creating paths.
+     * 创建路径时，路径查找器是否应避开暴露在阳光下的方块。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly avoidSun: boolean;
     /**
      * @remarks
-     * Tells the pathfinder to avoid water when creating a path.
+     * 告诉路径查找器在创建路径时避开水。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly avoidWater: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it can jump out of water
-     * (like a dolphin).
+     * 告诉路径查找器它是否可以跳出水面（像海豚一样）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canBreach: boolean;
     /**
      * @remarks
-     * Tells the pathfinder that it can path through a closed door
-     * and break it.
+     * 告诉路径查找器它可以穿过关闭的门并打破它。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canBreakDoors: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it can float.
+     * 告诉路径查找器它是否可以漂浮。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canFloat: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it can jump up blocks.
+     * 告诉路径查找器它是否可以跳上方块。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canJump: boolean;
     /**
      * @remarks
-     * Tells the pathfinder that it can path through a closed door
-     * assuming the AI will open the door.
+     * 告诉路径查找器它可以穿过关闭的门，假设AI会打开门。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canOpenDoors: boolean;
     /**
      * @remarks
-     * Tells the pathfinder that it can path through a closed iron
-     * door assuming the AI will open the door.
+     * 告诉路径查找器它可以穿过关闭的铁门，假设AI会打开门。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canOpenIronDoors: boolean;
     /**
      * @remarks
-     * Whether a path can be created through a door.
+     * 是否可以通过门创建路径。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canPassDoors: boolean;
     /**
      * @remarks
-     * Tells the pathfinder that it can start pathing when in the
-     * air.
+     * 告诉路径查找器它可以在空中开始寻路。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canPathFromAir: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it can travel on the
-     * surface of the lava.
+     * 告诉路径查找器它是否可以在熔岩表面行走。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canPathOverLava: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it can travel on the
-     * surface of the water.
+     * 告诉路径查找器它是否可以在水面上行走。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canPathOverWater: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it will be pulled down
-     * by gravity while in water.
+     * 告诉路径查找器它在水中时是否会被重力拉下。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canSink: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it can path anywhere
-     * through water and plays swimming animation along that path.
+     * 告诉路径查找器它是否可以穿过水中的任何地方，并沿着该路径播放游泳动画。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canSwim: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it can walk on the
-     * ground outside water.
+     * 告诉路径查找器它是否可以在地面行走（在水外）。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canWalk: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it can travel in lava
-     * like walking on ground.
+     * 告诉路径查找器它是否可以在熔岩中行走，就像在地面上行走一样。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly canWalkInLava: boolean;
     /**
      * @remarks
-     * Tells the pathfinder whether or not it can walk on the
-     * ground or go underwater.
+     * 告诉路径查找器它是否可以在地面行走或进入水中。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly isAmphibious: boolean;
 }

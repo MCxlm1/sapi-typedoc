@@ -1,38 +1,37 @@
 /* IMPORT */ import { ItemStack, Player, PlayerInventoryType } from '../index';
 
 /**
- * Contains information regarding an event after a player's
- * inventory item changes.
+ * 包含玩家库存物品更改后事件的相关信息。
  */
 export class PlayerInventoryItemChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The previous item stack.
+     * 之前的物品堆。
      *
      */
     readonly beforeItemStack?: ItemStack;
     /**
      * @remarks
-     * Inventory type.
+     * 库存类型。
      *
      */
     readonly inventoryType: PlayerInventoryType;
     /**
      * @remarks
-     * The new item stack.
+     * 新的物品堆。
      *
      */
     readonly itemStack?: ItemStack;
     /**
      * @remarks
-     * Source Player for this event.
+     * 此事件的源玩家。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * The slot index with the change.
+     * 发生更改的槽位索引。
      *
      */
     readonly slot: number;

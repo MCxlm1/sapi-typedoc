@@ -1,34 +1,25 @@
 /* IMPORT */ import { Entity, ItemStack, Player } from '../index';
 
 /**
- * Contains information regarding an event after a player
- * successfully interacts with an entity.
+ * 包含玩家与实体交互事件的相关信息。
  */
 export class PlayerInteractWithEntityAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The ItemStack before the interaction succeeded, or undefined
-     * if hand is empty.
-     *
-     */
-    readonly beforeItemStack?: ItemStack;
-    /**
-     * @remarks
-     * The ItemStack after the interaction succeeded, or undefined
-     * if hand is empty.
-     *
-     */
-    readonly itemStack?: ItemStack;
-    /**
-     * @remarks
-     * Source Player for this event.
+     * 与实体交互的玩家。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * The entity that will be interacted with.
+     * 用于与实体交互的物品堆。可能是 undefined。
+     *
+     */
+    readonly itemStack: ItemStack | undefined;
+    /**
+     * @remarks
+     * 与之交互的实体。
      *
      */
     readonly target: Entity;

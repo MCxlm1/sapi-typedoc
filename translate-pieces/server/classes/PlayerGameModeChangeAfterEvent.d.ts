@@ -1,26 +1,25 @@
 /* IMPORT */ import { GameMode, Player } from '../index';
 
 /**
- * Contains information regarding an event after a players game
- * mode is changed.
+ * 包含玩家游戏模式变化事件的相关信息。
  */
 export class PlayerGameModeChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The previous game mode before the change.
+     * 玩家的新游戏模式。
      *
      */
     readonly fromGameMode: GameMode;
     /**
      * @remarks
-     * Source Player for this event.
+     * 游戏模式发生变化的玩家。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * The current game mode after the change.
+     * 玩家的旧游戏模式。
      *
      */
     readonly toGameMode: GameMode;

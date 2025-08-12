@@ -1,7 +1,7 @@
 /* IMPORT */ import { ItemComponent, ItemComponentRegistry, ItemComponentReturnType, ItemLockMode, ItemType, RawMessage, Vector3, minecraftcommon } from '../index';
 
 /**
- * Defines a collection of items.
+ * 定义物品的集合。
  * @seeExample itemStacks.ts
  * @seeExample givePlayerEquipment.ts
  * @seeExample spawnFeatherItem.ts
@@ -9,27 +9,25 @@
 export class ItemStack {
     /**
      * @remarks
-     * Number of the items in the stack. Valid values range between
-     * 1-255. The provided value will be clamped to the item's
-     * maximum stack size.
+     * 物品堆叠的数量。有效值范围为 1-255。
+     * 提供的值将被限制在物品的最大堆叠数量范围内。
      *
      * @worldMutation
      *
      * @throws
-     * Throws if the value is outside the range of 1-255.
+     * 当值超出 1-255 范围时抛出异常。
      */
     amount: number;
     /**
      * @remarks
-     * Returns whether the item is stackable. An item is considered
-     * stackable if the item's maximum stack size is greater than 1
-     * and the item does not contain any custom data or properties.
+     * 表示物品是否可以堆叠。
+     * 当物品的最大堆叠数量大于 1 且物品不包含任何自定义数据或属性时，该物品可堆叠。
      *
      */
     readonly isStackable: boolean;
     /**
      * @remarks
-     * Gets or sets whether the item is kept on death.
+     * 获取或设置物品在死亡时是否保留。
      *
      * @worldMutation
      *
@@ -37,18 +35,16 @@ export class ItemStack {
     keepOnDeath: boolean;
     /**
      * @remarks
-     * Key for the localization of this items's name used in .lang
-     * files.
+     * 用于在 .lang 文件中本地化物品名称的键。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link minecraftcommon.EngineError}
      */
     readonly localizationKey: string;
     /**
      * @remarks
-     * Gets or sets the item's lock mode. The default value is
-     * `ItemLockMode.none`.
+     * 获取或设置物品的锁定模式。默认值为 `ItemLockMode.none`。
      *
      * @worldMutation
      *
@@ -56,88 +52,78 @@ export class ItemStack {
     lockMode: ItemLockMode;
     /**
      * @remarks
-     * The maximum stack size. This value varies depending on the
-     * type of item. For example, torches have a maximum stack size
-     * of 64, while eggs have a maximum stack size of 16.
+     * 物品的最大堆叠数量。
+     * 这个值因物品类型而异。例如，火把的最大堆叠数量为 64，而鸡蛋的最大堆叠数量为 16。
      *
      */
     readonly maxAmount: number;
     /**
      * @remarks
-     * Given name of this stack of items. The name tag is displayed
-     * when hovering over the item. Setting the name tag to an
-     * empty string or `undefined` will remove the name tag.
+     * 物品堆叠的自定义名称。
+     * 名称标签在悬停在物品上时显示。
+     * 将名称标签设置为空字符串或 `undefined` 将移除名称标签。
      *
      * @worldMutation
      *
      * @throws
-     * Throws if the length exceeds 255 characters.
+     * 当名称长度超过 255 个字符时抛出异常。
      */
     nameTag?: string;
     /**
      * @remarks
-     * The type of the item.
+     * 物品的类型。
      *
      */
     readonly 'type': ItemType;
     /**
      * @remarks
-     * Identifier of the type of items for the stack. If a
-     * namespace is not specified, 'minecraft:' is assumed.
-     * Examples include 'wheat' or 'apple'.
+     * 物品堆叠中物品类型的标识符。
+     * 如果未指定命名空间，则假定为 'minecraft:'。
+     * 示例包括 'wheat' 或 'apple'。
      *
      */
     readonly typeId: string;
     /**
      * @beta
      * @remarks
-     * The total weight of all items in the stack plus the weight
-     * of all items in the items container which is defined with
-     * the `Storage Item` component. The weight per item can be
-     * modified by the `Storage Weight Modifier` component.
+     * 物品堆叠中所有物品的总重量加上使用 `Storage Item` 组件定义的物品容器中所有物品的重量。
+     * 每个物品的重量可以通过 `Storage Weight Modifier` 组件修改。
      *
      */
     readonly weight: number;
     /**
      * @remarks
-     * Creates a new instance of a stack of items for use in the
-     * world.
+     * 创建一个新的物品堆叠实例，用于在世界中使用。
      *
      * @param itemType
-     * Type of item to create. See the {@link
-     * @minecraft/vanilla-data.MinecraftItemTypes} enumeration for
-     * a list of standard item types in Minecraft experiences.
+     * 要创建的物品类型。有关 Minecraft 体验中的标准物品类型列表，
+     * 请参见 {@link @minecraft/vanilla-data.MinecraftItemTypes} 枚举。
      * @param amount
-     * Number of items to place in the stack, between 1-255. The
-     * provided value will be clamped to the item's maximum stack
-     * size. Note that certain items can only have one item in the
-     * stack.
-     * Defaults to: 1
+     * 放置在堆叠中的物品数量，范围为 1-255。
+     * 提供的值将被限制在物品的最大堆叠数量范围内。
+     * 注意某些物品在堆叠中只能有一个。
+     * 默认值：1
      * @throws
-     * Throws if `itemType` is invalid, or if `amount` is outside
-     * the range of 1-255.
+     * 当 `itemType` 无效或 `amount` 超出 1-255 范围时抛出异常。
      */
     constructor(itemType: ItemType | string, amount?: number);
     /**
      * @remarks
-     * Clears all dynamic properties that have been set on this
-     * item stack.
+     * 清除在此物品堆叠上设置的所有动态属性。
      *
      */
     clearDynamicProperties(): void;
     /**
      * @remarks
-     * Creates an exact copy of the item stack, including any
-     * custom data or properties.
+     * 创建物品堆叠的精确副本，包括任何自定义数据或属性。
      *
      * @returns
-     * Returns a copy of this item stack.
+     * 返回此物品堆叠的副本。
      */
     clone(): ItemStack;
     /**
      * @remarks
-     * Get the list of block types this item can break in Adventure
-     * mode.
+     * 获取此物品在冒险模式下可以破坏的方块类型列表。
      *
      * @worldMutation
      *
@@ -145,8 +131,7 @@ export class ItemStack {
     getCanDestroy(): string[];
     /**
      * @remarks
-     * Get the list of block types this item can be placed on in
-     * Adventure mode.
+     * 获取此物品在冒险模式下可以放置的方块类型列表。
      *
      * @worldMutation
      *
@@ -154,180 +139,158 @@ export class ItemStack {
     getCanPlaceOn(): string[];
     /**
      * @remarks
-     * Gets a component (that represents additional capabilities)
-     * for an item stack.
+     * 获取物品堆叠的组件（表示附加功能）。
      *
      * @param componentId
-     * The identifier of the component (e.g., 'minecraft:food'). If
-     * no namespace prefix is specified, 'minecraft:' is assumed.
-     * Available component IDs are those in the {@link
-     * ItemComponentTypes} enum and custom component IDs registered
-     * with the {@link ItemComponentRegistry}.
+     * 组件的标识符（例如，'minecraft:food'）。
+     * 如果未指定命名空间前缀，则假定为 'minecraft:'。
+     * 可用的组件 ID 包括 {@link ItemComponentTypes} 枚举中的组件和使用 
+     * {@link ItemComponentRegistry} 注册的自定义组件 ID。
      * @returns
-     * Returns the component if it exists on the item stack,
-     * otherwise undefined.
+     * 如果组件存在于物品堆叠上则返回该组件，否则返回 undefined。
      * @seeExample giveHurtDiamondSword.ts
      */
     getComponent<T extends string>(componentId: T): ItemComponentReturnType<T> | undefined;
     /**
      * @remarks
-     * Returns all components that are both present on this item
-     * stack and supported by the API.
+     * 返回在此物品堆叠上存在且受 API 支持的所有组件。
      *
      */
     getComponents(): ItemComponent[];
     /**
      * @remarks
-     * Returns a property value.
+     * 返回属性值。
      *
      * @param identifier
-     * The property identifier.
+     * 属性标识符。
      * @returns
-     * Returns the value for the property, or undefined if the
-     * property has not been set.
+     * 返回属性的值，如果属性未设置则返回 undefined。
      */
     getDynamicProperty(identifier: string): boolean | number | string | Vector3 | undefined;
     /**
      * @remarks
-     * Returns the available set of dynamic property identifiers
-     * that have been used on this entity.
+     * 返回在此实体上使用过的可用动态属性标识符集合。
      *
      * @returns
-     * A string array of the dynamic properties set on this entity.
+     * 返回在此实体上设置的动态属性字符串数组。
      */
     getDynamicPropertyIds(): string[];
     /**
      * @remarks
-     * Returns the total size, in bytes, of all the dynamic
-     * properties that are currently stored for this entity. This
-     * includes the size of both the key and the value.  This can
-     * be useful for diagnosing performance warning signs - if, for
-     * example, an entity has many megabytes of associated dynamic
-     * properties, it may be slow to load on various devices.
+     * 返回当前为此实体存储的所有动态属性的总大小（以字节为单位）。
+     * 这包括键和值的大小。
+     * 这对于诊断性能警告标志很有用——例如，如果一个实体有大量相关的动态属性，
+     * 在各种设备上加载可能会很慢。
      *
      */
     getDynamicPropertyTotalByteCount(): number;
     /**
      * @remarks
-     * Returns the lore value - a secondary display string - for an
-     * ItemStack.
+     * 返回物品堆叠的描述文本（副显示字符串）。
      *
      * @returns
-     * An array of lore lines. If the item does not have lore,
-     * returns an empty array.
+     * 描述文本行的数组。如果物品没有描述文本，则返回空数组。
      */
     getLore(): string[];
     /**
      * @beta
      * @remarks
-     * Returns the lore value - a secondary display string - for an
-     * ItemStack. String lore lines will be converted to a {@link
-     * RawMessage} and put under {@link RawMessage.text}.
+     * 返回物品堆叠的描述文本（副显示字符串）。
+     * 字符串描述文本行将被转换为 {@link RawMessage} 并放在 {@link RawMessage.text} 下。
      *
      * @returns
-     * An array of lore lines. If the item does not have lore,
-     * returns an empty array.
+     * 描述文本行的数组。如果物品没有描述文本，则返回空数组。
      */
     getRawLore(): RawMessage[];
     /**
      * @remarks
-     * Returns a set of tags associated with this item stack.
+     * 返回与此物品堆叠关联的标签集合。
      *
      */
     getTags(): string[];
     /**
      * @remarks
-     * Returns true if the specified component is present on this
-     * item stack.
+     * 如果指定的组件存在于该物品堆叠上，则返回 true。
      *
      * @param componentId
-     * The identifier of the component (e.g., 'minecraft:food') to
-     * retrieve. If no namespace prefix is specified, 'minecraft:'
-     * is assumed.
+     * 要检索的组件标识符（例如，'minecraft:food'）。
+     * 如果未指定命名空间前缀，则假定为 'minecraft:'。
      */
     hasComponent(componentId: string): boolean;
     /**
      * @remarks
-     * Checks whether this item stack has a particular tag
-     * associated with it.
+     * 检查此物品堆叠是否具有关联的特定标签。
      *
      * @param tag
-     * Tag to search for.
+     * 要搜索的标签。
      * @returns
-     * True if the Item Stack has the tag associated with it, else
-     * false.
+     * 如果物品堆叠具有关联的标签则返回 true，否则返回 false。
      */
     hasTag(tag: string): boolean;
     /**
      * @remarks
-     * Returns whether this item stack can be stacked with the
-     * given `itemStack`. This is determined by comparing the item
-     * type and any custom data and properties associated with the
-     * item stacks. The amount of each item stack is not taken into
-     * consideration, but for non-stackable items this will always
-     * return false.
+     * 返回此物品堆叠是否可以与给定的 `itemStack` 堆叠。
+     * 这是通过比较物品类型以及与物品堆叠关联的任何自定义数据和属性来确定的。
+     * 不考虑每个物品堆叠的数量，但对于不可堆叠的物品，这将始终返回 false。
      *
      * @param itemStack
-     * ItemStack to check stacking compatibility with.
+     * 要检查堆叠兼容性的物品堆叠。
      * @returns
-     * True if the Item Stack is stackable with the itemStack
-     * passed in. False for non-stackable items.
+     * 如果物品堆叠可以与传入的 itemStack 堆叠则返回 true。
+     * 对于不可堆叠的物品返回 false。
      */
     isStackableWith(itemStack: ItemStack): boolean;
     /**
      * @remarks
-     * Version safe way of checking if an item matches.
+     * 检查物品是否匹配的版本安全方法。
      *
      * @param itemName
-     * Identifier of the item.
+     * 物品的标识符。
      * @param states
-     *  Applicable only for blocks. An optional set of states to
-     * compare against. If states is not specified, matches checks
-     * against the set of types more broadly.
+     * 仅适用于方块。要比较的一组可选状态。
+     * 如果未指定状态，则匹配检查会更广泛地检查类型集。
      * @returns
-     * Returns a boolean whether the specified item matches.
+     * 返回指定物品是否匹配的布尔值。
      */
     matches(itemName: string, states?: Record<string, boolean | number | string>): boolean;
     /**
      * @remarks
-     * The list of block types this item can break in Adventure
-     * mode. The block names are displayed in the item's tooltip.
-     * Setting the value to undefined will clear the list.
+     * 此物品在冒险模式下可以破坏的方块类型列表。
+     * 方块名称显示在物品的工具提示中。
+     * 将值设置为 undefined 将清除列表。
      *
      * @worldMutation
      *
      * @param blockIdentifiers
-     * String list of block types that the item can destroy.
+     * 物品可以破坏的方块类型字符串列表。
      * @throws
-     * Throws if any of the provided block identifiers are invalid.
+     * 当提供的任何方块标识符无效时抛出异常。
      * @seeExample giveDestroyRestrictedPickaxe.ts
      */
     setCanDestroy(blockIdentifiers?: string[]): void;
     /**
      * @remarks
-     * The list of block types this item can be placed on in
-     * Adventure mode. This is only applicable to block items. The
-     * block names are displayed in the item's tooltip. Setting the
-     * value to undefined will clear the list.
+     * 此物品在冒险模式下可以放置的方块类型列表。
+     * 这仅适用于方块物品。方块名称显示在物品的工具提示中。
+     * 将值设置为 undefined 将清除列表。
      *
      * @worldMutation
      *
      * @param blockIdentifiers
-     * String list of block types that the item can be placed on.
+     * 物品可以放置的方块类型字符串列表。
      * @throws
-     * Throws if any of the provided block identifiers are invalid.
+     * 当提供的任何方块标识符无效时抛出异常。
      * @seeExample givePlaceRestrictedGoldBlock.ts
      */
     setCanPlaceOn(blockIdentifiers?: string[]): void;
     /**
      * @beta
      * @remarks
-     * Sets multiple dynamic properties with specific values.
+     * 设置具有特定值的多个动态属性。
      *
      * @param values
-     * A Record of key value pairs of the dynamic properties to
-     * set.
-     * @throws This function can throw errors.
+     * 要设置的动态属性的键值对记录。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      *
@@ -336,15 +299,15 @@ export class ItemStack {
     setDynamicProperties(values: Record<string, boolean | number | string | Vector3>): void;
     /**
      * @remarks
-     * Sets a specified property to a value. Note: This function
-     * only works with non-stackable items.
+     * 将指定属性设置为值。
+     * 注意：此函数仅适用于不可堆叠的物品。
      *
      * @param identifier
-     * The property identifier.
+     * 属性标识符。
      * @param value
-     * Data value of the property to set.
+     * 要设置的属性的数据值。
      * @throws
-     * Throws if the item stack is stackable.
+     * 当物品堆叠可堆叠时抛出异常。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      *
@@ -353,17 +316,15 @@ export class ItemStack {
     setDynamicProperty(identifier: string, value?: boolean | number | string | Vector3): void;
     /**
      * @remarks
-     * Sets the lore value - a secondary display string - for an
-     * ItemStack. The lore list is cleared if set to an empty
-     * string or undefined.
+     * 设置物品堆叠的描述文本（副显示字符串）。
+     * 如果设置为空字符串或 undefined，则清除描述文本列表。
      *
      * @worldMutation
      *
      * @param loreList
-     * List of lore lines. Each element in the list represents a
-     * new line. The maximum lore line count is 20. The maximum
-     * lore line length is 50 characters.
-     * @throws This function can throw errors.
+     * 描述文本行列表。列表中的每个元素代表一个新行。
+     * 最大描述文本行数为 20。最大描述文本行长度为 50 个字符。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      *

@@ -1,20 +1,14 @@
+/* IMPORT */ import { Player } from '../index';
+
 /**
- * Contains information regarding a player that has left the
- * world.
+ * 包含玩家离开游戏事件的相关信息。
  */
 export class PlayerLeaveAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Opaque string identifier of the player that has left the
-     * event.
+     * 离开游戏的玩家。
      *
      */
-    readonly playerId: string;
-    /**
-     * @remarks
-     * Player that has left the world.
-     *
-     */
-    readonly playerName: string;
+    readonly player: Player;
 }

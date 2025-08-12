@@ -1,51 +1,45 @@
 /* IMPORT */ import { BiomeSearchOptions, BiomeType, Block, BlockFillOptions, BlockFilter, BlockPermutation, BlockRaycastHit, BlockRaycastOptions, BlockType, BlockVolumeBase, CommandError, CommandResult, CompoundBlockVolume, Entity, EntityIdentifierType, EntityQueryOptions, EntityRaycastHit, EntityRaycastOptions, EntitySpawnError, ExplosionOptions, InvalidEntityError, ItemStack, ListBlockVolume, LocationInUnloadedChunkError, LocationOutOfWorldBoundariesError, MolangVariableMap, Player, SpawnEntityOptions, UnloadedChunksError, Vector3, VectorXZ, WeatherType, WorldSoundOptions, minecraftcommon } from '../index';
 
 /**
- * A class that represents a particular dimension (e.g., The
- * End) within a world.
+ * 代表世界内特定维度（例如，末地）的类。
  */
 export class Dimension {
     private constructor();
     /**
      * @remarks
-     * Height range of the dimension.
+     * 维度的高度范围。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly heightRange: minecraftcommon.NumberRange;
     /**
      * @remarks
-     * Identifier of the dimension.
+     * 维度标识符。
      *
      */
     readonly id: string;
     /**
      * @remarks
-     * Key for the localization of a dimension's name used by
-     * language files.
+     * 由语言文件使用的维度名称本地化键。
      *
      */
     readonly localizationKey: string;
     /**
      * @remarks
-     * Searches the block volume for a block that satisfies the
-     * block filter.
+     * 在方块体积中搜索满足方块过滤器的方块。
      *
      * @param volume
-     * Volume of blocks that will be checked.
+     * 将被检查的方块体积。
      * @param filter
-     * Block filter that will be checked against each block in the
-     * volume.
+     * 将针对体积中的每个方块进行检查的方块过滤器。
      * @param allowUnloadedChunks
-     * If set to true will suppress the UnloadedChunksError if some
-     * or all of the block volume is outside of the loaded chunks.
-     * Will only check the block locations that are within the
-     * loaded chunks in the volume.
-     * Defaults to: false
+     * 如果设置为 true，当部分或全部方块体积在未加载的区块中时，
+     * 将抑制 UnloadedChunksError。
+     * 将只检查体积中已加载区块内的方块位置。
+     * 默认值: false
      * @returns
-     * Returns true if at least one block in the volume satisfies
-     * the filter, false otherwise.
-     * @throws This function can throw errors.
+     * 如果体积中至少有一个方块满足过滤器则返回 true，否则返回 false。
+     * @throws 此函数可能抛出错误。
      *
      * {@link Error}
      *
@@ -54,17 +48,17 @@ export class Dimension {
     containsBlock(volume: BlockVolumeBase, filter: BlockFilter, allowUnloadedChunks?: boolean): boolean;
     /**
      * @remarks
-     * Creates an explosion at the specified location.
+     * 在指定位置创建爆炸。
      *
      * @worldMutation
      *
      * @param location
-     * The location of the explosion.
+     * 爆炸的位置。
      * @param radius
-     * Radius, in blocks, of the explosion to create.
+     * 要创建的爆炸半径，以方块为单位。
      * @param explosionOptions
-     * Additional configurable options for the explosion.
-     * @throws This function can throw errors.
+     * 爆炸的附加可配置选项。
+     * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -76,22 +70,19 @@ export class Dimension {
     createExplosion(location: Vector3, radius: number, explosionOptions?: ExplosionOptions): boolean;
     /**
      * @remarks
-     * Fills an area of blocks with a specific block type.
+     * 用特定类型的方块填充一个区域。
      *
      * @worldMutation
      *
      * @param volume
-     * Volume of blocks to be filled.
+     * 要填充的方块体积。
      * @param block
-     * Type of block to fill the volume with.
+     * 用于填充体积的方块类型。
      * @param options
-     * A set of additional options, such as a block filter which
-     * can be used to include / exclude specific blocks in the
-     * fill.
+     * 一组附加选项，例如可以用于包含/排除填充中特定方块的方块过滤器。
      * @returns
-     * Returns a ListBlockVolume which contains all the blocks that
-     * were placed.
-     * @throws This function can throw errors.
+     * 返回包含所有已放置方块的 ListBlockVolume。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -107,23 +98,21 @@ export class Dimension {
     /**
      * @beta
      * @remarks
-     * Finds the location of the closest biome of a particular
-     * type. Note that the findClosestBiome operation can take some
-     * time to complete, so avoid using many of these calls within
-     * a particular tick.
+     * 查找最接近的特定类型生物群系的位置。
+     * 注意，findClosestBiome 操作可能需要一些时间来完成，
+     * 因此避免在特定刻中使用过多此类调用。
      *
      * @worldMutation
      *
      * @param pos
-     * Starting location to look for a biome to find.
+     * 开始查找生物群系的位置。
      * @param biomeToFind
-     * Identifier of the biome to look for.
+     * 要查找的生物群系标识符。
      * @param options
-     * Additional selection criteria for a biome search.
+     * 生物群系搜索的附加选择条件。
      * @returns
-     * Returns a location of the biome, or undefined if a biome
-     * could not be found.
-     * @throws This function can throw errors.
+     * 返回生物群系的位置，如果找不到生物群系则返回 undefined。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -132,21 +121,16 @@ export class Dimension {
     findClosestBiome(pos: Vector3, biomeToFind: BiomeType | string, options?: BiomeSearchOptions): Vector3 | undefined;
     /**
      * @remarks
-     * Returns a block instance at the given location.
+     * 返回给定位置的方块实例。
      *
      * @param location
-     * The location at which to return a block.
+     * 要返回方块的位置。
      * @returns
-     * Block at the specified location, or 'undefined' if asking
-     * for a block at an unloaded chunk.
+     * 指定位置的方块，如果请求未加载区块中的方块则返回 'undefined'。
      * @throws
-     * PositionInUnloadedChunkError: Exception thrown when trying
-     * to interact with a Block object that isn't in a loaded and
-     * ticking chunk anymore
+     * PositionInUnloadedChunkError: 当尝试与不再加载和运行的区块中的方块对象交互时抛出的异常
      *
-     * PositionOutOfWorldBoundariesError: Exception thrown when
-     * trying to interact with a position outside of dimension
-     * height range
+     * PositionOutOfWorldBoundariesError: 当尝试与维度高度范围外的位置交互时抛出的异常
      *
      *
      * {@link LocationInUnloadedChunkError}
@@ -156,67 +140,61 @@ export class Dimension {
     getBlock(location: Vector3): Block | undefined;
     /**
      * @remarks
-     * Gets the first block found above a given block location
-     * based on the given options (by default will find the first
-     * solid block above).
+     * 基于给定选项获取给定方块位置上方的第一个方块
+     *（默认情况下将找到上方第一个固体方块）。
      *
      * @worldMutation
      *
      * @param location
-     * Location to retrieve the block above from.
+     * 要从中检索上方方块的位置。
      * @param options
-     * The options to decide if a block is a valid result.
-     * @throws This function can throw errors.
+     * 决定方块是否为有效结果的选项。
+     * @throws 此函数可能抛出错误。
      */
     getBlockAbove(location: Vector3, options?: BlockRaycastOptions): Block | undefined;
     /**
      * @remarks
-     * Gets the first block found below a given block location
-     * based on the given options (by default will find the first
-     * solid block below).
+     * 基于给定选项获取给定方块位置下方的第一个方块
+     *（默认情况下将找到下方第一个固体方块）。
      *
      * @worldMutation
      *
      * @param location
-     * Location to retrieve the block below from.
+     * 要从中检索下方方块的位置。
      * @param options
-     * The options to decide if a block is a valid result.
-     * @throws This function can throw errors.
+     * 决定方块是否为有效结果的选项。
+     * @throws 此函数可能抛出错误。
      */
     getBlockBelow(location: Vector3, options?: BlockRaycastOptions): Block | undefined;
     /**
      * @remarks
-     * Gets the first block that intersects with a vector emanating
-     * from a location.
+     * 获取与从位置发出的向量相交的第一个方块。
      *
      * @param location
-     * Location from where to initiate the ray check.
+     * 发起射线检查的位置。
      * @param direction
-     * Vector direction to cast the ray.
+     * 投射射线的向量方向。
      * @param options
-     * Additional options for processing this raycast query.
-     * @throws This function can throw errors.
+     * 处理此射线投射查询的附加选项。
+     * @throws 此函数可能抛出错误。
      */
     getBlockFromRay(location: Vector3, direction: Vector3, options?: BlockRaycastOptions): BlockRaycastHit | undefined;
     /**
      * @remarks
-     * Gets all the blocks in a volume that satisfy the filter.
+     * 获取满足过滤器的体积中的所有方块。
      *
      * @param volume
-     * Volume of blocks that will be checked.
+     * 将被检查的方块体积。
      * @param filter
-     * Block filter that will be checked against each block in the
-     * volume.
+     * 将针对体积中的每个方块进行检查的方块过滤器。
      * @param allowUnloadedChunks
-     * If set to true will suppress the UnloadedChunksError if some
-     * or all of the block volume is outside of the loaded chunks.
-     * Will only check the block locations that are within the
-     * loaded chunks in the volume.
-     * Defaults to: false
+     * 如果设置为 true，当部分或全部方块体积在未加载的区块中时，
+     * 将抑制 UnloadedChunksError。
+     * 将只检查体积中已加载区块内的方块位置。
+     * 默认值: false
      * @returns
-     * Returns the ListBlockVolume that contains all the block
-     * locations that satisfied the block filter.
-     * @throws This function can throw errors.
+     * 返回包含所有满足方块过滤器的方块位置的 ListBlockVolume。
+     * @throws 此函数可能抛出错误。
      *
      * {@link Error}
      *
@@ -225,15 +203,13 @@ export class Dimension {
     getBlocks(volume: BlockVolumeBase, filter: BlockFilter, allowUnloadedChunks?: boolean): ListBlockVolume;
     /**
      * @remarks
-     * Returns a set of entities based on a set of conditions
-     * defined via the EntityQueryOptions set of filter criteria.
+     * 根据 EntityQueryOptions 过滤条件集合定义的一组条件返回一组实体。
      *
      * @param options
-     * Additional options that can be used to filter the set of
-     * entities returned.
+     * 可用于过滤返回实体集合的附加选项。
      * @returns
-     * An entity array.
-     * @throws This function can throw errors.
+     * 实体数组。
+     * @throws 此函数可能抛出错误。
      *
      * {@link CommandError}
      *
@@ -245,22 +221,21 @@ export class Dimension {
     getEntities(options?: EntityQueryOptions): Entity[];
     /**
      * @remarks
-     * Returns a set of entities at a particular location.
+     * 返回特定位置的一组实体。
      *
      * @param location
-     * The location at which to return entities.
+     * 要返回实体的位置。
      * @returns
-     * Zero or more entities at the specified location.
+     * 指定位置的零个或多个实体。
      */
     getEntitiesAtBlockLocation(location: Vector3): Entity[];
     /**
      * @remarks
-     * Gets entities that intersect with a specified vector
-     * emanating from a location.
+     * 获取与从位置发出的指定向量相交的实体。
      *
      * @param options
-     * Additional options for processing this raycast query.
-     * @throws This function can throw errors.
+     * 处理此射线投射查询的附加选项。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.EngineError}
      *
@@ -274,16 +249,15 @@ export class Dimension {
     /**
      * @beta
      * @remarks
-     * Returns the total brightness level of light shining on a
-     * certain block position.
+     * 返回照射在某个方块位置上的光的总亮度等级。
      *
      * @worldMutation
      *
      * @param location
-     * Location of the block we want to check the brightness of.
+     * 我们要检查亮度的方块位置。
      * @returns
-     * The brightness level on the block.
-     * @throws This function can throw errors.
+     * 方块上的亮度等级。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -292,15 +266,13 @@ export class Dimension {
     getLightLevel(location: Vector3): number;
     /**
      * @remarks
-     * Returns a set of players based on a set of conditions
-     * defined via the EntityQueryOptions set of filter criteria.
+     * 根据 EntityQueryOptions 过滤条件集合定义的一组条件返回一组玩家。
      *
      * @param options
-     * Additional options that can be used to filter the set of
-     * players returned.
+     * 可用于过滤返回玩家集合的附加选项。
      * @returns
-     * A player array.
-     * @throws This function can throw errors.
+     * 玩家数组。
+     * @throws 此函数可能抛出错误。
      *
      * {@link CommandError}
      *
@@ -310,16 +282,15 @@ export class Dimension {
     /**
      * @beta
      * @remarks
-     * Returns the brightness level of light shining from the sky
-     * on a certain block position.
+     * 返回从天空照射在某个方块位置上的光的亮度等级。
      *
      * @worldMutation
      *
      * @param location
-     * Position of the block we want to check the brightness of.
+     * 我们要检查亮度的方块位置。
      * @returns
-     * The brightness level on the block.
-     * @throws This function can throw errors.
+     * 方块上的亮度等级。
+     * @throws 此函数可能抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -328,52 +299,46 @@ export class Dimension {
     getSkyLightLevel(location: Vector3): number;
     /**
      * @remarks
-     * Returns the highest block at the given XZ location.
+     * 返回给定 XZ 位置的最高方块。
      *
      * @worldMutation
      *
      * @param locationXZ
-     * Location to retrieve the topmost block for.
+     * 要检索最高方块的位置。
      * @param minHeight
-     * The Y height to begin the search from. Defaults to the
-     * maximum dimension height.
-     * @throws This function can throw errors.
+     * 开始搜索的 Y 高度。默认为最大维度高度。
+     * @throws 此函数可能抛出错误。
      */
     getTopmostBlock(locationXZ: VectorXZ, minHeight?: number): Block | undefined;
     /**
      * @beta
      * @remarks
-     * Returns the current weather.
+     * 返回当前天气。
      *
      * @worldMutation
      *
      * @returns
-     * Returns a WeatherType that explains the broad category of
-     * weather that is currently going on.
+     * 返回解释当前正在进行的天气大类别的 WeatherType。
      */
     getWeather(): WeatherType;
     /**
      * @remarks
-     * Places the given feature into the dimension at the specified
-     * location.
+     * 将给定的特征放置到维度中指定的位置。
      *
      * @worldMutation
      *
      * @param featureName
-     * The string identifier for the feature.
+     * 特征的字符串标识符。
      * @param location
-     * Location to place the feature.
+     * 放置特征的位置。
      * @param shouldThrow
-     * Specifies if the function call will throw an error if the
-     * feature could not be placed.
-     * Note: The function call will always throw an error if using
-     * an unknown feature name or trying to place in a unloaded
-     * chunk.
-     * Defaults to: false
+     * 指定如果无法放置特征，函数调用是否会抛出错误。
+     * 注意：如果使用未知的特征名称或尝试在未加载的区块中放置，
+     * 函数调用将始终抛出错误。
+     * 默认值: false
      * @throws
-     * An error will be thrown if the feature name is invalid.
-     * An error will be thrown if the location is in an unloaded
-     * chunk.
+     * 如果特征名称无效将抛出错误。
+     * 如果位置在未加载的区块中将抛出错误。
      *
      * {@link Error}
      *
@@ -384,19 +349,17 @@ export class Dimension {
     placeFeature(featureName: string, location: Vector3, shouldThrow?: boolean): boolean;
     /**
      * @remarks
-     * Places the given feature rule into the dimension at the
-     * specified location.
+     * 将给定的特征规则放置到维度中指定的位置。
      *
      * @worldMutation
      *
      * @param featureRuleName
-     * The string identifier for the feature rule.
+     * 特征规则的字符串标识符。
      * @param location
-     * Location to place the feature rule.
+     * 放置特征规则的位置。
      * @throws
-     * An error will be thrown if the feature rule name is invalid.
-     * An error will be thrown if the location is in an unloaded
-     * chunk.
+     * 如果特征规则名称无效将抛出错误。
+     * 如果位置在未加载的区块中将抛出错误。
      *
      * {@link minecraftcommon.InvalidArgumentError}
      *
@@ -405,63 +368,57 @@ export class Dimension {
     placeFeatureRule(featureRuleName: string, location: Vector3): boolean;
     /**
      * @remarks
-     * Plays a sound for all players.
+     * 为所有玩家播放声音。
      *
      * @worldMutation
      *
      * @param soundId
-     * Identifier of the sound.
+     * 声音的标识符。
      * @param location
-     * Location of the sound.
+     * 声音的位置。
      * @param soundOptions
-     * Additional options for configuring additional effects for
-     * the sound.
+     * 用于配置声音附加效果的附加选项。
      * @throws
-     * An error will be thrown if volume is less than 0.0.
-     * An error will be thrown if fade is less than 0.0.
-     * An error will be thrown if pitch is less than 0.01.
-     * An error will be thrown if volume is less than 0.0.
+     * 如果音量小于 0.0 将抛出错误。
+     * 如果淡出时间小于 0.0 将抛出错误。
+     * 如果音调小于 0.01 将抛出错误。
+     * 如果音量小于 0.0 将抛出错误。
      *
      * {@link minecraftcommon.PropertyOutOfBoundsError}
      */
     playSound(soundId: string, location: Vector3, soundOptions?: WorldSoundOptions): void;
     /**
      * @remarks
-     * Runs a command synchronously using the context of the
-     * broader dimenion.
+     * 使用更广泛维度的上下文同步运行命令。
      *
      * @worldMutation
      *
      * @param commandString
-     * Command to run. Note that command strings should not start
-     * with slash.
+     * 要运行的命令。注意命令字符串不应以斜杠开头。
      * @returns
-     * Returns a command result with a count of successful values
-     * from the command.
+     * 返回带有命令成功值计数的命令结果。
      * @throws
-     * Throws an exception if the command fails due to incorrect
-     * parameters or command syntax, or in erroneous cases for the
-     * command. Note that in many cases, if the command does not
-     * operate (e.g., a target selector found no matches), this
-     * method will not throw an exception.
+     * 如果命令由于参数不正确或命令语法错误而失败，
+     * 或者在命令的错误情况下将抛出异常。
+     * 注意，在许多情况下，如果命令未执行（例如，目标选择器未找到匹配项），
+     * 此方法不会抛出异常。
      *
      * {@link CommandError}
      */
     runCommand(commandString: string): CommandResult;
     /**
      * @remarks
-     * Sets a block in the world using a BlockPermutation.
-     * BlockPermutations are blocks with a particular state.
+     * 使用 BlockPermutation 在世界中设置方块。
+     * BlockPermutations 是具有特定状态的方块。
      *
      * @worldMutation
      *
      * @param location
-     * The location within the dimension to set the block.
+     * 维度内设置方块的位置。
      * @param permutation
-     * The block permutation to set.
+     * 要设置的方块排列。
      * @throws
-     * Throws if the location is within an unloaded chunk or
-     * outside of the world bounds.
+     * 如果位置在未加载的区块中或超出世界边界则抛出异常。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -470,19 +427,17 @@ export class Dimension {
     setBlockPermutation(location: Vector3, permutation: BlockPermutation): void;
     /**
      * @remarks
-     * Sets a block at a given location within the dimension.
+     * 在维度内的给定位置设置方块。
      *
      * @worldMutation
      *
      * @param location
-     * The location within the dimension to set the block.
+     * 维度内设置方块的位置。
      * @param blockType
-     * The type of block to set. This can be either a string
-     * identifier or a BlockType. The default block permutation is
-     * used.
+     * 要设置的方块类型。这可以是字符串标识符或 BlockType。
+     * 使用默认的方块排列。
      * @throws
-     * Throws if the location is within an unloaded chunk or
-     * outside of the world bounds.
+     * 如果位置在未加载的区块中或超出世界边界则抛出异常。
      *
      * {@link Error}
      *
@@ -493,34 +448,31 @@ export class Dimension {
     setBlockType(location: Vector3, blockType: BlockType | string): void;
     /**
      * @remarks
-     * Sets the current weather within the dimension
+     * 设置维度内的当前天气
      *
      * @worldMutation
      *
      * @param weatherType
-     * Set the type of weather to apply.
+     * 设置要应用的天气类型。
      * @param duration
-     * Sets the duration of the weather (in ticks). If no duration
-     * is provided, the duration will be set to a random duration
-     * between 300 and 900 seconds.
-     * @throws This function can throw errors.
+     * 设置天气的持续时间（以刻为单位）。
+     * 如果未提供持续时间，将持续时间设置为 300 到 900 秒之间的随机持续时间。
+     * @throws 此函数可能抛出错误。
      */
     setWeather(weatherType: WeatherType, duration?: number): void;
     /**
      * @remarks
-     * Creates a new entity (e.g., a mob) at the specified
-     * location.
+     * 在指定位置创建一个新实体（例如，生物）。
      *
      * @worldMutation
      *
      * @param identifier
-     * Identifier of the type of entity to spawn. If no namespace
-     * is specified, 'minecraft:' is assumed.
+     * 要生成的实体类型标识符。如果未指定命名空间，则假定为 'minecraft:'。
      * @param location
-     * The location at which to create the entity.
+     * 创建实体的位置。
      * @returns
-     * Newly created entity at the specified location.
-     * @throws This function can throw errors.
+     * 在指定位置新创建的实体。
+     * @throws 此函数可能抛出错误。
      *
      * {@link EntitySpawnError}
      *
@@ -542,16 +494,15 @@ export class Dimension {
     ): Entity;
     /**
      * @remarks
-     * Creates a new item stack as an entity at the specified
-     * location.
+     * 在指定位置将新物品堆作为实体创建。
      *
      * @worldMutation
      *
      * @param location
-     * The location at which to create the item stack.
+     * 创建物品堆的位置。
      * @returns
-     * Newly created item stack entity at the specified location.
-     * @throws This function can throw errors.
+     * 在指定位置新创建的物品堆实体。
+     * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -562,19 +513,17 @@ export class Dimension {
     spawnItem(itemStack: ItemStack, location: Vector3): Entity;
     /**
      * @remarks
-     * Creates a new particle emitter at a specified location in
-     * the world.
+     * 在世界中的指定位置创建一个新的粒子发射器。
      *
      * @worldMutation
      *
      * @param effectName
-     * Identifier of the particle to create.
+     * 要创建的粒子的标识符。
      * @param location
-     * The location at which to create the particle emitter.
+     * 创建粒子发射器的位置。
      * @param molangVariables
-     * A set of optional, customizable variables that can be
-     * adjusted for this particle.
-     * @throws This function can throw errors.
+     * 一组可选的、可自定义的变量，可以为此粒子进行调整。
+     * @throws 此函数可能抛出错误。
      *
      * {@link LocationInUnloadedChunkError}
      *
@@ -585,7 +534,7 @@ export class Dimension {
     /**
      * @beta
      * @remarks
-     * Stops all sounds from playing for all players.
+     * 停止为所有玩家播放所有声音。
      *
      * @worldMutation
      *
@@ -594,12 +543,12 @@ export class Dimension {
     /**
      * @beta
      * @remarks
-     * Stops a sound from playing for all players.
+     * 停止为所有玩家播放声音。
      *
      * @worldMutation
      *
      * @param soundId
-     * Identifier of the sound.
+     * 声音的标识符。
      */
     stopSound(soundId: string): void;
 }

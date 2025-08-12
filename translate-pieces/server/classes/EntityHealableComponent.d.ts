@@ -1,27 +1,26 @@
 /* IMPORT */ import { EntityComponent, FeedItem } from '../index';
 
 /**
- * Defines the interactions with this entity for healing it.
+ * 定义与此实体交互以治疗它的行为。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityHealableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Determines if an item can be used regardless of the entity
-     * being at full health.
+     * 确定是否可以使用物品，而不管实体是否处于满血状态。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly forceUse: boolean;
     static readonly componentId = 'minecraft:healable';
     /**
      * @remarks
-     * A set of items that can specifically heal this entity.
+     * 一组可以专门治疗此实体的物品。
      *
      * @returns
-     * Entity that this component is associated with.
-     * @throws This function can throw errors.
+     * 与此组件关联的实体。
+     * @throws 此函数可能抛出错误。
      */
     getFeedItems(): FeedItem[];
 }

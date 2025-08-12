@@ -1,16 +1,13 @@
 /* IMPORT */ import { ChatSendAfterEvent } from '../index';
 
 /**
- * @beta
- * Manages callbacks that are connected to chat messages being
- * sent.
+ * 管理与聊天消息广播或发送给玩家相关的回调。
  */
 export class ChatSendAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when new chat messages
-     * are sent.
+     * 添加一个回调，当聊天消息广播或发送给玩家后将被调用。
      *
      * @worldMutation
      *
@@ -20,8 +17,7 @@ export class ChatSendAfterEventSignal {
     subscribe(callback: (arg0: ChatSendAfterEvent) => void): (arg0: ChatSendAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when new chat messages
-     * are sent.
+     * 从聊天消息广播或发送给玩家的回调中移除一个回调。
      *
      * @worldMutation
      *

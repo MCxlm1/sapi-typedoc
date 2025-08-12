@@ -1,28 +1,25 @@
 /* IMPORT */ import { ItemStack, Player } from '../index';
 
 /**
- * Contains information related to a chargeable item when the
- * player has finished using the item and released the build
- * action.
+ * 包含可充能物品的相关信息，当玩家使用完该物品并释放构建动作时触发。
  */
 export class ItemReleaseUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Returns the item stack that triggered this item event.
+     * 返回触发此物品事件的物品堆。
      *
      */
     readonly itemStack?: ItemStack;
     /**
      * @remarks
-     * Returns the source entity that triggered this item event.
+     * 返回触发此物品事件的源实体。
      *
      */
     readonly source: Player;
     /**
      * @remarks
-     * Returns the time, in ticks, for the remaining duration left
-     * before the charge completes its cycle.
+     * 返回充能完成其循环前剩余持续时间的刻数。
      *
      */
     readonly useDuration: number;

@@ -1,15 +1,13 @@
 /* IMPORT */ import { ExplosionAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to when an explosion
- * occurs.
+ * 管理与爆炸发生相关的回调。
  */
 export class ExplosionAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when an explosion
-     * occurs.
+     * 添加一个回调，当爆炸发生后将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class ExplosionAfterEventSignal {
     subscribe(callback: (arg0: ExplosionAfterEvent) => void): (arg0: ExplosionAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when an explosion
-     * occurs.
+     * 从爆炸发生的回调中移除一个回调。
      *
      * @worldMutation
      *

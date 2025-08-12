@@ -1,7 +1,7 @@
 /* IMPORT */ import { EntityAttributeComponent } from '../index';
 
 /**
- * Defines the health properties of an entity.
+ * 定义实体的健康属性。
  * @seeExample applyDamageThenHeal.ts
  */
 // @ts-ignore Class inheritance allowed for native defined classes

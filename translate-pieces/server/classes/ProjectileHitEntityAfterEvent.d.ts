@@ -1,45 +1,43 @@
 /* IMPORT */ import { Dimension, Entity, EntityHitInformation, Vector3 } from '../index';
 
 /**
- * Contains information related to a projectile hitting an
- * entity.
+ * 包含抛射物击中实体的相关信息。
  */
 export class ProjectileHitEntityAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Dimension where this projectile hit took place.
+     * 发生抛射物击中的维度。
      *
      */
     readonly dimension: Dimension;
     /**
      * @remarks
-     * Direction vector of the projectile as it hit an entity.
+     * 抛射物击中实体时的方向向量。
      *
      */
     readonly hitVector: Vector3;
     /**
      * @remarks
-     * Location where the projectile hit occurred.
+     * 抛射物击中发生的位置。
      *
      */
     readonly location: Vector3;
     /**
      * @remarks
-     * Entity for the projectile that hit an entity.
+     * 击中实体的抛射物实体。
      *
      */
     readonly projectile: Entity;
     /**
      * @remarks
-     * Optional source entity that fired the projectile.
+     * 发射抛射物的可选源实体。
      *
      */
     readonly source?: Entity;
     /**
      * @remarks
-     * Contains additional information about an entity that was
-     * hit.
+     * 包含有关被击中实体的附加信息。
      *
      * @worldMutation
      *

@@ -1,23 +1,23 @@
 /* IMPORT */ import { PistonActivateAfterEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to piston activations.
+ * 管理与活塞激活相关的回调。
  */
 export class PistonActivateAfterEventSignal {
     private constructor();
     /**
      * @remarks
+     * 添加一个回调，当活塞伸出或缩回时将被调用。
+     *
      * @worldMutation
      *
      * @earlyExecution
      *
-     * @seeExample pistonAfterEvent.ts
      */
     subscribe(callback: (arg0: PistonActivateAfterEvent) => void): (arg0: PistonActivateAfterEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when a piston expands
-     * or retracts.
+     * 从活塞激活的回调中移除一个回调。
      *
      * @worldMutation
      *

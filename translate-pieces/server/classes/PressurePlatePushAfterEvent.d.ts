@@ -1,29 +1,26 @@
 /* IMPORT */ import { BlockEvent, Entity } from '../index';
 
 /**
- * Contains information related to changes to a pressure plate
- * push.
+ * 包含压力板被按下变化的相关信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class PressurePlatePushAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * The redstone power of the pressure plate before it was
-     * pushed.
+     * 压力板被按下前的红石能量。
      *
      */
     readonly previousRedstonePower: number;
     /**
      * @remarks
-     * The redstone power of the pressure plate at the time of the
-     * push.
+     * 压力板被按下时的红石能量。
      *
      */
     readonly redstonePower: number;
     /**
      * @remarks
-     * Source that triggered the pressure plate push.
+     * 触发压力板被按下的源实体。
      *
      */
     readonly source: Entity;

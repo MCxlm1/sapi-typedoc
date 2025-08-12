@@ -1,16 +1,14 @@
 /* IMPORT */ import { BlockExplodeAfterEventSignal, ButtonPushAfterEventSignal, ChatSendAfterEventSignal, DataDrivenEntityTriggerAfterEventSignal, EffectAddAfterEventSignal, EntityDieAfterEventSignal, EntityHealthChangedAfterEventSignal, EntityHitBlockAfterEventSignal, EntityHitEntityAfterEventSignal, EntityHurtAfterEventSignal, EntityLoadAfterEventSignal, EntityRemoveAfterEventSignal, EntitySpawnAfterEventSignal, ExplosionAfterEventSignal, GameRuleChangeAfterEventSignal, InputButton, InputMode, ItemCompleteUseAfterEventSignal, ItemReleaseUseAfterEventSignal, ItemStartUseAfterEventSignal, ItemStartUseOnAfterEventSignal, ItemStopUseAfterEventSignal, ItemStopUseOnAfterEventSignal, ItemUseAfterEventSignal, LeverActionAfterEventSignal, PackSettingChangeAfterEventSignal, PistonActivateAfterEventSignal, PlayerBreakBlockAfterEventSignal, PlayerButtonInputAfterEventSignal, PlayerDimensionChangeAfterEventSignal, PlayerEmoteAfterEventSignal, PlayerGameModeChangeAfterEventSignal, PlayerHotbarSelectedSlotChangeAfterEventSignal, PlayerInputModeChangeAfterEventSignal, PlayerInputPermissionCategoryChangeAfterEventSignal, PlayerInteractWithBlockAfterEventSignal, PlayerInteractWithEntityAfterEventSignal, PlayerInventoryItemChangeAfterEventSignal, PlayerJoinAfterEventSignal, PlayerLeaveAfterEventSignal, PlayerPlaceBlockAfterEventSignal, PlayerSpawnAfterEventSignal, PressurePlatePopAfterEventSignal, PressurePlatePushAfterEventSignal, ProjectileHitBlockAfterEventSignal, ProjectileHitEntityAfterEventSignal, ServerMessageAfterEventSignal, TargetBlockHitAfterEventSignal, TripWireTripAfterEventSignal, WeatherChangeAfterEventSignal, WorldLoadAfterEventSignal } from '../index';
 
 /**
- * Contains a set of events that are available across the scope
- * of the World.
+ * 包含在世界范围内可用的一组事件。
  */
 export class WorldAfterEvents {
     private constructor();
     /**
      * @remarks
-     * This event fires for each BlockLocation destroyed by an
-     * explosion. It is fired after the blocks have already been
-     * destroyed.
+     * 每个被爆炸破坏的方块位置都会触发此事件。
+     * 方块被破坏后触发此事件。
      *
      * @earlyExecution
      *
@@ -18,7 +16,7 @@ export class WorldAfterEvents {
     readonly blockExplode: BlockExplodeAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a button is pushed.
+     * 当按钮被按下时触发此事件。
      *
      * @earlyExecution
      *
@@ -27,8 +25,7 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * This event is triggered after a chat message has been
-     * broadcast or sent to players.
+     * 在广播或发送聊天消息给玩家后触发此事件。
      *
      * @earlyExecution
      *
@@ -36,9 +33,7 @@ export class WorldAfterEvents {
     readonly chatSend: ChatSendAfterEventSignal;
     /**
      * @remarks
-     * This event is fired when an entity event has been triggered
-     * that will update the component definition state of an
-     * entity.
+     * 当触发将更新实体组件定义状态的实体事件时触发此事件。
      *
      * @earlyExecution
      *
@@ -46,8 +41,7 @@ export class WorldAfterEvents {
     readonly dataDrivenEntityTrigger: DataDrivenEntityTriggerAfterEventSignal;
     /**
      * @remarks
-     * This event fires when an effect, like poisoning, is added to
-     * an entity.
+     * 当向实体添加效果（如中毒）时触发此事件。
      *
      * @earlyExecution
      *
@@ -55,7 +49,7 @@ export class WorldAfterEvents {
     readonly effectAdd: EffectAddAfterEventSignal;
     /**
      * @remarks
-     * This event fires when an entity dies.
+     * 当实体死亡时触发此事件。
      *
      * @earlyExecution
      *
@@ -63,7 +57,7 @@ export class WorldAfterEvents {
     readonly entityDie: EntityDieAfterEventSignal;
     /**
      * @remarks
-     * This event fires when entity health changes in any degree.
+     * 当实体生命值以任何程度发生变化时触发此事件。
      *
      * @earlyExecution
      *
@@ -71,8 +65,7 @@ export class WorldAfterEvents {
     readonly entityHealthChanged: EntityHealthChangedAfterEventSignal;
     /**
      * @remarks
-     * This event fires when an entity hits (that is, melee
-     * attacks) a block.
+     * 当实体击中（即近战攻击）方块时触发此事件。
      *
      * @earlyExecution
      *
@@ -80,8 +73,7 @@ export class WorldAfterEvents {
     readonly entityHitBlock: EntityHitBlockAfterEventSignal;
     /**
      * @remarks
-     * This event fires when an entity hits (that is, melee
-     * attacks) another entity.
+     * 当实体击中（即近战攻击）另一个实体时触发此事件。
      *
      * @earlyExecution
      *
@@ -89,7 +81,7 @@ export class WorldAfterEvents {
     readonly entityHitEntity: EntityHitEntityAfterEventSignal;
     /**
      * @remarks
-     * This event fires when an entity is hurt (takes damage).
+     * 当实体受伤（受到伤害）时触发此事件。
      *
      * @earlyExecution
      *
@@ -97,7 +89,7 @@ export class WorldAfterEvents {
     readonly entityHurt: EntityHurtAfterEventSignal;
     /**
      * @remarks
-     * Fires when an entity is loaded.
+     * 当实体加载时触发。
      *
      * @earlyExecution
      *
@@ -105,8 +97,7 @@ export class WorldAfterEvents {
     readonly entityLoad: EntityLoadAfterEventSignal;
     /**
      * @remarks
-     * Fires when an entity is removed (for example, potentially
-     * unloaded, or removed after being killed).
+     * 当实体被移除时触发（例如，可能未加载，或在被杀死后移除）。
      *
      * @earlyExecution
      *
@@ -114,7 +105,7 @@ export class WorldAfterEvents {
     readonly entityRemove: EntityRemoveAfterEventSignal;
     /**
      * @remarks
-     * This event fires when an entity is spawned.
+     * 当实体生成时触发此事件。
      *
      * @earlyExecution
      *
@@ -122,7 +113,7 @@ export class WorldAfterEvents {
     readonly entitySpawn: EntitySpawnAfterEventSignal;
     /**
      * @remarks
-     * This event is fired after an explosion occurs.
+     * 爆炸发生后触发此事件。
      *
      * @earlyExecution
      *
@@ -130,8 +121,7 @@ export class WorldAfterEvents {
     readonly explosion: ExplosionAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a world.gameRules property has
-     * changed.
+     * 当 world.gameRules 属性发生变化时触发此事件。
      *
      * @earlyExecution
      *
@@ -139,7 +129,7 @@ export class WorldAfterEvents {
     readonly gameRuleChange: GameRuleChangeAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a chargeable item completes charging.
+     * 当可充能物品完成充能时触发此事件。
      *
      * @earlyExecution
      *
@@ -147,8 +137,7 @@ export class WorldAfterEvents {
     readonly itemCompleteUse: ItemCompleteUseAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a chargeable item is released from
-     * charging.
+     * 当可充能物品从充能中释放时触发此事件。
      *
      * @earlyExecution
      *
@@ -156,7 +145,7 @@ export class WorldAfterEvents {
     readonly itemReleaseUse: ItemReleaseUseAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a chargeable item starts charging.
+     * 当可充能物品开始充能时触发此事件。
      *
      * @earlyExecution
      *
@@ -164,11 +153,9 @@ export class WorldAfterEvents {
     readonly itemStartUse: ItemStartUseAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a player successfully uses an item or
-     * places a block by pressing the Use Item / Place Block
-     * button. If multiple blocks are placed, this event will only
-     * occur once at the beginning of the block placement. Note:
-     * This event cannot be used with Hoe or Axe items.
+     * 当玩家通过按下"使用物品/放置方块"按钮成功使用物品或放置方块时触发此事件。
+     * 如果放置了多个方块，则此事件只会在方块放置开始时发生一次。
+     * 注意：此事件不能与锄头或斧头物品一起使用。
      *
      * @earlyExecution
      *
@@ -176,7 +163,7 @@ export class WorldAfterEvents {
     readonly itemStartUseOn: ItemStartUseOnAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a chargeable item stops charging.
+     * 当可充能物品停止充能时触发此事件。
      *
      * @earlyExecution
      *
@@ -184,9 +171,8 @@ export class WorldAfterEvents {
     readonly itemStopUse: ItemStopUseAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a player releases the Use Item / Place
-     * Block button after successfully using an item. Note: This
-     * event cannot be used with Hoe or Axe items.
+     * 当玩家在成功使用物品后释放"使用物品/放置方块"按钮时触发此事件。
+     * 注意：此事件不能与锄头或斧头物品一起使用。
      *
      * @earlyExecution
      *
@@ -194,8 +180,7 @@ export class WorldAfterEvents {
     readonly itemStopUseOn: ItemStopUseOnAfterEventSignal;
     /**
      * @remarks
-     * This event fires when an item is successfully used by a
-     * player.
+     * 当玩家成功使用物品时触发此事件。
      *
      * @earlyExecution
      *
@@ -203,7 +188,7 @@ export class WorldAfterEvents {
     readonly itemUse: ItemUseAfterEventSignal;
     /**
      * @remarks
-     * A lever has been pulled.
+     * 拉动拉杆。
      *
      * @earlyExecution
      *
@@ -212,8 +197,7 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * This event is an internal implementation detail, and is
-     * otherwise not currently functional.
+     * 这是一个内部实现细节，目前没有功能。
      *
      * @earlyExecution
      *
@@ -222,7 +206,7 @@ export class WorldAfterEvents {
     /**
      * @beta
      * @remarks
-     * This event is triggered when a pack setting is changed.
+     * 当包设置更改时触发此事件。
      *
      * @earlyExecution
      *
@@ -230,7 +214,7 @@ export class WorldAfterEvents {
     readonly packSettingChange: PackSettingChangeAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a piston expands or retracts.
+     * 当活塞伸出或缩回时触发此事件。
      *
      * @earlyExecution
      *
@@ -238,7 +222,7 @@ export class WorldAfterEvents {
     readonly pistonActivate: PistonActivateAfterEventSignal;
     /**
      * @remarks
-     * This event fires for a block that is broken by a player.
+     * 当玩家破坏方块时触发此事件。
      *
      * @earlyExecution
      *
@@ -246,8 +230,7 @@ export class WorldAfterEvents {
     readonly playerBreakBlock: PlayerBreakBlockAfterEventSignal;
     /**
      * @remarks
-     * This event fires when an {@link InputButton} state is
-     * changed.
+     * 当 {@link InputButton} 状态改变时触发此事件。
      *
      * @earlyExecution
      *
@@ -255,7 +238,7 @@ export class WorldAfterEvents {
     readonly playerButtonInput: PlayerButtonInputAfterEventSignal;
     /**
      * @remarks
-     * Fires when a player moved to a different dimension.
+     * 当玩家移动到不同维度时触发。
      *
      * @earlyExecution
      *
@@ -275,7 +258,7 @@ export class WorldAfterEvents {
     readonly playerGameModeChange: PlayerGameModeChangeAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a player's selected slot changes.
+     * 当玩家选择的槽位改变时触发此事件。
      *
      * @earlyExecution
      *
@@ -283,7 +266,7 @@ export class WorldAfterEvents {
     readonly playerHotbarSelectedSlotChange: PlayerHotbarSelectedSlotChangeAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a player's {@link InputMode} changes.
+     * 当玩家的 {@link InputMode} 改变时触发此事件。
      *
      * @earlyExecution
      *
@@ -291,7 +274,7 @@ export class WorldAfterEvents {
     readonly playerInputModeChange: PlayerInputModeChangeAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a players input permissions change.
+     * 当玩家输入权限更改时触发此事件。
      *
      * @earlyExecution
      *
@@ -299,7 +282,7 @@ export class WorldAfterEvents {
     readonly playerInputPermissionCategoryChange: PlayerInputPermissionCategoryChangeAfterEventSignal;
     /**
      * @remarks
-     * An event for when a player interacts with a block.
+     * 玩家与方块交互的事件。
      *
      * @earlyExecution
      *
@@ -307,7 +290,7 @@ export class WorldAfterEvents {
     readonly playerInteractWithBlock: PlayerInteractWithBlockAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a player interacts with an entity.
+     * 当玩家与实体交互时触发此事件。
      *
      * @earlyExecution
      *
@@ -315,8 +298,7 @@ export class WorldAfterEvents {
     readonly playerInteractWithEntity: PlayerInteractWithEntityAfterEventSignal;
     /**
      * @remarks
-     * This event fires when an item gets added or removed to the
-     * player's inventory.
+     * 当物品被添加或从玩家库存中移除时触发此事件。
      *
      * @earlyExecution
      *
@@ -324,9 +306,8 @@ export class WorldAfterEvents {
     readonly playerInventoryItemChange: PlayerInventoryItemChangeAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a player joins a world.  See also
-     * playerSpawn for another related event you can trap for when
-     * a player is spawned the first time within a world.
+     * 当玩家加入世界时触发此事件。
+     * 另请参阅 playerSpawn 事件，您可以在玩家首次在世界中生成时捕获另一个相关事件。
      *
      * @earlyExecution
      *
@@ -334,7 +315,7 @@ export class WorldAfterEvents {
     readonly playerJoin: PlayerJoinAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a player leaves a world.
+     * 当玩家离开世界时触发此事件。
      *
      * @earlyExecution
      *
@@ -342,7 +323,7 @@ export class WorldAfterEvents {
     readonly playerLeave: PlayerLeaveAfterEventSignal;
     /**
      * @remarks
-     * This event fires for a block that is placed by a player.
+     * 当玩家放置方块时触发此事件。
      *
      * @earlyExecution
      *
@@ -350,9 +331,8 @@ export class WorldAfterEvents {
     readonly playerPlaceBlock: PlayerPlaceBlockAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a player spawns or respawns. Note that
-     * an additional flag within this event will tell you whether
-     * the player is spawning right after join vs. a respawn.
+     * 当玩家生成或重生时触发此事件。
+     * 注意，此事件中的附加标志将告诉您玩家是刚加入后生成还是重生。
      *
      * @earlyExecution
      *
@@ -360,8 +340,7 @@ export class WorldAfterEvents {
     readonly playerSpawn: PlayerSpawnAfterEventSignal;
     /**
      * @remarks
-     * A pressure plate has popped back up (i.e., there are no
-     * entities on the pressure plate.)
+     * 压力板弹起（即，压力板上没有实体）。
      *
      * @earlyExecution
      *
@@ -369,8 +348,7 @@ export class WorldAfterEvents {
     readonly pressurePlatePop: PressurePlatePopAfterEventSignal;
     /**
      * @remarks
-     * A pressure plate has pushed (at least one entity has moved
-     * onto a pressure plate.)
+     * 压力板被按下（至少有一个实体移动到压力板上）。
      *
      * @earlyExecution
      *
@@ -378,7 +356,7 @@ export class WorldAfterEvents {
     readonly pressurePlatePush: PressurePlatePushAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a projectile hits a block.
+     * 当抛射物击中方块时触发此事件。
      *
      * @earlyExecution
      *
@@ -386,7 +364,7 @@ export class WorldAfterEvents {
     readonly projectileHitBlock: ProjectileHitBlockAfterEventSignal;
     /**
      * @remarks
-     * This event fires when a projectile hits an entity.
+     * 当抛射物击中实体时触发此事件。
      *
      * @earlyExecution
      *
@@ -394,7 +372,7 @@ export class WorldAfterEvents {
     readonly projectileHitEntity: ProjectileHitEntityAfterEventSignal;
     /**
      * @remarks
-     * A target block was hit.
+     * 目标方块被击中。
      *
      * @earlyExecution
      *
@@ -402,7 +380,7 @@ export class WorldAfterEvents {
     readonly targetBlockHit: TargetBlockHitAfterEventSignal;
     /**
      * @remarks
-     * A trip wire was tripped.
+     * 绊线被触发。
      *
      * @earlyExecution
      *
@@ -410,8 +388,7 @@ export class WorldAfterEvents {
     readonly tripWireTrip: TripWireTripAfterEventSignal;
     /**
      * @remarks
-     * This event will be triggered when the weather changes within
-     * Minecraft.
+     * 当 Minecraft 中的天气变化时将触发此事件。
      *
      * @earlyExecution
      *

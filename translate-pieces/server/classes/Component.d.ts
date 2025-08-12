@@ -1,20 +1,18 @@
 /**
- * Base class for downstream Component implementations.
+ * 下游组件实现的基类。
  */
 export class Component {
     private constructor();
     /**
      * @remarks
-     * Returns whether the component is valid. A component is
-     * considered valid if its owner is valid, in addition to any
-     * addition to any additional validation required by the
-     * component.
+     * 返回组件是否有效。如果其所有者有效，则组件被视为有效，
+     * 此外还包括组件所需的任何其他验证。
      *
      */
     readonly isValid: boolean;
     /**
      * @remarks
-     * Identifier of the component.
+     * 组件的标识符。
      *
      */
     readonly typeId: string;

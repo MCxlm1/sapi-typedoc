@@ -1,20 +1,17 @@
 /**
- * Contains information regarding a player that has joined.
- * See the playerSpawn event for more detailed information that
- * could be returned after the first time a player has spawned
- * within the game.
+ * 包含加入游戏的玩家相关信息。有关玩家首次在游戏内生成后可能返回的更详细信息，请参阅 playerSpawn 事件。
  */
 export class PlayerJoinAfterEvent {
     private constructor();
     /**
      * @remarks
-     * Opaque string identifier of the player that joined the game.
+     * 加入游戏的玩家的不透明字符串标识符。
      *
      */
     readonly playerId: string;
     /**
      * @remarks
-     * Name of the player that has joined.
+     * 加入游戏的玩家名称。
      *
      */
     readonly playerName: string;

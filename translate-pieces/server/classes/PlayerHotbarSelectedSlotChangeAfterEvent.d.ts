@@ -1,32 +1,31 @@
 /* IMPORT */ import { ItemStack, Player } from '../index';
 
 /**
- * Contains information regarding an event after changing the
- * selected hotbar slot for a player.
+ * 包含玩家更改选定快捷栏槽位后事件的相关信息。
  */
 export class PlayerHotbarSelectedSlotChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * The item stack of the new slot selected.
+     * 新选定槽位的物品堆。
      *
      */
     readonly itemStack?: ItemStack;
     /**
      * @remarks
-     * The new hotbar slot index selected.
+     * 新选定的快捷栏槽位索引。
      *
      */
     readonly newSlotSelected: number;
     /**
      * @remarks
-     * Source Player for this event.
+     * 此事件的源玩家。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * The previous hotbar slot index selected.
+     * 之前选定的快捷栏槽位索引。
      *
      */
     readonly previousSlotSelected: number;

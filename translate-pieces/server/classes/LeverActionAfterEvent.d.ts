@@ -1,23 +1,19 @@
-/* IMPORT */ import { BlockEvent, Player } from '../index';
+/* IMPORT */ import { Block, Player } from '../index';
 
 /**
- * Contains information related to changes to a lever
- * activating or deactivating.
- * @seeExample leverActionEvent.ts
+ * 包含拉杆操作事件的相关信息。
  */
-// @ts-ignore Class inheritance allowed for native defined classes
-export class LeverActionAfterEvent extends BlockEvent {
+export class LeverActionAfterEvent {
     private constructor();
     /**
      * @remarks
-     * True if the lever is activated (that is, transmitting
-     * power).
+     * 被操作的拉杆方块。
      *
      */
-    readonly isPowered: boolean;
+    readonly block: Block;
     /**
      * @remarks
-     * Optional player that triggered the lever activation.
+     * 操作拉杆的玩家。
      *
      */
     readonly player: Player;
