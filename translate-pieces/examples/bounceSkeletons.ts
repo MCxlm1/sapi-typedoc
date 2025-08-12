@@ -3,7 +3,7 @@ import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
 function bounceSkeletons(targetLocation: DimensionLocation) {
   const mobs = ["creeper", "skeleton", "sheep"];
 
-  // create some sample mob data
+  // 创建一些示例生物数据
   for (let i = 0; i < 10; i++) {
     targetLocation.dimension.spawnEntity(mobs[i % mobs.length], targetLocation);
   }

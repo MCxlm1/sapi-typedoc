@@ -9,7 +9,7 @@ function addTranslatedSign(log: (message: string, status?: number) => void, targ
   const signBlock = dim.getBlock(targetLocation);
 
   if (!signBlock) {
-    log("Could not find a block at specified location.");
+    log("无法在指定位置找到方块。");
     return -1;
   }
   const signPerm = BlockPermutation.resolve(MinecraftBlockTypes.StandingSign, { ground_sign_direction: 8 });

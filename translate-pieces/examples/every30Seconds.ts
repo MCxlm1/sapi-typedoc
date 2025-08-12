@@ -4,6 +4,6 @@ function every30Seconds(targetLocation: DimensionLocation) {
   const intervalRunIdentifier = Math.floor(Math.random() * 10000);
 
   system.runInterval(() => {
-    world.sendMessage("This is an interval run " + intervalRunIdentifier + " sending a message every 30 seconds.");
+    world.sendMessage("这是一个间隔运行 " + intervalRunIdentifier + " 每30秒发送一次消息。");
   }, 600);
 }

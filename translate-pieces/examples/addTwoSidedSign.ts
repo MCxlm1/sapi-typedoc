@@ -5,7 +5,7 @@ function addTwoSidedSign(log: (message: string, status?: number) => void, target
   const signBlock = targetLocation.dimension.getBlock(targetLocation);
 
   if (!signBlock) {
-    log("Could not find a block at specified location.");
+    log("无法在指定位置找到方块。");
     return -1;
   }
   const signPerm = BlockPermutation.resolve(MinecraftBlockTypes.StandingSign, { ground_sign_direction: 8 });
@@ -15,14 +15,14 @@ function addTwoSidedSign(log: (message: string, status?: number) => void, target
   const signComponent = signBlock.getComponent(BlockComponentTypes.Sign) as BlockSignComponent;
 
   if (signComponent) {
-    signComponent.setText(`Party Sign!\nThis is green on the front.`);
-    signComponent.setText(`Party Sign!\nThis is red on the back.`, SignSide.Back);
+    signComponent.setText(`派对告示牌！\n这是正面的绿色文字。`);
+    signComponent.setText(`派对告示牌！\n这是背面的红色文字。`, SignSide.Back);
     signComponent.setTextDyeColor(DyeColor.Green);
     signComponent.setTextDyeColor(DyeColor.Red, SignSide.Back);
 
-    // players cannot edit sign!
+    // 玩家无法编辑告示牌！
     signComponent.setWaxed(true);
   } else {
-    log("Could not find sign component.");
+    log("无法找到告示牌组件。");
   }
 }

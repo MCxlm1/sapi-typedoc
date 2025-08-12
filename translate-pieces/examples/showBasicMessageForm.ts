@@ -8,23 +8,23 @@ function showBasicMessageForm(
   const players = world.getPlayers();
 
   const messageForm = new MessageFormData()
-    .title("Message Form Example")
-    .body("This shows a simple example using §o§7MessageFormData§r.")
-    .button1("Button 1")
-    .button2("Button 2");
+    .title("消息表单示例")
+    .body("这展示了使用 §o§7MessageFormData§r 的简单示例。")
+    .button1("按钮 1")
+    .button2("按钮 2");
 
   messageForm
     .show(players[0])
     .then((formData: MessageFormResponse) => {
-      // player canceled the form, or another dialog was up and open.
+      // 玩家取消了表单，或另一个对话框正在打开。
       if (formData.canceled || formData.selection === undefined) {
         return;
       }
 
-      log(`You selected ${formData.selection === 0 ? "Button 1" : "Button 2"}`);
+      log(`你选择了 ${formData.selection === 0 ? "按钮 1" : "按钮 2"}`);
     })
     .catch((error: Error) => {
-      log("Failed to show form: " + error);
+      log("显示表单失败: " + error);
       return -1;
     });
 }

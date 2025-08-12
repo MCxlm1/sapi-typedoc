@@ -7,12 +7,12 @@ function applyDamageThenHeal(
 ) {
   const skelly = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Skeleton, targetLocation);
 
-  skelly.applyDamage(19); // skeletons have max damage of 20 so this is a near-death skeleton
+  skelly.applyDamage(19); // 骷髅的最大生命值是20，所以这将使骷髅接近死亡
 
   system.runTimeout(() => {
     const health = skelly.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
-    log("Skeleton health before heal: " + health?.currentValue);
+    log("治疗前骷髅的生命值: " + health?.currentValue);
     health?.resetToMaxValue();
-    log("Skeleton health after heal: " + health?.currentValue);
+    log("治疗后骷髅的生命值: " + health?.currentValue);
   }, 20);
 }

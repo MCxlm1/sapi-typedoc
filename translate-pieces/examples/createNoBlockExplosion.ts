@@ -7,6 +7,6 @@ function createNoBlockExplosion(
 ) {
   const explodeNoBlocksLoc = Vector3Utils.floor(Vector3Utils.add(targetLocation, { x: 1, y: 2, z: 1 }));
 
-  log("Creating an explosion of radius 15 that does not break blocks.");
+  log("创建半径为15且不破坏方块的爆炸。");
   targetLocation.dimension.createExplosion(explodeNoBlocksLoc, 15, { breaksBlocks: false });
 }

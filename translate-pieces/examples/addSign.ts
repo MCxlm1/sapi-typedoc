@@ -9,7 +9,7 @@ function addSign(log: (message: string, status?: number) => void, targetLocation
   const signBlock = dim.getBlock(targetLocation);
 
   if (!signBlock) {
-    log("Could not find a block at specified location.");
+    log("无法在指定位置找到方块。");
     return -1;
   }
   const signPerm = BlockPermutation.resolve(MinecraftBlockTypes.StandingSign, { ground_sign_direction: 8 });
@@ -18,5 +18,5 @@ function addSign(log: (message: string, status?: number) => void, targetLocation
 
   const signComponent = signBlock.getComponent(BlockComponentTypes.Sign) as BlockSignComponent;
 
-  signComponent?.setText(`Basic sign!\nThis is green on the front.`);
+  signComponent?.setText(`基础告示牌！\n这是正面的绿色文字。`);
 }

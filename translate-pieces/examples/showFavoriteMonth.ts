@@ -6,17 +6,17 @@ function showFavoriteMonth(log: (message: string, status?: number) => void, targ
 
   if (players.length >= 1) {
     const form = new ActionFormData()
-      .title("Months")
-      .body("Choose your favorite month!")
-      .button("January")
-      .button("February")
-      .button("March")
-      .button("April")
-      .button("May");
+      .title("月份")
+      .body("选择你最喜欢的月份！")
+      .button("一月")
+      .button("二月")
+      .button("三月")
+      .button("四月")
+      .button("五月");
 
     form.show(players[0]).then((response: ActionFormResponse) => {
       if (response.selection === 3) {
-        log("I like April too!");
+        log("我也喜欢四月！");
         return -1;
       }
     });

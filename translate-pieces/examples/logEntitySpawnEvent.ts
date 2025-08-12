@@ -5,12 +5,12 @@ function logEntitySpawnEvent(
   log: (message: string, status?: number) => void,
   targetLocation: DimensionLocation
 ) {
-  // register a new function that is called when a new entity is created.
+  // 注册一个新函数，当创建新实体时调用
   world.afterEvents.entitySpawn.subscribe((entityEvent: EntitySpawnAfterEvent) => {
     if (entityEvent && entityEvent.entity) {
-      log(`New entity of type ${entityEvent.entity.typeId} created!`, 1);
+      log(`创建了类型为 ${entityEvent.entity.typeId} 的新实体!`, 1);
     } else {
-      log(`The entity event did not work as expected.`, -1);
+      log(`实体事件未按预期工作。`, -1);
     }
   });
 

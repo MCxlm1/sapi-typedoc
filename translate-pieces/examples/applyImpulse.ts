@@ -6,6 +6,6 @@ function applyImpulse(targetLocation: DimensionLocation) {
 
   zombie.clearVelocity();
 
-  // throw the zombie up in the air
+  // 将僵尸抛向空中
   zombie.applyImpulse({ x: 0, y: 0.5, z: 0 });
 }

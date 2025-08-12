@@ -13,7 +13,7 @@ function getPlayerProfile(playerId: string): Promise<HttpResponse> {
     const authTokenSec = secrets.get('authtoken');
 
     if (!authTokenSec) {
-        throw new Error('authtoken secret not defined.');
+        throw new Error('未定义authtoken密钥。');
     }
 
     req.method = HttpRequestMethod.Post;

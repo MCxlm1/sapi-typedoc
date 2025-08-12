@@ -7,7 +7,7 @@ function incrementDynamicPropertyInJsonBlob(
   let paintStr = world.getDynamicProperty("samplelibrary:longerjson");
   let paint: { color: string; intensity: number } | undefined = undefined;
 
-  log("Current value is: " + paintStr);
+  log("当前值是: " + paintStr);
 
   if (paintStr === undefined) {
     paint = {
@@ -16,24 +16,24 @@ function incrementDynamicPropertyInJsonBlob(
     };
   } else {
     if (typeof paintStr !== "string") {
-      log("Paint is of an unexpected type.");
+      log("颜色是意外的类型。");
       return -1;
     }
 
     try {
       paint = JSON.parse(paintStr);
     } catch (e) {
-      log("Error parsing serialized struct.");
+      log("解析序列化结构时出错。");
       return -1;
     }
   }
 
   if (!paint) {
-    log("Error parsing serialized struct.");
+    log("解析序列化结构时出错。");
     return -1;
   }
 
   paint.intensity++;
-  paintStr = JSON.stringify(paint); // be very careful to ensure your serialized JSON str cannot exceed limits
+  paintStr = JSON.stringify(paint); // 务必小心确保序列化的JSON字符串不超过限制
   world.setDynamicProperty("samplelibrary:longerjson", paintStr);
 }

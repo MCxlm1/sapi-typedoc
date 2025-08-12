@@ -2,7 +2,7 @@ import { world, system, BlockPermutation, ButtonPushAfterEvent, DimensionLocatio
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 function buttonPushEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
-  // set up a button on cobblestone
+  // 在圆石上设置一个按钮
   const cobblestone = targetLocation.dimension.getBlock(targetLocation);
   const button = targetLocation.dimension.getBlock({
     x: targetLocation.x,
@@ -11,7 +11,7 @@ function buttonPushEvent(log: (message: string, status?: number) => void, target
   });
 
   if (cobblestone === undefined || button === undefined) {
-    log("Could not find block at location.");
+    log("无法在指定位置找到方块。");
     return -1;
   }
 
@@ -22,7 +22,7 @@ function buttonPushEvent(log: (message: string, status?: number) => void, target
     const eventLoc = buttonPushEvent.block.location;
 
     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y + 1 && eventLoc.z === targetLocation.z) {
-      log("Button push event at tick " + system.currentTick);
+      log("按钮按下事件发生在刻 " + system.currentTick);
     }
   });
 }

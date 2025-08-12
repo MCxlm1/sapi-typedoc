@@ -6,20 +6,20 @@ function showActionForm(log: (message: string, status?: number) => void, targetL
 
   if (playerList.length >= 1) {
     const form = new ActionFormData()
-      .title("Test Title")
-      .body("Body text here!")
-      .button("btn 1")
-      .button("btn 2")
-      .button("btn 3")
-      .button("btn 4")
-      .button("btn 5");
+      .title("测试标题")
+      .body("这里是正文！")
+      .button("按钮 1")
+      .button("按钮 2")
+      .button("按钮 3")
+      .button("按钮 4")
+      .button("按钮 5");
 
     form.show(playerList[0]).then((result: ActionFormResponse) => {
       if (result.canceled) {
-        log("Player exited out of the dialog. Note that if the chat window is up, dialogs are automatically canceled.");
+        log("玩家退出了对话框。请注意，如果聊天窗口打开，对话框会自动取消。");
         return -1;
       } else {
-        log("Your result was: " + result.selection);
+        log("你的结果是: " + result.selection);
       }
     });
   }

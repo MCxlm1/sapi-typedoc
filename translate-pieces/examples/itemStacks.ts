@@ -10,12 +10,12 @@ function itemStacks(log: (message: string, status?: number) => void, targetLocat
   const onePickaxe = new ItemStack(MinecraftItemTypes.DiamondPickaxe, 1);
   const fiveEmeralds = new ItemStack(MinecraftItemTypes.Emerald, 5);
 
-  log(`Spawning an emerald at (${oneItemLoc.x}, ${oneItemLoc.y}, ${oneItemLoc.z})`);
+  log(`在 (${oneItemLoc.x}, ${oneItemLoc.y}, ${oneItemLoc.z}) 生成一个绿宝石`);
   targetLocation.dimension.spawnItem(oneEmerald, oneItemLoc);
 
-  log(`Spawning five emeralds at (${fiveItemsLoc.x}, ${fiveItemsLoc.y}, ${fiveItemsLoc.z})`);
+  log(`在 (${fiveItemsLoc.x}, ${fiveItemsLoc.y}, ${fiveItemsLoc.z}) 生成五个绿宝石`);
   targetLocation.dimension.spawnItem(fiveEmeralds, fiveItemsLoc);
 
-  log(`Spawning a diamond pickaxe at (${diamondPickaxeLoc.x}, ${diamondPickaxeLoc.y}, ${diamondPickaxeLoc.z})`);
+  log(`在 (${diamondPickaxeLoc.x}, ${diamondPickaxeLoc.y}, ${diamondPickaxeLoc.z}) 生成一个钻石镐`);
   targetLocation.dimension.spawnItem(onePickaxe, diamondPickaxeLoc);
 }

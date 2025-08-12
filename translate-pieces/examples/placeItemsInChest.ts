@@ -2,27 +2,27 @@ import { ItemStack, BlockInventoryComponent, DimensionLocation } from "@minecraf
 import { MinecraftBlockTypes, MinecraftItemTypes } from "@minecraft/vanilla-data";
 
 function placeItemsInChest(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
-  // Fetch block
+  // 获取方块
   const block = targetLocation.dimension.getBlock(targetLocation);
 
   if (!block) {
-    log("Could not find block. Maybe it is not loaded?", -1);
+    log("无法找到方块。也许它没有被加载？", -1);
     return;
   }
 
-  // Make it a chest
+  // 将其设置为箱子
   block.setType(MinecraftBlockTypes.Chest);
 
-  // Get the inventory
+  // 获取物品栏
   const inventoryComponent = block.getComponent("inventory") as BlockInventoryComponent;
 
   if (!inventoryComponent || !inventoryComponent.container) {
-    log("Could not find inventory component.", -1);
+    log("无法找到物品栏组件。", -1);
     return;
   }
 
   const inventoryContainer = inventoryComponent.container;
 
-  // Set slot 0 to a stack of 10 apples
+  // 将槽位0设置为10个苹果的堆叠
   inventoryContainer.setItem(0, new ItemStack(MinecraftItemTypes.Apple, 10));
 }

@@ -11,7 +11,7 @@ function quickFoxLazyDog(log: (message: string, status?: number) => void, target
   fox.addEffect(MinecraftEffectTypes.Speed, 10, {
     amplifier: 2,
   });
-  log("Created a fox.");
+  log("创建了一只狐狸。");
 
   const wolf = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Wolf, {
     x: targetLocation.x + 4,
@@ -22,5 +22,5 @@ function quickFoxLazyDog(log: (message: string, status?: number) => void, target
     amplifier: 2,
   });
   wolf.isSneaking = true;
-  log("Created a sneaking wolf.", 1);
+  log("创建了一只潜行的狼。", 1);
 }

@@ -6,14 +6,14 @@ function incrementDynamicProperty(
 ) {
   let number = world.getDynamicProperty("samplelibrary:number");
 
-  log("Current value is: " + number);
+  log("当前值是: " + number);
 
   if (number === undefined) {
     number = 0;
   }
 
   if (typeof number !== "number") {
-    log("Number is of an unexpected type.");
+    log("数字是意外的类型。");
     return -1;
   }
 

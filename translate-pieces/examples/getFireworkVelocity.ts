@@ -10,6 +10,6 @@ function getFireworkVelocity(
   system.runTimeout(() => {
     const velocity = fireworkRocket.getVelocity();
 
-    log("Velocity of firework is: (x: " + velocity.x + ", y:" + velocity.y + ", z:" + velocity.z + ")");
+    log("烟花火箭的速度是: (x: " + velocity.x + ", y:" + velocity.y + ", z:" + velocity.z + ")");
   }, 5);
 }

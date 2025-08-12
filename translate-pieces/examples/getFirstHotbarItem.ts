@@ -7,7 +7,7 @@ function getFirstHotbarItem(log: (message: string, status?: number) => void, tar
       const firstItem = inventory.container.getItem(0);
 
       if (firstItem) {
-        log("First item in hotbar is: " + firstItem.typeId);
+        log("快捷栏中的第一个物品是: " + firstItem.typeId);
       }
 
       return inventory.container.getItem(0);

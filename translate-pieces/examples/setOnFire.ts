@@ -8,9 +8,9 @@ function setOnFire(log: (message: string, status?: number) => void, targetLocati
 
   system.runTimeout(() => {
     const onfire = skelly.getComponent(EntityComponentTypes.OnFire) as EntityOnFireComponent;
-    log(onfire?.onFireTicksRemaining + " fire ticks remaining.");
+    log(onfire?.onFireTicksRemaining + " 火焰刻剩余。");
 
     skelly.extinguishFire(true);
-    log("Never mind. Fire extinguished.");
+    log("没关系。火被扑灭了。");
   }, 20);
 }

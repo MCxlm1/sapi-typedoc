@@ -3,7 +3,7 @@ import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
 function findEntitiesHavingPropertyEqualsTo(
     targetLocation: DimensionLocation
 ) {
-  // Minecraft bees have a has_nectar boolean property
+  // Minecraft蜜蜂有一个has_nectar布尔属性
   const queryOption: EntityQueryOptions = {
     propertyOptions: [{ propertyId: "minecraft:has_nectar", value: { equals: true } }],
   };

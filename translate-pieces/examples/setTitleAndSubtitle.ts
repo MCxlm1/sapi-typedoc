@@ -5,10 +5,10 @@ function setTitleAndSubtitle(
 ) {
   const players = world.getPlayers();
 
-  players[0].onScreenDisplay.setTitle("Chapter 1", {
+  players[0].onScreenDisplay.setTitle("第1章", {
     stayDuration: 100,
     fadeInDuration: 2,
     fadeOutDuration: 4,
-    subtitle: "Trouble in Block Town",
+    subtitle: "方块镇的麻烦",
   });
 }

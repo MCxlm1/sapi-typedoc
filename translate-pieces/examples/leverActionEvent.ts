@@ -2,7 +2,7 @@ import { world, system, BlockPermutation, LeverActionAfterEvent, DimensionLocati
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 function leverActionEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
-  // set up a lever
+  // 设置一个拉杆
   const cobblestone = targetLocation.dimension.getBlock(targetLocation);
   const lever = targetLocation.dimension.getBlock({
     x: targetLocation.x,
@@ -11,7 +11,7 @@ function leverActionEvent(log: (message: string, status?: number) => void, targe
   });
 
   if (cobblestone === undefined || lever === undefined) {
-    log("Could not find block at location.");
+    log("无法在指定位置找到方块。");
     return -1;
   }
 
@@ -24,7 +24,7 @@ function leverActionEvent(log: (message: string, status?: number) => void, targe
     const eventLoc = leverActionEvent.block.location;
 
     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y + 1 && eventLoc.z === targetLocation.z) {
-      log("Lever activate event at tick " + system.currentTick);
+      log("拉杆激活事件发生在刻 " + system.currentTick);
     }
   });
 }

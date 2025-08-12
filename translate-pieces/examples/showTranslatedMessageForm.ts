@@ -16,15 +16,15 @@ function showTranslatedMessageForm(
   messageForm
     .show(players[0])
     .then((formData: MessageFormResponse) => {
-      // player canceled the form, or another dialog was up and open.
+      // 玩家取消了表单，或另一个对话框正在打开。
       if (formData.canceled || formData.selection === undefined) {
         return;
       }
 
-      log(`You selected ${formData.selection === 0 ? "Player 1" : "Player 2"}`);
+      log(`你选择了 ${formData.selection === 0 ? "Player 1" : "Player 2"}`);
     })
     .catch((error: Error) => {
-      log("Failed to show form: " + error);
+      log("显示表单失败: " + error);
       return -1;
     });
 }

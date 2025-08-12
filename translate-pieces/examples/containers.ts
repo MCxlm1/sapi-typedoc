@@ -2,8 +2,8 @@ import { ItemStack, EntityInventoryComponent, BlockInventoryComponent, Dimension
 import { MinecraftBlockTypes, MinecraftItemTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
 
 function containers(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
-  const xLocation = targetLocation; // left chest location
-  const xPlusTwoLocation = { x: targetLocation.x + 2, y: targetLocation.y, z: targetLocation.z }; // right chest
+  const xLocation = targetLocation; // 左边箱子位置
+  const xPlusTwoLocation = { x: targetLocation.x + 2, y: targetLocation.y, z: targetLocation.z }; // 右边箱子
 
   const chestCart = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.ChestMinecart, {
     x: targetLocation.x + 4,
@@ -15,7 +15,7 @@ function containers(log: (message: string, status?: number) => void, targetLocat
   const xPlusTwoChestBlock = targetLocation.dimension.getBlock(xPlusTwoLocation);
 
   if (!xChestBlock || !xPlusTwoChestBlock) {
-    log("Could not retrieve chest blocks.");
+    log("无法获取箱子方块。");
     return;
   }
 
@@ -31,42 +31,42 @@ function containers(log: (message: string, status?: number) => void, targetLocat
   const chestCartContainer = chestCartInventoryComp.container;
 
   if (!xPlusTwoChestContainer || !xChestContainer || !chestCartContainer) {
-    log("Could not retrieve chest containers.");
+    log("无法获取箱子容器。");
     return;
   }
 
   xPlusTwoChestContainer.setItem(0, new ItemStack(MinecraftItemTypes.Apple, 10));
   if (xPlusTwoChestContainer.getItem(0)?.typeId !== MinecraftItemTypes.Apple) {
-    log("Expected apple in x+2 container slot index 0", -1);
+    log("期望在x+2容器槽位0中得到苹果", -1);
   }
 
   xPlusTwoChestContainer.setItem(1, new ItemStack(MinecraftItemTypes.Emerald, 10));
   if (xPlusTwoChestContainer.getItem(1)?.typeId !== MinecraftItemTypes.Emerald) {
-    log("Expected emerald in x+2 container slot index 1", -1);
+    log("期望在x+2容器槽位1中得到绿宝石", -1);
   }
 
   if (xPlusTwoChestContainer.size !== 27) {
-    log("Unexpected size: " + xPlusTwoChestContainer.size, -1);
+    log("意外的大小: " + xPlusTwoChestContainer.size, -1);
   }
 
   if (xPlusTwoChestContainer.emptySlotsCount !== 25) {
-    log("Unexpected emptySlotsCount: " + xPlusTwoChestContainer.emptySlotsCount, -1);
+    log("意外的空槽位数量: " + xPlusTwoChestContainer.emptySlotsCount, -1);
   }
 
   xChestContainer.setItem(0, new ItemStack(MinecraftItemTypes.Cake, 10));
 
-  xPlusTwoChestContainer.transferItem(0, chestCartContainer); // transfer the apple from the xPlusTwo chest to a chest cart
-  xPlusTwoChestContainer.swapItems(1, 0, xChestContainer); // swap the cake from x and the emerald from xPlusTwo
+  xPlusTwoChestContainer.transferItem(0, chestCartContainer); // 将苹果从xPlusTwo箱子转移到箱子矿车中
+  xPlusTwoChestContainer.swapItems(1, 0, xChestContainer); // 交换x箱子中的蛋糕和xPlusTwo箱子中的绿宝石
 
   if (chestCartContainer.getItem(0)?.typeId !== MinecraftItemTypes.Apple) {
-    log("Expected apple in minecraft chest container slot index 0", -1);
+    log("期望在minecraft箱子容器槽位0中得到苹果", -1);
   }
 
   if (xChestContainer.getItem(0)?.typeId === MinecraftItemTypes.Emerald) {
-    log("Expected emerald in x container slot index 0", -1);
+    log("期望在x容器槽位0中得到绿宝石", -1);
   }
 
   if (xPlusTwoChestContainer.getItem(1)?.typeId === MinecraftItemTypes.Cake) {
-    log("Expected cake in x+2 container slot index 1", -1);
+    log("期望在x+2容器槽位1中得到蛋糕", -1);
   }
 }

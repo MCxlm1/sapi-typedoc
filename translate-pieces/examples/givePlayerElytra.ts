@@ -1,4 +1,4 @@
-// Gives the player Elytra
+// 给玩家装备鞘翅
 import { EquipmentSlot, ItemStack, Player, EntityComponentTypes } from '@minecraft/server';
 import { MinecraftItemTypes } from '@minecraft/vanilla-data';
 
