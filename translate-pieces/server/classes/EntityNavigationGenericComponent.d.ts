@@ -1,9 +1,7 @@
 /* IMPORT */ import { EntityNavigationComponent } from '../index';
 
 /**
- * Allows this entity to generate paths by walking, swimming,
- * flying and/or climbing around and jumping up and down a
- * block.
+ * 允许此实体通过行走、游泳、飞行和/或攀爬以及上下方块跳跃来生成路径。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityNavigationGenericComponent extends EntityNavigationComponent {

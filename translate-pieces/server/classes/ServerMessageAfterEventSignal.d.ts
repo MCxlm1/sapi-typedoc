@@ -1,14 +1,17 @@
 /* IMPORT */ import { MessageReceiveAfterEvent } from '../index';
 
 /**
- * 管理与服务器消息接收相关的回调。
+ * @beta
+ * Manages callbacks that are message passing to a server. This
+ * event is not currently fully implemented, and should not be
+ * used.
  */
 export class ServerMessageAfterEventSignal {
     private constructor();
     /**
-     * @beta
      * @remarks
-     * 添加一个回调，当服务器接收消息时将被调用。
+     * Adds a callback that will be called when an internal message
+     * is passed.
      *
      * @worldMutation
      *
@@ -17,9 +20,9 @@ export class ServerMessageAfterEventSignal {
      */
     subscribe(callback: (arg0: MessageReceiveAfterEvent) => void): (arg0: MessageReceiveAfterEvent) => void;
     /**
-     * @beta
      * @remarks
-     * 从服务器接收消息的回调中移除一个回调。
+     * Removes a callback from being called when an internal
+     * message is passed.
      *
      * @worldMutation
      *

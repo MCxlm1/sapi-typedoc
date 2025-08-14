@@ -1,14 +1,14 @@
 /* IMPORT */ import { ItemComponent, RGB } from '../index';
 
 /**
- * When present on an item, this item can be dyed.
+ * 当出现在物品上时，此物品可以被染色。
  */
-// @ts-ignore Class inheritance allowed for native defined classes
+// @ts-ignore 类继承允许用于原生定义的类
 export class ItemDyeableComponent extends ItemComponent {
     private constructor();
     /**
      * @remarks
-     * Sets and returns the current color of the item.
+     * 设置并返回物品的当前颜色。
      *
      * @worldMutation
      *
@@ -16,9 +16,9 @@ export class ItemDyeableComponent extends ItemComponent {
     color?: RGB;
     /**
      * @remarks
-     * Returns the default color of the item.
+     * 返回物品的默认颜色。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly defaultColor?: RGB;
     static readonly componentId = 'minecraft:dyeable';

@@ -1,7 +1,7 @@
 /* IMPORT */ import { ButtonPushAfterEvent } from '../index';
 
 /**
- * 管理与按钮被按下相关的回调。
+ * 管理与按钮被按下时相关的回调。
  * @seeExample buttonPushEvent.ts
  */
 export class ButtonPushAfterEventSignal {
@@ -18,7 +18,7 @@ export class ButtonPushAfterEventSignal {
     subscribe(callback: (arg0: ButtonPushAfterEvent) => void): (arg0: ButtonPushAfterEvent) => void;
     /**
      * @remarks
-     * 从按钮被按下的回调中移除一个回调。
+     * 移除一个回调，当按钮被按下时不再被调用。
      *
      * @worldMutation
      *

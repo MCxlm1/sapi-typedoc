@@ -1,13 +1,13 @@
 /* IMPORT */ import { ItemStack, Player } from '../index';
 
 /**
- * 包含可充能物品的相关信息，当玩家使用完该物品并释放构建动作时触发。
+ * 包含与可充能物品相关的信息，当玩家使用完该物品并释放构建动作时触发。
  */
 export class ItemReleaseUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 返回触发此物品事件的物品堆。
+     * 返回触发此物品事件的物品堆叠。
      *
      */
     readonly itemStack?: ItemStack;
@@ -19,7 +19,7 @@ export class ItemReleaseUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回充能完成其循环前剩余持续时间的刻数。
+     * 返回在充能完成其周期前剩余持续时间的刻数。
      *
      */
     readonly useDuration: number;

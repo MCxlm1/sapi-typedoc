@@ -1,15 +1,13 @@
 /* IMPORT */ import { PlayerLeaveBeforeEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to a player leaving the
- * world.
+ * 管理与玩家离开世界相关的回调。
  */
 export class PlayerLeaveBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when a player leaves the
-     * world.
+     * 添加一个回调，当玩家离开世界时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class PlayerLeaveBeforeEventSignal {
     subscribe(callback: (arg0: PlayerLeaveBeforeEvent) => void): (arg0: PlayerLeaveBeforeEvent) => void;
     /**
      * @remarks
-     * Removes a callback that will be called when a player leaves
-     * the world.
+     * 移除一个回调，当玩家离开世界时不再被调用。
      *
      * @worldMutation
      *

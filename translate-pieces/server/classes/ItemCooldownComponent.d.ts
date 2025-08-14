@@ -4,30 +4,27 @@
  * 表示物品使用冷却组件。当出现在物品上时，表示该物品被实体使用后会有冷却效果。
  * 注意，若使用后不会进入冷却，原版物品会获取到没有实际作用的该组件。
  * 
- * When present on an item, this item has a cooldown effect
- * when used by entities.
+ * 当出现在物品上时，此物品在被实体使用时具有冷却效果。
  */
-// @ts-ignore Class inheritance allowed for native defined classes
+// @ts-ignore 类继承允许用于原生定义的类
 export class ItemCooldownComponent extends ItemComponent {
     private constructor();
     /**
      * @remarks
      * 表示物品的冷却类别。
      * 
-     * Represents the cooldown category that this item is
-     * associated with.
+     * 表示与此物品关联的冷却类别。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly cooldownCategory: string;
     /**
      * @remarks
      * 物品冷却所需的时间，单位为刻。
      * 
-     * Amount of time, in ticks, it will take this item to
-     * cooldown.
+     * 此物品冷却所需的时间，以刻为单位。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly cooldownTicks: number;
     static readonly componentId = 'minecraft:cooldown';
@@ -35,44 +32,40 @@ export class ItemCooldownComponent extends ItemComponent {
      * @remarks
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getCooldownTicksRemaining(player: Player): number;
     /**
      * @remarks
-     * Will return true if the item is the cooldown category passed
-     * in and false otherwise.
+     * 如果物品是传入的冷却类别则返回 true，否则返回 false。
      *
      * @worldMutation
      *
      * @param cooldownCategory
-     * The cooldown category that might be associated with this
-     * item.
+     * 可能与此物品关联的冷却类别。
      * @returns
-     * True if the item is the given cooldown category.
-     * @throws This function can throw errors.
+     * 如果物品是给定的冷却类别则返回 true。
+     * @throws 此函数可能抛出错误。
      */
     isCooldownCategory(cooldownCategory: string): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * 此函数不能在只读模式下调用。
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     getCooldownTicksRemaining(player: Player): number;
     /**
      * @remarks
-     * Will return true if the item is the cooldown category passed
-     * in and false otherwise.
+     * 如果物品是传入的冷却类别则返回 true，否则返回 false。
      *
-     * This function can't be called in read-only mode.
+     * 此函数不能在只读模式下调用。
      *
      * @param cooldownCategory
-     * The cooldown category that might be associated with this
-     * item.
+     * 可能与此物品关联的冷却类别。
      * @returns
-     * True if the item is the given cooldown category.
-     * @throws This function can throw errors.
+     * 如果物品是给定的冷却类别则返回 true。
+     * @throws 此函数可能抛出错误。
      */
     isCooldownCategory(cooldownCategory: string): boolean;
     /**
@@ -80,11 +73,11 @@ export class ItemCooldownComponent extends ItemComponent {
      * 开始物品的冷却周期。
      * 如果物品已在冷却中，将重新开始冷却。
      * 
-     * Starts a new cooldown period for this item.
+     * 为此物品开始新的冷却期。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     startCooldown(player: Player): void;
 }

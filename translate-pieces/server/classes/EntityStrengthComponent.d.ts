@@ -1,7 +1,7 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * 定义实体携带物品的能力。强度更高的实体将具有更高的潜在携带能力和更多物品槽位。
+ * 定义实体携带物品的能力。强度较高的实体将具有更高的潜在携带能力和更多物品槽位。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityStrengthComponent extends EntityComponent {

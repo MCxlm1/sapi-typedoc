@@ -2,15 +2,13 @@
 
 /**
  * @beta
- * This component is added to items with the `Storage Item`
- * component. Can access and modify this items inventory
- * container.
+ * 此组件添加到具有 `Storage Item` 组件的物品上。可以访问和修改此物品的库存容器。
  */
-// @ts-ignore Class inheritance allowed for native defined classes
+// @ts-ignore 类继承允许用于原生定义的类
 export class ItemInventoryComponent extends ItemComponent {
     private constructor();
     /**
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidContainerError}
      */

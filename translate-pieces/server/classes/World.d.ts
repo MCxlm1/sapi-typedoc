@@ -1,13 +1,16 @@
 /* IMPORT */ import { AimAssistRegistry, CommandError, Difficulty, Dimension, Entity, EntityQueryOptions, GameRules, LocationOutOfWorldBoundariesError, LootTableManager, MoonPhase, MusicOptions, Player, RawMessage, Scoreboard, Structure, StructureManager, TimeOfDay, Vector3, WorldAfterEvents, WorldBeforeEvents, minecraftcommon } from '../index';
 
 /**
- * 代表一个 Minecraft 世界。包含世界的各种状态，包括维度和环境数据。
+ * 表示一个世界。包含了世界的各种状态，即一系列维度以及 Minecraft 的环境。
+ * 
+ * A class that wraps the state of a world - a set of
+ * dimensions and the environment of Minecraft.
  */
 export class World {
     private constructor();
     /**
      * @remarks
-     * 包含适用于整个世界的事件集合。事件回调以延迟方式执行。事件回调以读写模式运行。
+     * 包含适用于整个世界的事件集。事件回调以延迟方式调用。事件回调在读写模式下执行。
      *
      * @earlyExecution
      *
@@ -15,7 +18,7 @@ export class World {
     readonly afterEvents: WorldAfterEvents;
     /**
      * @remarks
-     * 包含适用于整个世界的事件集合。事件回调立即执行。事件回调以只读模式运行。
+     * 包含适用于整个世界的事件集。事件回调立即调用。事件回调在只读模式下执行。
      *
      * @earlyExecution
      *
@@ -24,27 +27,30 @@ export class World {
     readonly beforeEvents: WorldBeforeEvents;
     /**
      * @remarks
-     * 应用于世界的.gameRules游戏规则。
+     * 应用于世界的的游戏规则。
      *
      */
     readonly gameRules: GameRules;
     readonly isHardcore: boolean;
     /**
      * @remarks
-     * 全局唯一的记分板对象。
+     * 全局的、唯一的记分板对象。
+     * 
+     * Returns the general global scoreboard that applies to the
+     * world.
      *
      */
     readonly scoreboard: Scoreboard;
     /**
      * @remarks
-     * 返回与 {@link Structure} 相关 API 的管理器。
+     * 返回 {@link Structure} 相关 API 的管理器。
      *
      */
     readonly structureManager: StructureManager;
     /**
      * @beta
      * @remarks
-     * 内部使用的方法，用于在客户端和服务器之间广播特定消息。
+     * 仅内部使用的方法，用于在客户端和服务器之间广播特定消息。
      *
      * @worldMutation
      *
@@ -56,7 +62,7 @@ export class World {
     broadcastClientMessage(id: string, value: string): void;
     /**
      * @remarks
-     * 清除在此行为包中为世界声明的动态属性集合。
+     * 清除此行为包在世界中声明的动态属性集。
      *
      */
     clearDynamicProperties(): void;
@@ -64,7 +70,7 @@ export class World {
      * @remarks
      * 获取自游戏开始以来流逝的时间（计算公式：`day*24000+daytime`）。
      * 时间的流逝受到游戏规则 `dodaylightcycle` 的影响。
-     *
+     * 
      * @returns 自游戏开始以来流逝的时间，以刻为单位。
      *
      */
@@ -92,25 +98,21 @@ export class World {
      * @remarks
      * 返回当前日期。
      *
-     * @returns
-     * 当前日期，由世界时间除以每天的刻数确定。新世界从第 0 天开始。
+     * @returns 当前日期，由世界时间除以每天的刻数确定。新世界从第 0 天开始。
      */
     getDay(): number;
     /**
      * @remarks
      * 返回默认的主世界出生点位置。
      *
-     * @returns
-     * 默认的主世界出生点位置。默认情况下，Y 坐标为 32767，
-     * 表示玩家的出生高度未固定，将由周围方块决定。
+     * @returns 默认的主世界出生点位置。默认情况下，Y 坐标为 32767，表示玩家的出生高度未固定，将由周围方块决定。
      */
     getDefaultSpawnLocation(): Vector3;
     /**
      * @remarks
-     * 从世界中获取难度。
+     * 获取世界的难度。
      *
-     * @returns
-     * 返回世界难度。
+     * @returns 返回世界难度。
      */
     getDifficulty(): Difficulty;
     /**
@@ -118,17 +120,11 @@ export class World {
      * 由 `dimensionId` 获取维度对象。
      *
      * @param dimensionId
-     * 要获取的维度的标识符。
-     *
-     * 维度的名称。例如，"overworld"、"nether" 或 "the_end"。
+     * 要获取的维度的标识符。例如，"overworld"、"nether" 或 "the_end"。
      * @returns
      * 与 `dimensionId` 关联的维度对象。
-     *
-     * 请求的维度
      * @throws
-     * 若 `dimensionId` 不与任何维度关联，抛出 `"Dimension '<dimensionId>' is invalid"`。
-     *
-     * 如果给定的维度名称无效则抛出异常
+     * 如果给定的维度名称无效则抛出异常。
      */
     getDimension(dimensionId: string): Dimension;
     /**
@@ -138,10 +134,8 @@ export class World {
      * @param identifier
      * 动态属性的标识符。
      * @returns
-     * 返回动态属性 `identifier` 的值。属性的值尚未设定时，返回 `undefined`。
+     * 返回动态属性 `identifier` 的值。如果属性尚未设置则返回 undefined。
      * @throws
-     * 若并未注册以 `identifier` 为标识符的动态属性，抛出 `"Dynamic Property '<identifier>' is not defined"` 。
-     *
      * 如果给定的动态属性标识符未定义则抛出异常。
      * @seeExample incrementDynamicProperty.ts
      * @seeExample incrementDynamicPropertyInJsonBlob.ts
@@ -149,22 +143,21 @@ export class World {
     getDynamicProperty(identifier: string): boolean | number | string | Vector3 | undefined;
     /**
      * @remarks
-     * 获取在该世界中已设置的一组动态属性标识符。
+     * 获取在此世界中已设置的动态属性标识符集合。
      *
      * @returns
-     * 一组有效的动态属性标识符字符串数组。
+     * 活跃的动态属性标识符字符串数组。
      */
     getDynamicPropertyIds(): string[];
     /**
      * @remarks
-     * 获取动态属性的总字节数。这可能用于你自己的分析，
-     * 以确保你没有存储大量动态属性集合。
+     * 获取动态属性的总字节数。这可能用于您自己的分析，以确保您没有存储巨大的动态属性集。
      *
      */
     getDynamicPropertyTotalByteCount(): number;
     /**
      * @remarks
-     * 根据提供的 ID 返回一个实体。
+     * 根据提供的 ID 返回实体。
      *
      * @param id
      * 实体的 ID。
@@ -187,7 +180,7 @@ export class World {
     /**
      * @beta
      * @remarks
-     * 返回一组包设置名称和值对。
+     * 返回包设置名称和值对的映射。
      *
      * @earlyExecution
      *
@@ -198,18 +191,11 @@ export class World {
      * 列出世界上的玩家，可使用 `options` 指定的实体查询选项对其进行筛选。
      *
      * @param options
-     * 可选的参数，用作于筛选指定条件的玩家。
-     *
+     * 可用于筛选返回玩家集的附加选项。
      * 注意，不能使用接口中的 `type`、`location`、`maxDistance`、`minDistance` 或 `volume` 属性。
-     *
-     * 用于筛选返回玩家集合的附加选项。
      * @returns
      * 玩家数组。
      * @throws
-     * 若向 `options` 传入的对象含有 `type` 属性，抛出 `"command.generic.invalidPlayerType"`。
-     *
-     * 若向 `options` 传入的对象含有 `location`、`maxDistance`、`minDistance` 或 `volume` 属性，抛出 `"EntityQueryOptions property '<property>' is incompatible with function world.getPlayers"`。
-     *
      * 如果提供的 EntityQueryOptions 无效则抛出异常。
      *
      * {@link CommandError}
@@ -246,16 +232,12 @@ export class World {
      * @worldMutation
      *
      * @param trackId
-     * 声音项目的标识符，要求声音项目的类别为音乐（`category: music`）。
-     *
-     * 要播放的音乐曲目标识符。
+     * 要播放的音乐曲目标识符。要求声音项目的类别为音乐（`category: music`）。
      * @param musicOptions
-     * 可选，指定播放音乐使用的附加参数。
-     *
      * 音乐曲目的附加选项。
      * @throws
-     * 如果音量小于 0.0 则会抛出错误。
-     * 如果淡出时间小于 0.0 则会抛出错误。
+     * 如果音量小于 0.0 则抛出错误。
+     * 如果淡出时间小于 0.0 则抛出错误。
      *
      * {@link minecraftcommon.PropertyOutOfBoundsError}
      */
@@ -265,16 +247,9 @@ export class World {
      * 向所有玩家广播一条消息。
      *
      * @param message
-     * 将要广播的一段消息。
-     * 这段消息可能是一段字符串，或者符合 `RawMessage` 接口的对象，或是这两种类型的组合。
-     *
-     * 要显示的消息。
+     * 要显示的消息。可以是一段字符串，或者符合 `RawMessage` 接口的对象，或是这两种类型的组合。
      * @throws
-     * 如果提供的 {@link RawMessage} 格式无效，此方法可能抛出异常。
-     * 例如，如果向 `score` 提供了空的 `name` 字符串。
-     *
-     * 如果提供的 {@link RawMessage} 格式无效则会抛出异常。
-     * 例如，如果向 `score` 提供了空的 `name` 字符串。
+     * 如果提供的 {@link RawMessage} 格式无效则抛出异常。例如，如果向 `score` 提供了空的 `name` 字符串。
      */
     sendMessage(message: (RawMessage | string)[] | RawMessage | string): void;
     /**
@@ -294,7 +269,7 @@ export class World {
      * @worldMutation
      *
      * @param spawnLocation
-     * 出生点位置。注意，这被假定在主世界维度内。
+     * 出生点位置。注意，这被假定为在主世界维度内。
      * @throws
      * 如果提供的出生点位置超出边界则抛出异常。
      *
@@ -310,7 +285,7 @@ export class World {
      * @worldMutation
      *
      * @param difficulty
-     * 我们想要设置的世界难度。
+     * 要设置的世界难度。
      */
     setDifficulty(difficulty: Difficulty): void;
     /**
@@ -332,14 +307,8 @@ export class World {
      * @param identifier
      * 动态属性的标识符。
      * @param value
-     * 要设定的值，值的类型必须与动态属性注册的类型相同。
+     * 要设置的属性数据值。
      * @throws
-     * 若并未注册以 `identifier` 为标识符的动态属性，抛出 `"Dynamic Property '<identifier>' is not defined"`。
-     *
-     * 若动态属性的类型不符合值的类型，抛出 `"Type mismatch for dynamic property '<identifier>'"`。
-     *
-     * 若动态属性的类型为字符串，且值在使用 UTF-8 编码后的字节长度大于动态属性所允许的最大长度，抛出 `"Maximum string length exceeded (<length>/<maxLength>) for dynamic property '<identifier>'"`。
-     *
      * 如果给定的动态属性标识符未定义则抛出异常。
      *
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
@@ -354,14 +323,14 @@ export class World {
      * @worldMutation
      *
      * @param timeOfDay
-     * 一天中的时间，以刻为单位，介于 0 到 24000 之间。
+     * 一天中的时间，以刻为单位，在 0 到 24000 之间。
      * @throws
      * 如果提供的时间不在有效范围内则抛出异常。
      */
     setTimeOfDay(timeOfDay: number | TimeOfDay): void;
     /**
      * @remarks
-     * 停止客户端中正在播放的所有音乐曲目。
+     * 停止任何正在播放的音乐曲目。
      *
      * @worldMutation
      *

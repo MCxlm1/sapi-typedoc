@@ -3,7 +3,7 @@
 /**
  * 物品组件的基类。
  */
-// @ts-ignore Class inheritance allowed for native defined classes
+// @ts-ignore 类继承允许用于原生定义的类
 export class ItemComponent extends Component {
     private constructor();
 }

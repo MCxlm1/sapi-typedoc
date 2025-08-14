@@ -1,13 +1,13 @@
 /* IMPORT */ import { ItemStack, Player } from '../index';
 
 /**
- * 包含可充能物品开始充能的相关信息。
+ * 包含与可充能物品开始充能相关的信息。
  */
 export class ItemStartUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 开始充能的受影响物品堆。
+     * 开始充能的受影响物品堆叠。
      *
      */
     readonly itemStack: ItemStack;
@@ -19,7 +19,7 @@ export class ItemStartUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回充能完成其循环前剩余持续时间的刻数。
+     * 返回在充能完成其周期前剩余持续时间的刻数。
      *
      */
     readonly useDuration: number;

@@ -1,7 +1,7 @@
 /* IMPORT */ import { BlockEvent, Entity } from '../index';
 
 /**
- * 包含压力板被按下变化的相关信息。
+ * 包含与压力板被按下变化相关的信息。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class PressurePlatePushAfterEvent extends BlockEvent {

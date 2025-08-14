@@ -1,23 +1,28 @@
 /**
- * Who executed the command.
+ * 执行命令的来源。
  */
 export enum CustomCommandSource {
     /**
      * @remarks
-     * Command originated from a command block.
+     * 命令源自命令方块。
      *
      */
     Block = 'Block',
     /**
      * @remarks
-     * Command originated from an entity or player.
+     * 命令源自实体或玩家。
      *
      */
     Entity = 'Entity',
+    /**
+     * @remarks
+     * 命令源自NPC对话。
+     *
+     */
     NPCDialogue = 'NPCDialogue',
     /**
      * @remarks
-     * Command originated from the server.
+     * 命令源自服务器。
      *
      */
     Server = 'Server',

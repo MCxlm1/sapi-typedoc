@@ -1,26 +1,24 @@
-/* IMPORT */ import { Player, Vector3 } from '../index';
+/* IMPORT */ import { Player } from '../index';
 
 /**
- * 包含玩家生成事件的相关信息。
+ * 包含有关玩家生成的更多信息的事件。
  */
 export class PlayerSpawnAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 玩家生成时的初始位置。仅在玩家首次进入世界时提供。
+     * 如果为 true，则表示玩家加入游戏后的初始生成。
+     *
+     * @worldMutation
      *
      */
-    readonly initialSpawn: boolean;
+    initialSpawn: boolean;
     /**
      * @remarks
-     * 生成的玩家。
+     * 表示加入游戏的玩家的对象。
+     *
+     * @worldMutation
      *
      */
-    readonly player: Player;
-    /**
-     * @remarks
-     * 玩家生成的位置。
-     *
-     */
-    readonly spawnLocation: Vector3;
+    player: Player;
 }

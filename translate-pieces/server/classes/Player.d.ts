@@ -1,7 +1,7 @@
 /* IMPORT */ import { Camera, ClientSystemInfo, CommandPermissionLevel, DimensionLocation, Entity, GameMode, GraphicsMode, InputInfo, InvalidEntityError, ItemStack, LocationInUnloadedChunkError, LocationOutOfWorldBoundariesError, MolangVariableMap, MusicOptions, PlayerAimAssist, PlayerInputPermissions, PlayerPermissionLevel, PlayerSoundOptions, RawMessage, RawMessageError, ScreenDisplay, Vector3 } from '../index';
 
 /**
- * 表示世界中的一个玩家。
+ * 表示世界中的玩家。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class Player extends Entity {
@@ -49,14 +49,14 @@ export class Player extends Entity {
     readonly inputPermissions: PlayerInputPermissions;
     /**
      * @remarks
-     * 如果为 true，则玩家当前正在使用表情。
+     * 如果为 true，则玩家当前正在表达情感。
      *
      * @throws 使用此属性时可能抛出异常。
      */
     readonly isEmoting: boolean;
     /**
      * @remarks
-     * 玩家是否正在飞行。例如，在创造或旁观者模式下。
+     * 玩家是否正在飞行。例如，在创造模式或旁观者模式下。
      *
      * @throws 使用此属性时可能抛出异常。
      */
@@ -70,7 +70,7 @@ export class Player extends Entity {
     readonly isGliding: boolean;
     /**
      * @remarks
-     * 玩家是否正在跳跃。当玩家按住跳跃键时，此值将保持为 true。
+     * 玩家是否正在跳跃。当玩家按住跳跃动作时，此值将保持为 true。
      *
      * @throws 使用此属性时可能抛出异常。
      */
@@ -110,7 +110,7 @@ export class Player extends Entity {
     selectedSlotIndex: number;
     /**
      * @remarks
-     * 玩家达到下一级所需的经验总数。
+     * 玩家达到下一级所需的整体经验值总量。
      *
      * @throws 使用此属性时可能抛出异常。
      */
@@ -124,13 +124,12 @@ export class Player extends Entity {
     readonly xpEarnedAtCurrentLevel: number;
     /**
      * @remarks
-     * 为玩家添加/减少经验值并返回玩家的当前经验值。
+     * 向玩家添加/移除经验值并返回玩家的当前经验值。
      *
      * @worldMutation
      *
      * @param amount
-     * 要添加的经验值。注意，这可以是负数。
-     * 最小/最大值限制在 -2^24 ~ 2^24
+     * 要添加的经验值数量。注意，这可以是负数。最小/最大边界为 -2^24 ~ 2^24
      * @returns
      * 返回玩家的当前经验值。
      * @throws 此函数可能抛出错误。
@@ -138,12 +137,12 @@ export class Player extends Entity {
     addExperience(amount: number): number;
     /**
      * @remarks
-     * 为玩家添加/减少等级并返回玩家的当前等级。
+     * 向玩家添加/移除等级并返回玩家的当前等级。
      *
      * @worldMutation
      *
      * @param amount
-     * 要添加到玩家的等级数。最小/最大值限制在 -2^24 ~ 2^24
+     * 要添加到玩家的数值。最小/最大边界为 -2^24 ~ 2^24
      * @returns
      * 返回玩家的当前等级。
      * @throws 此函数可能抛出错误。
@@ -151,12 +150,13 @@ export class Player extends Entity {
     addLevels(amount: number): number;
     /**
      * @remarks
-     * 对于此玩家，移除目标实体上所有实体属性的覆盖。此更改直到下一刻才会应用，并且不会应用于其他玩家。
+     * 对于此玩家，移除目标实体上任何实体属性的所有覆盖。此更改直到下一刻才会应用，
+     * 并且不会应用于其他玩家。
      *
      * @worldMutation
      *
      * @param targetEntity
-     * 实体属性覆盖被清除的实体。
+     * 实体属性覆盖正在被清除的实体。
      * @throws
      * 如果实体无效则抛出异常。
      */
@@ -164,14 +164,14 @@ export class Player extends Entity {
     /**
      * @beta
      * @remarks
-     * 食用一个物品，将该物品的饥饿度和饱和度效果提供给玩家。只能用于食物物品。
+     * 食用物品，为玩家提供物品的饥饿度和饱和度效果。只能在食物物品上使用。
      *
      * @worldMutation
      *
      * @param itemStack
      * 要食用的物品。
      * @throws
-     * 如果物品不是食物则抛出异常。
+     * 如果物品不是食物物品则抛出异常。
      */
     eatItem(itemStack: ItemStack): void;
     /**
@@ -190,7 +190,7 @@ export class Player extends Entity {
     getGameMode(): GameMode;
     /**
      * @remarks
-     * 获取特定冷却类别当前的物品冷却时间。
+     * 获取特定冷却类别物品的当前冷却时间。
      *
      * @param cooldownCategory
      * 指定要检索当前冷却时间的冷却类别。
@@ -248,7 +248,7 @@ export class Player extends Entity {
     postClientMessage(id: string, value: string): void;
     /**
      * @remarks
-     * 为该特定玩家排队播放额外的音乐轨道。如果没有正在播放的轨道，则会播放音乐轨道。
+     * 为该特定玩家排队播放附加音乐轨道。如果没有正在播放的轨道，则会播放音乐轨道。
      *
      * @worldMutation
      *
@@ -269,7 +269,7 @@ export class Player extends Entity {
      * @worldMutation
      *
      * @param targetEntity
-     * 实体属性覆盖被移除的实体。
+     * 实体属性覆盖正在被移除的实体。
      * @param identifier
      * 实体属性标识符。
      * @throws
@@ -294,7 +294,8 @@ export class Player extends Entity {
      * @param message
      * 要显示的消息。
      * @throws
-     * 如果提供的 {@link RawMessage} 格式无效，此方法可能抛出异常。例如，如果向 `score` 提供了空的 `name` 字符串。
+     * 如果提供的 {@link RawMessage} 格式无效，则此方法可能抛出异常。例如，
+     * 如果向 `score` 提供了空的 `name` 字符串。
      *
      * {@link InvalidEntityError}
      *
@@ -319,7 +320,8 @@ export class Player extends Entity {
     setGameMode(gameMode?: GameMode): void;
     /**
      * @remarks
-     * 对于此玩家，将目标实体上的实体属性覆盖为提供的值。此属性必须与客户端同步。此更改直到下一刻才会应用，并且不会应用于其他玩家。
+     * 对于此玩家，将目标实体上的实体属性覆盖为提供的值。此属性必须与客户端同步。
+     * 此更改直到下一刻才会应用，并且不会应用于其他玩家。
      *
      * @worldMutation
      *
@@ -339,7 +341,7 @@ export class Player extends Entity {
     setPropertyOverrideForEntity(targetEntity: Entity, identifier: string, value: boolean | number | string): void;
     /**
      * @remarks
-     * 为该特定玩家设置当前的起始出生点。
+     * 为该特定玩家设置当前起始出生点。
      *
      * @worldMutation
      *
@@ -352,12 +354,12 @@ export class Player extends Entity {
     setSpawnPoint(spawnPoint?: DimensionLocation): void;
     /**
      * @remarks
-     * 在世界的指定位置创建新的粒子发射器。仅对目标玩家可见。
+     * 在世界中的指定位置创建新的粒子发射器。仅对目标玩家可见。
      *
      * @worldMutation
      *
      * @param effectName
-     * 要创建的粒子标识符。
+     * 要创建的粒子的标识符。
      * @param location
      * 创建粒子发射器的位置。
      * @param molangVariables
@@ -381,7 +383,7 @@ export class Player extends Entity {
      * @param cooldownCategory
      * 指定要检索当前冷却时间的冷却类别。
      * @param tickDuration
-     * 物品冷却的刻持续时间。
+     * 物品冷却的持续时间，以刻为单位。
      * @throws 此函数可能抛出错误。
      */
     startItemCooldown(cooldownCategory: string, tickDuration: number): void;

@@ -1,13 +1,13 @@
 /* IMPORT */ import { ItemUseBeforeEvent } from '../index';
 
 /**
- * Manages callbacks that fire before an item is used.
+ * 管理物品使用前触发的回调。
  */
 export class ItemUseBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called before an item is used.
+     * 添加一个回调，当物品使用前将被调用。
      *
      * @worldMutation
      *
@@ -17,7 +17,7 @@ export class ItemUseBeforeEventSignal {
     subscribe(callback: (arg0: ItemUseBeforeEvent) => void): (arg0: ItemUseBeforeEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called before an item is used.
+     * 移除一个回调，使其在物品使用前不再被调用。
      *
      * @worldMutation
      *

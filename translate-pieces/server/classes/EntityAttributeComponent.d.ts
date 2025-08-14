@@ -1,14 +1,14 @@
 /* IMPORT */ import { EntityComponent, InvalidEntityError, minecraftcommon } from '../index';
 
 /**
- * 这是一个抽象基类，适用于任何围绕数值的实体组件，并且可以定义最小值、最大值和默认值。
+ * 这是任何以数字为中心且可以定义最小值、最大值和默认值的实体组件的基抽象类。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityAttributeComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 此实例的此属性当前值。
+     * 此实例的此属性的当前值。
      *
      * @throws 使用此属性时可能抛出异常。
      */

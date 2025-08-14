@@ -7,7 +7,7 @@ export class ItemReleaseUseAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当可充能物品从充能中释放时将被调用。
+     * 添加一个回调，当可充能物品释放充能时将被调用。
      *
      * @worldMutation
      *
@@ -17,7 +17,7 @@ export class ItemReleaseUseAfterEventSignal {
     subscribe(callback: (arg0: ItemReleaseUseAfterEvent) => void): (arg0: ItemReleaseUseAfterEvent) => void;
     /**
      * @remarks
-     * 从可充能物品释放充能的回调中移除一个回调。
+     * 移除一个回调，当可充能物品释放充能时不再被调用。
      *
      * @worldMutation
      *

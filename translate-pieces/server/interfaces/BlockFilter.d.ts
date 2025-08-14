@@ -1,52 +1,44 @@
 /* IMPORT */ import { BlockPermutation } from '../index';
 
 /**
- * Options to include or exclude blocks based on type, tag or
- * permutation. If no include options are added it will select
- * all blocks that are not rejected by the exclude options. If
- * at least one include option is added the block must match
- * one of the include options to not be rejected.
+ * 基于类型、标签或状态的包含或排除方块的选项。如果没有添加包含选项，
+ * 则会选择所有未被排除选项拒绝的方块。如果添加了至少一个包含选项，
+ * 则方块必须匹配其中一个包含选项才不会被拒绝。
  */
 export interface BlockFilter {
     /**
      * @remarks
-     * Array of block permutations that the filter should reject if
-     * any matches.
+     * 方块状态数组，如果任何状态匹配则过滤器应拒绝这些方块。
      *
      */
     excludePermutations?: BlockPermutation[];
     /**
      * @remarks
-     * Array of block tags that the filter should reject if any
-     * matches.
+     * 方块标签数组，如果任何标签匹配则过滤器应拒绝这些方块。
      *
      */
     excludeTags?: string[];
     /**
      * @remarks
-     * Array of block types that the filter should reject if any
-     * matches.
+     * 方块类型数组，如果任何类型匹配则过滤器应拒绝这些方块。
      *
      */
     excludeTypes?: string[];
     /**
      * @remarks
-     * Array of block permutations that the filter should select if
-     * at least one matches.
+     * 方块状态数组，如果至少一个状态匹配则过滤器应选择这些方块。
      *
      */
     includePermutations?: BlockPermutation[];
     /**
      * @remarks
-     * Array of block tags that the filter should select if at
-     * least one matches.
+     * 方块标签数组，如果至少一个标签匹配则过滤器应选择这些方块。
      *
      */
     includeTags?: string[];
     /**
      * @remarks
-     * Array of block types that the filter should select if at
-     * least one matches.
+     * 方块类型数组，如果至少一个类型匹配则过滤器应选择这些方块。
      *
      */
     includeTypes?: string[];

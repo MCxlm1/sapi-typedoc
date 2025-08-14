@@ -1,8 +1,7 @@
 /* IMPORT */ import { EntityAttributeComponent } from '../index';
 
 /**
- * Defines the interactions with this entity for Saturation.
- * Wraps the `minecraft.player.saturation` attribute.
+ * 定义与此实体的饱和度交互。包装了 `minecraft.player.saturation` 属性。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntitySaturationComponent extends EntityAttributeComponent {

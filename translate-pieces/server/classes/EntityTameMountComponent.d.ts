@@ -8,7 +8,7 @@ export class EntityTameMountComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 如果实体被驯服则返回 true。
+     * 如果实体已被驯服则返回 true。
      *
      * @throws 使用此属性时可能抛出异常。
      */
@@ -22,7 +22,7 @@ export class EntityTameMountComponent extends EntityComponent {
     readonly isTamedToPlayer: boolean;
     /**
      * @remarks
-     * 返回驯服该实体的玩家，如果实体未被玩家驯服则返回 'undefined'。
+     * 返回驯服该实体的玩家，如果实体不是被玩家驯服的则返回 'undefined'。
      *
      * @throws 使用此属性时可能抛出异常。
      */
@@ -48,7 +48,7 @@ export class EntityTameMountComponent extends EntityComponent {
     tame(showParticles: boolean): void;
     /**
      * @remarks
-     * 将此可骑乘实体设置为由给定玩家驯服。
+     * 将此可骑乘实体设置为被指定玩家驯服。
      *
      * @worldMutation
      *

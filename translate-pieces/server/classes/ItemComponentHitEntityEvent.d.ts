@@ -1,32 +1,31 @@
 /* IMPORT */ import { Entity, ItemStack } from '../index';
 
 /**
- * Contains information regarding when an item is used to hit
- * an entity.
+ * 包含当物品用于击中实体时的相关信息。
  */
 export class ItemComponentHitEntityEvent {
     private constructor();
     /**
      * @remarks
-     * The attacking entity.
+     * 攻击实体。
      *
      */
     readonly attackingEntity: Entity;
     /**
      * @remarks
-     * Whether the hit landed or had any effect.
+     * 击中是否命中或有任何效果。
      *
      */
     readonly hadEffect: boolean;
     /**
      * @remarks
-     * The entity being hit.
+     * 被击中的实体。
      *
      */
     readonly hitEntity: Entity;
     /**
      * @remarks
-     * The item stack used to hit the entity.
+     * 用于击中实体的物品堆。
      *
      */
     readonly itemStack?: ItemStack;

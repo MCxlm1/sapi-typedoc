@@ -1,26 +1,32 @@
-/* IMPORT */ import { Block, Entity, Vector3 } from '../index';
+/* IMPORT */ import { Block, BlockPermutation, Direction, Entity } from '../index';
 
 /**
- * 包含实体击中方块事件的相关信息。
+ * 包含与实体击中方块相关的信息。
  */
 export class EntityHitBlockAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 被击中的方块。
+     * 被击中的方块面。
      *
      */
-    readonly block: Block;
+    readonly blockFace: Direction;
     /**
      * @remarks
-     * 击中方块的实体。
+     * 发起攻击的实体。
      *
      */
-    readonly hitEntity: Entity;
+    readonly damagingEntity: Entity;
     /**
      * @remarks
-     * 击中位置。
+     * 被攻击击中的方块。
      *
      */
-    readonly hitVector: Vector3;
+    readonly hitBlock: Block;
+    /**
+     * @remarks
+     * 被攻击击中的方块排列。
+     *
+     */
+    readonly hitBlockPermutation: BlockPermutation;
 }

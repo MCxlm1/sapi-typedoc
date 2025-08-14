@@ -1,73 +1,73 @@
 /* IMPORT */ import { BlockType, Entity, EntityType, ItemType, Player } from '../index';
 
 /**
- * The types of paramaters accepted by a custom command.
+ * 自定义命令接受的参数类型。
  */
 export enum CustomCommandParamType {
     /**
      * @remarks
-     * Block type parameter provides a {@link BlockType}.
+     * 方块类型参数提供一个 {@link BlockType}。
      *
      */
     BlockType = 'BlockType',
     /**
      * @remarks
-     * Boolean parameter.
+     * 布尔值参数。
      *
      */
     Boolean = 'Boolean',
     /**
      * @remarks
-     * Entity selector parameter provides an {@link Entity}.
+     * 实体选择器参数提供一个 {@link Entity}。
      *
      */
     EntitySelector = 'EntitySelector',
     /**
      * @remarks
-     * Entity type parameter provides an {@link EntityType}.
+     * 实体类型参数提供一个 {@link EntityType}。
      *
      */
     EntityType = 'EntityType',
     /**
      * @remarks
-     * Command enum parameter.
+     * 命令枚举参数。
      *
      */
     Enum = 'Enum',
     /**
      * @remarks
-     * Float parameter.
+     * 浮点数参数。
      *
      */
     Float = 'Float',
     /**
      * @remarks
-     * Integer parameter.
+     * 整数参数。
      *
      */
     Integer = 'Integer',
     /**
      * @remarks
-     * Item type parameter provides an {@link ItemType}.
+     * 物品类型参数提供一个 {@link ItemType}。
      *
      */
     ItemType = 'ItemType',
     /**
      * @remarks
-     * Location parameter provides a {@link
-     * @minecraft/server.Location}.
+     * 位置参数提供一个 {@link
+     * @minecraft/server.Location}。
      *
      */
     Location = 'Location',
     /**
      * @remarks
-     * Player selector parameter provides a {@link Player}.
+     * 玩家选择器参数提供一个 {@link Player}。
      *
      */
     PlayerSelector = 'PlayerSelector',
     /**
      * @remarks
-     * String parameter.
+     * 字符串参数。
      *
      */
     String = 'String',

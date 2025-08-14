@@ -1,25 +1,30 @@
-/* IMPORT */ import { PlayerInventoryItemChangeAfterEvent } from '../index';
+/* IMPORT */ import { InventoryItemEventOptions, PlayerInventoryItemChangeAfterEvent } from '../index';
 
 /**
- * 管理与玩家库存物品变化相关的回调。
+ * 管理与玩家库存物品更改后相关的回调。
  */
 export class PlayerInventoryItemChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当物品被添加或从玩家库存中移除时将被调用。
+     * 添加一个回调，当玩家库存物品更改后将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      * @param callback
-     * 回调函数，当事件触发时调用。
+     * 此事件触发时调用的函数回调。
+     * @param options
+     * 事件订阅的附加过滤选项。
      */
-    subscribe(callback: (arg0: PlayerInventoryItemChangeAfterEvent) => void): (arg0: PlayerInventoryItemChangeAfterEvent) => void;
+    subscribe(
+        callback: (arg0: PlayerInventoryItemChangeAfterEvent) => void,
+        options?: InventoryItemEventOptions,
+    ): (arg0: PlayerInventoryItemChangeAfterEvent) => void;
     /**
      * @remarks
-     * 从玩家库存物品变化的回调中移除一个回调。
+     * 移除一个回调，当玩家库存物品更改后不再被调用。
      *
      * @worldMutation
      *

@@ -1,28 +1,25 @@
 /**
- * Contains additional options for spawning an Entity.
+ * 包含生成实体的附加选项。
  */
 export interface SpawnEntityOptions {
     /**
      * @beta
      * @remarks
-     * Optional boolean which determines if this entity should
-     * persist in the game world. Persistence prevents the entity
-     * from automatically despawning.
+     * 可选的布尔值，用于确定此实体是否应在游戏世界中持续存在。
+     * 持久性防止实体自动消失。
      *
      */
     initialPersistence?: boolean;
     /**
      * @beta
      * @remarks
-     * Optional initial rotation, in degrees, to set on the entity
-     * when it spawns.
+     * 实体生成时设置的可选初始旋转角度（以度为单位）。
      *
      */
     initialRotation?: number;
     /**
      * @remarks
-     * Optional spawn event to send to the entity after it is
-     * spawned.
+     * 实体生成后发送给实体的可选生成事件。
      *
      */
     spawnEvent?: string;

@@ -5,7 +5,7 @@ export class CustomComponentNameError extends Error {
     /**
      * @remarks
      * @earlyExecution
-     *
+     * 自定义组件名称错误的原因
      */
     reason: CustomComponentNameErrorReason;
 }

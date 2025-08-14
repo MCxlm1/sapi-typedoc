@@ -17,7 +17,7 @@ export class ItemStartUseAfterEventSignal {
     subscribe(callback: (arg0: ItemStartUseAfterEvent) => void): (arg0: ItemStartUseAfterEvent) => void;
     /**
      * @remarks
-     * 从可充能物品开始充能的回调中移除一个回调。
+     * 移除一个回调，当可充能物品开始充能时不再被调用。
      *
      * @worldMutation
      *

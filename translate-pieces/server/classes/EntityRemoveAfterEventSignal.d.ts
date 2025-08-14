@@ -1,23 +1,32 @@
-/* IMPORT */ import { EntityRemoveAfterEvent } from '../index';
+/* IMPORT */ import { EntityEventOptions, EntityRemoveAfterEvent } from '../index';
 
 /**
- * 管理与实体移除相关的回调。
+ * 允许注册当实体从游戏中移除时触发的事件（例如，卸载，或死亡几秒钟后。）
  */
 export class EntityRemoveAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当实体被移除时（例如，可能未加载，或在被杀死后移除）将被调用。
+     * 每当实体从游戏中移除时都会调用您的函数。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
+     * @param callback
+     * 要调用的函数。
+     * @param options
+     * 此事件的附加过滤选项。
+     * @returns
+     * 返回可在后续取消订阅操作中使用的闭包。
      */
-    subscribe(callback: (arg0: EntityRemoveAfterEvent) => void): (arg0: EntityRemoveAfterEvent) => void;
+    subscribe(
+        callback: (arg0: EntityRemoveAfterEvent) => void,
+        options?: EntityEventOptions,
+    ): (arg0: EntityRemoveAfterEvent) => void;
     /**
      * @remarks
-     * 从实体移除的回调中移除一个回调。
+     * 当实体被移除时，取消订阅您的函数以避免后续调用。
      *
      * @worldMutation
      *

@@ -1,15 +1,13 @@
 /* IMPORT */ import { EffectAddBeforeEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to when an effect is
- * added to an entity.
+ * 管理与效果添加到实体时相关的回调。
  */
 export class EffectAddBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when an effect is added
-     * to an entity.
+     * 添加一个回调，当效果添加到实体时将被调用。
      *
      * @worldMutation
      *
@@ -19,8 +17,7 @@ export class EffectAddBeforeEventSignal {
     subscribe(callback: (arg0: EffectAddBeforeEvent) => void): (arg0: EffectAddBeforeEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called when an effect is added
-     * to an entity.
+     * 移除一个回调，使其在效果添加到实体时不再被调用。
      *
      * @worldMutation
      *

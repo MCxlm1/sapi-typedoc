@@ -1,7 +1,7 @@
 /* IMPORT */ import { Effect, Entity } from '../index';
 
 /**
- * 包含添加到实体的效果（如中毒）发生变化的相关信息。
+ * 包含与添加到实体的效果（如中毒）变化相关的信息。
  */
 export class EffectAddAfterEvent {
     private constructor();
@@ -13,7 +13,7 @@ export class EffectAddAfterEvent {
     readonly effect: Effect;
     /**
      * @remarks
-     * 正在添加效果的实体。
+     * 添加效果的实体。
      *
      */
     readonly entity: Entity;

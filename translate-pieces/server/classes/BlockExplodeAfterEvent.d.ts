@@ -1,26 +1,21 @@
-/* IMPORT */ import { Block, Vector3 } from '../index';
+/* IMPORT */ import { BlockEvent, BlockPermutation, Entity } from '../index';
 
 /**
- * 包含方块爆炸事件的相关信息。
+ * 包含有关特定方块爆炸事件的信息。
  */
-export class BlockExplodeAfterEvent {
+// @ts-ignore Class inheritance allowed for native defined classes
+export class BlockExplodeAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 爆炸的方块。
+     * 已爆炸方块的描述。
      *
      */
-    readonly block: Block;
+    readonly explodedBlockPermutation: BlockPermutation;
     /**
      * @remarks
-     * 爆炸的位置。
+     * 爆炸的可选来源。
      *
      */
-    readonly explosionLocation: Vector3;
-    /**
-     * @remarks
-     * 爆炸的半径。
-     *
-     */
-    readonly radius: number;
+    readonly source?: Entity;
 }

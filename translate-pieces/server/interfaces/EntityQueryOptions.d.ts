@@ -1,7 +1,7 @@
 /* IMPORT */ import { EntityFilter, Vector3 } from '../index';
 
 /**
- * Contains options for selecting entities within an area.
+ * 包含用于在区域内选择实体的选项。
  * @seeExample blockConditional.ts
  * @seeExample findEntitiesHavingPropertyEqualsTo.ts
  * @seeExample playSoundChained.ts
@@ -15,49 +15,39 @@
 export interface EntityQueryOptions extends EntityFilter {
     /**
      * @remarks
-     * Limits the number of entities to return, opting for the
-     * closest N entities as specified by this property. The
-     * location value must also be specified on the query options
-     * object.
+     * 限制返回的实体数量，选择最近的 N 个实体，N 由该属性指定。
+     * location 值必须在查询选项对象上指定。
      *
      */
     closest?: number;
     /**
      * @remarks
-     * Limits the number of entities to return, opting for the
-     * farthest N entities as specified by this property. The
-     * location value must also be specified on the query options
-     * object.
+     * 限制返回的实体数量，选择最远的 N 个实体，N 由该属性指定。
+     * location 值必须在查询选项对象上指定。
      *
      */
     farthest?: number;
     /**
      * @remarks
-     * Adds a seed location to the query that is used in
-     * conjunction with closest, farthest, limit, volume, and
-     * distance properties.
+     * 向查询中添加一个种子位置，与 closest、farthest、limit、volume 和 distance 属性结合使用。
      *
      */
     location?: Vector3;
     /**
      * @remarks
-     * If specified, includes entities that are less than this
-     * distance away from the location specified in the location
-     * property.
+     * 如果指定，则包括距离 location 属性中指定位置小于此距离的实体。
      *
      */
     maxDistance?: number;
     /**
      * @remarks
-     * If specified, includes entities that are least this distance
-     * away from the location specified in the location property.
+     * 如果指定，则包括距离 location 属性中指定位置至少为此距离的实体。
      *
      */
     minDistance?: number;
     /**
      * @remarks
-     * In conjunction with location, specified a cuboid volume of
-     * entities to include.
+     * 与 location 结合，指定要包括的实体的立方体体积。
      *
      */
     volume?: Vector3;

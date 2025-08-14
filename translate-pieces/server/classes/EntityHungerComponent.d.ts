@@ -1,8 +1,7 @@
 /* IMPORT */ import { EntityAttributeComponent } from '../index';
 
 /**
- * Defines the interactions with this entity for hunger. Wraps
- * the `minecraft.player.hunger` attribute.
+ * 定义与此实体的饥饿值交互。包装了 `minecraft.player.hunger` 属性。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityHungerComponent extends EntityAttributeComponent {

@@ -7,7 +7,7 @@ export class WeatherChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当 Minecraft 中的天气变化时将被调用。
+     * 添加一个回调，当天气变化时将被调用。
      *
      * @worldMutation
      *
@@ -17,7 +17,7 @@ export class WeatherChangeAfterEventSignal {
     subscribe(callback: (arg0: WeatherChangeAfterEvent) => void): (arg0: WeatherChangeAfterEvent) => void;
     /**
      * @remarks
-     * 从天气变化的回调中移除一个回调。
+     * 移除一个回调，当天气变化时不再被调用。
      *
      * @worldMutation
      *

@@ -1,9 +1,8 @@
 /**
- * Thrown after using the /reload command when trying to
- * register a previously registered item custom component that
- * handles a new event.
+ * Thrown when attempting to register a previously registered item custom component 
+ * for handling new events after using the /reload command.
  */
-// @ts-ignore Class inheritance allowed for native defined classes
+// @ts-ignore Class inheritance is allowed for natively defined classes
 export class ItemCustomComponentReloadNewEventError extends Error {
     private constructor();
 }

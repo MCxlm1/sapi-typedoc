@@ -13,7 +13,7 @@ export class PlayerInputModeChangeAfterEvent {
     readonly newInputModeUsed: InputMode;
     /**
      * @remarks
-     * 输入模式发生更改的玩家。
+     * 输入模式更改的玩家。
      *
      */
     readonly player: Player;

@@ -1,26 +1,26 @@
-/* IMPORT */ import { Entity, Vector3 } from '../index';
+/* IMPORT */ import { Block, Dimension, Entity } from '../index';
 
 /**
- * 包含爆炸事件的相关信息。
+ * 包含有关已发生爆炸的信息。
  */
 export class ExplosionAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 导致爆炸的实体。可能是 undefined。
+     * 发生爆炸的维度。
      *
      */
-    readonly source: Entity | undefined;
+    readonly dimension: Dimension;
     /**
      * @remarks
-     * 爆炸的位置。
+     * 爆炸的可选来源。
      *
      */
-    readonly explosionLocation: Vector3;
+    readonly source?: Entity;
     /**
      * @remarks
-     * 爆炸的半径。
+     * 受此爆炸事件影响的方块集合。
      *
      */
-    readonly radius: number;
+    getImpactedBlocks(): Block[];
 }

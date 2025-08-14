@@ -1,14 +1,13 @@
 /* IMPORT */ import { ScriptEventCommandMessageAfterEvent, ScriptEventMessageFilterOptions } from '../index';
 
 /**
- * Allows for registering an event handler that responds to
- * inbound /scriptevent commands.
+ * 允许注册响应传入 /scriptevent 命令的事件处理程序。
  */
 export class ScriptEventCommandMessageAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * Registers a new ScriptEvent handler.
+     * 注册一个新的 ScriptEvent 处理程序。
      *
      * @worldMutation
      *
@@ -21,7 +20,7 @@ export class ScriptEventCommandMessageAfterEventSignal {
     ): (arg0: ScriptEventCommandMessageAfterEvent) => void;
     /**
      * @remarks
-     * Unsubscribes a particular handler for a ScriptEvent event.
+     * 取消订阅 ScriptEvent 事件的特定处理程序。
      *
      * @worldMutation
      *

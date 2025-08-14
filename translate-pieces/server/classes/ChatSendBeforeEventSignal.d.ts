@@ -2,16 +2,14 @@
 
 /**
  * @beta
- * Manages callbacks that are connected to an event that fires
- * before chat messages are sent.
+ * 管理与聊天消息发送前触发事件相关的回调。
  * @seeExample customCommand.ts
  */
 export class ChatSendBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called before new chat messages
-     * are sent.
+     * 添加一个回调，当新聊天消息发送前将被调用。
      *
      * @worldMutation
      *
@@ -21,8 +19,7 @@ export class ChatSendBeforeEventSignal {
     subscribe(callback: (arg0: ChatSendBeforeEvent) => void): (arg0: ChatSendBeforeEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called before new chat
-     * messages are sent.
+     * 移除一个回调，使其在新聊天消息发送前不再被调用。
      *
      * @worldMutation
      *

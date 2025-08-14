@@ -1,38 +1,33 @@
-/* IMPORT */ import { Block, BlockPermutation, Dimension, Player, Vector3 } from '../index';
+/* IMPORT */ import { BlockEvent, BlockPermutation, ItemStack, Player } from '../index';
 
 /**
- * 包含玩家破坏方块事件的相关信息。
+ * 包含有关玩家破坏方块后事件的信息。
  */
-export class PlayerBreakBlockAfterEvent {
+// @ts-ignore Class inheritance allowed for native defined classes
+export class PlayerBreakBlockAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 被破坏的方块。
-     *
-     */
-    readonly block: Block;
-    /**
-     * @remarks
-     * 破坏前方块的排列状态。
+     * 返回此方块被破坏前的排列信息。
      *
      */
     readonly brokenBlockPermutation: BlockPermutation;
     /**
      * @remarks
-     * 方块被破坏的维度。
+     * 方块被破坏后用于破坏方块的物品堆叠，如果为空手则为 undefined。
      *
      */
-    readonly dimension: Dimension;
+    readonly itemStackAfterBreak?: ItemStack;
     /**
      * @remarks
-     * 破坏方块的玩家。
+     * 方块被破坏前用于破坏方块的物品堆叠，如果为空手则为 undefined。
+     *
+     */
+    readonly itemStackBeforeBreak?: ItemStack;
+    /**
+     * @remarks
+     * 为此事件破坏方块的玩家。
      *
      */
     readonly player: Player;
-    /**
-     * @remarks
-     * 方块被破坏的位置。
-     *
-     */
-    readonly blockLocation: Vector3;
 }

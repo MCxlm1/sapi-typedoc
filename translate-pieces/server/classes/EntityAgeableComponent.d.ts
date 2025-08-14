@@ -8,21 +8,21 @@ export class EntityAgeableComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * 实体成长所需的时间，-1 表示永远是幼体。
+     * 实体成长所需的时长，-1 表示永远是幼体。
      *
      * @throws 使用此属性时可能抛出异常。
      */
     readonly duration: number;
     /**
      * @remarks
-     * 实体成长时运行的事件。
+     * 实体成长时触发的事件。
      *
      * @throws 使用此属性时可能抛出异常。
      */
     readonly growUp: Trigger;
     /**
      * @remarks
-     * 使用的饲料物品在成功交互后将转化为该物品。
+     * 成功交互后，使用的饲料物品将转化为该物品。
      *
      * @throws 使用此属性时可能抛出异常。
      */
@@ -37,7 +37,7 @@ export class EntityAgeableComponent extends EntityComponent {
     getDropItems(): string[];
     /**
      * @remarks
-     * 可以喂给实体的物品列表。包括用于物品名称的 'item' 和定义成长时间的 'growth'。
+     * 可以喂给实体的物品列表。包括用于物品名称的 'item' 和定义成长时长增长的 'growth'。
      *
      * @throws 此函数可能抛出错误。
      */

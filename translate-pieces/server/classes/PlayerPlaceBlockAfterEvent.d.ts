@@ -1,25 +1,14 @@
-/* IMPORT */ import { Block, Dimension, Player } from '../index';
+/* IMPORT */ import { BlockEvent, Player } from '../index';
 
 /**
- * 包含玩家放置方块事件的相关信息。
+ * 包含有关玩家放置方块事件的信息。
  */
-export class PlayerPlaceBlockAfterEvent {
+// @ts-ignore Class inheritance allowed for native defined classes
+export class PlayerPlaceBlockAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 被放置的方块。
-     *
-     */
-    readonly block: Block;
-    /**
-     * @remarks
-     * 方块被放置的维度。
-     *
-     */
-    readonly dimension: Dimension;
-    /**
-     * @remarks
-     * 放置方块的玩家。
+     * 为此事件放置方块的玩家。
      *
      */
     readonly player: Player;

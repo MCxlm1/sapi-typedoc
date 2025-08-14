@@ -50,7 +50,7 @@ export class EntityLeashableComponent extends EntityComponent {
     readonly maxDistance: number;
     /**
      * @remarks
-     * "弹簧"效果开始作用以使此实体靠近拴住它的实体的距离（以方块为单位）。
+     * "弹簧"效果开始作用以使此实体靠近拴绳持有者的距离（以方块为单位）。
      *
      * @throws 使用此属性时可能抛出异常。
      */
@@ -58,19 +58,19 @@ export class EntityLeashableComponent extends EntityComponent {
     static readonly componentId = 'minecraft:leashable';
     /**
      * @remarks
-     * 将此实体拴绳牵引到另一个实体。
+     * 将此实体拴绳到另一个实体。
      *
      * @worldMutation
      *
      * @param leashHolder
-     * 要将此实体拴绳牵引到的实体。
+     * 要将此实体拴绳到的实体。
      * @throws
-     * 如果要拴绳牵引的实体超出最大距离，或者玩家已死亡或处于旁观者模式，则抛出异常。
+     * 如果要拴绳到的实体超出最大距离，或者玩家已死亡或处于旁观者模式，则抛出异常。
      */
     leashTo(leashHolder: Entity): void;
     /**
      * @remarks
-     * 如果此实体被拴绳牵引到另一个实体，则将其解开。
+     * 如果此实体被拴绳到另一个实体，则解除拴绳。
      *
      * @worldMutation
      *

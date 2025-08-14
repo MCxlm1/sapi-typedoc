@@ -1,9 +1,7 @@
 /* IMPORT */ import { EntityNavigationComponent } from '../index';
 
 /**
- * Allows this entity to generate paths in the air (for
- * example, like the Minecraft Bees do.) Keeps them from
- * falling out of the skies and doing predictive movement.
+ * 允许此实体在空中生成路径（例如，像 Minecraft 中的蜜蜂那样）。使它们不会从空中坠落并进行预测性移动。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityNavigationHoverComponent extends EntityNavigationComponent {

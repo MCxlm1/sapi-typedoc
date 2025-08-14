@@ -1,28 +1,25 @@
 /* IMPORT */ import { CustomCommandParamType } from '../index';
 
 /**
- * Definition for each parameter expected by the custom
- * command.
+ * 自定义命令期望的每个参数的定义。
  */
 export interface CustomCommandParameter {
     /**
      * @beta
      * @remarks
-     * Can be used to reference the enum name when {@link
-     * CustomCommandParamType} is 'Enum'. Allows the parameter name
-     * to be different from the enum name.
+     * 当 {@link CustomCommandParamType} 为 'Enum' 时可以用来引用枚举名称。允许参数名称与枚举名称不同。
      *
      */
     enumName?: string;
     /**
      * @remarks
-     * The name of parameter as it appears on the command line.
+     * 命令行中显示的参数名称。
      *
      */
     name: string;
     /**
      * @remarks
-     * The data type of the parameter.
+     * 参数的数据类型。
      *
      */
     type: CustomCommandParamType;

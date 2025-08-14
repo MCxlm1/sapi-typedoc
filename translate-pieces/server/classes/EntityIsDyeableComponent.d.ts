@@ -1,8 +1,7 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * When added, this component signifies that dyes can be used
- * on this entity to change its color.
+ * 添加此组件时，表示可以在此实体上使用染料来改变其颜色。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityIsDyeableComponent extends EntityComponent {

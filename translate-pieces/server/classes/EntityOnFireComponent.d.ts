@@ -1,7 +1,7 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * 当存在于实体上时，表示该实体正在燃烧。
+ * 当实体上存在此组件时，表示该实体正在着火。
  * @seeExample setOnFire.ts
  */
 // @ts-ignore Class inheritance allowed for native defined classes

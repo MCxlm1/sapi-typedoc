@@ -1,9 +1,9 @@
 /* IMPORT */ import { CustomComponentParameters, ItemComponent } from '../index';
 
 /**
- * An instance of a custom component on an item.
+ * 物品上自定义组件的实例。
  */
-// @ts-ignore Class inheritance allowed for native defined classes
+// @ts-ignore 类继承允许用于原生定义的类
 export class ItemCustomComponentInstance extends ItemComponent {
     private constructor();
     readonly customComponentParameters: CustomComponentParameters;

@@ -2,25 +2,26 @@
 
 /**
  * @beta
- * 用于在客户端和服务器之间传递消息的特定内部事件。
+ * A specific currently-internal event used for passing
+ * messages from client to server.
  */
 export class MessageReceiveAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 消息标识符。
+     * The message identifier.
      *
      */
     readonly id: string;
     /**
      * @remarks
-     * 消息内容。
+     * The message.
      *
      */
     readonly message: string;
     /**
      * @remarks
-     * 发送消息的玩家。
+     * The player who sent the message.
      *
      */
     readonly player: Player;

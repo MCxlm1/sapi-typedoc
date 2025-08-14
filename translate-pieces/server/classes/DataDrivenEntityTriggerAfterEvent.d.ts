@@ -1,7 +1,7 @@
 /* IMPORT */ import { DefinitionModifier, Entity } from '../index';
 
 /**
- * 包含数据驱动实体事件触发的相关信息 - 例如，鸡的 minecraft:ageable_grow_up 事件。
+ * 包含与数据驱动实体事件触发相关的信息 - 例如，鸡上的 minecraft:ageable_grow_up 事件。
  */
 export class DataDrivenEntityTriggerAfterEvent {
     private constructor();

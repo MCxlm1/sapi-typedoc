@@ -1,22 +1,23 @@
 /* IMPORT */ import { CustomCommand, CustomCommandError, CustomCommandOrigin, CustomCommandResult, NamespaceNameError, minecraftcommon } from '../index';
 
 /**
- * Provides the functionality for registering custom commands.
+ * 提供注册自定义命令的功能。
  */
 export class CustomCommandRegistry {
     private constructor();
     /**
      * @remarks
-     * Registers a custom command that when executed triggers a
-     * script callback.
+     * 注册一个自定义命令，执行时会触发脚本回调。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
+     * @param customCommand
+     * 自定义命令的定义，包括名称、权限和参数。
      * @param callback
-     * The callback triggered when the command executes.
-     * @throws This function can throw errors.
+     * 命令执行时触发的回调。
+     * @throws 此函数可能抛出错误。
      *
      * {@link CustomCommandError}
      *
@@ -30,13 +31,17 @@ export class CustomCommandRegistry {
     ): void;
     /**
      * @remarks
-     * Registers a custom command enum.
+     * 注册一个自定义命令枚举。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
-     * @throws This function can throw errors.
+     * @param name
+     * 枚举的名称。
+     * @param values
+     * 枚举的值数组。
+     * @throws 此函数可能抛出错误。
      *
      * {@link CustomCommandError}
      *

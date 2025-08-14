@@ -1,19 +1,18 @@
 /* IMPORT */ import { CustomCommandStatus } from '../index';
 
 /**
- * Interface returned from custom command callback function.
+ * 从自定义命令回调函数返回的接口。
  */
 export interface CustomCommandResult {
     /**
      * @remarks
-     * Message displayed to chat after command execution.
+     * 命令执行后显示到聊天栏的消息。
      *
      */
     message?: string;
     /**
      * @remarks
-     * Command execution Success or Failure. Determines how the
-     * status message is displayed.
+     * 命令执行成功或失败。决定状态消息的显示方式。
      *
      */
     status: CustomCommandStatus;

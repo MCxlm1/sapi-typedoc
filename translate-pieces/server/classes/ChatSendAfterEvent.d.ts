@@ -2,7 +2,7 @@
 
 /**
  * @beta
- * 玩家发送聊天消息时触发的事件。
+ * 玩家输入聊天消息时触发的事件。
  */
 export class ChatSendAfterEvent {
     private constructor();
@@ -20,7 +20,7 @@ export class ChatSendAfterEvent {
     readonly sender: Player;
     /**
      * @remarks
-     * 将接收此消息的玩家列表（可选）。如果已定义，则此消息直接针对一个或多个玩家（即，不是广播）。
+     * 将接收此消息的可选玩家列表。如果已定义，则此消息直接针对一个或多个玩家（即不进行广播）。
      *
      */
     readonly targets?: Player[];

@@ -1,13 +1,13 @@
 /* IMPORT */ import { ItemStack, Player } from '../index';
 
 /**
- * 包含可充能物品完成使用周期，或玩家释放物品使用动作的相关信息。
+ * 包含与可充能物品完成使用周期或玩家释放物品使用动作相关的信息。
  */
 export class ItemStopUseAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 停止充能的受影响物品堆。当传送到不同维度时可以调用 ItemStopUseAfterEvent，此时该值可能是未定义的。
+     * 停止充能的受影响物品堆叠。当传送到不同维度时可能会调用 ItemStopUseAfterEvent，此时可能未定义。
      *
      */
     readonly itemStack?: ItemStack;
@@ -19,7 +19,7 @@ export class ItemStopUseAfterEvent {
     readonly source: Player;
     /**
      * @remarks
-     * 返回充能完成其循环前剩余持续时间的刻数。
+     * 返回在充能完成其周期前剩余持续时间的刻数。
      *
      */
     readonly useDuration: number;

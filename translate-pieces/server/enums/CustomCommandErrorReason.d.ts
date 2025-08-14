@@ -1,51 +1,47 @@
 /**
- * Reason why custom command registration failed.
+ * 自定义命令注册失败的原因。
  */
 export enum CustomCommandErrorReason {
     /**
      * @remarks
-     * Command name already registered.
+     * 命令名称已被注册。
      *
      */
     AlreadyRegistered = 'AlreadyRegistered',
     /**
      * @remarks
-     * Custom Command references an enum that has not been
-     * registered.
+     * 自定义命令引用了未注册的枚举。
      *
      */
     EnumDependencyMissing = 'EnumDependencyMissing',
     /**
      * @remarks
-     * Supplied Custom Command namespace does not match previous
-     * registrations for this add-on.
+     * 提供的自定义命令命名空间与此前为此附加包注册的命名空间不匹配。
      *
      */
     NamespaceMismatch = 'NamespaceMismatch',
     /**
      * @remarks
-     * Too many command parameters defined in CustomCommand.
+     * 自定义命令中定义了过多的命令参数。
      *
      */
     ParameterLimit = 'ParameterLimit',
     /**
      * @remarks
-     * Custom command registry can not be accessed after world
-     * initialized event.
+     * 在世界初始化事件之后无法访问自定义命令注册表。
      *
      */
     RegistryInvalid = 'RegistryInvalid',
     /**
      * @remarks
-     * Command parameters cannot be redefined during reload. Only
-     * the script closure itself can be changed.
+     * 重载期间无法重新定义命令参数。只能更改脚本闭包本身。
      *
      */
     RegistryReadOnly = 'RegistryReadOnly',
     /**
      * @beta
      * @remarks
-     * Non enum type command parameters cannot use enumName.
+     * 非枚举类型的命令参数不能使用 enumName。
      *
      */
     UnexpectedEnumName = 'UnexpectedEnumName',

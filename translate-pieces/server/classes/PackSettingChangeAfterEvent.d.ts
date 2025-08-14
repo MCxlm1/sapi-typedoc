@@ -1,18 +1,18 @@
 /**
  * @beta
- * 更改的包设置名称和值。
+ * Pack setting name and value that changed.
  */
 export class PackSettingChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 设置的名称。
+     * The name of the setting.
      *
      */
     readonly settingName: string;
     /**
      * @remarks
-     * 设置的值。
+     * The value of the setting.
      *
      */
     readonly settingValue: boolean | number;

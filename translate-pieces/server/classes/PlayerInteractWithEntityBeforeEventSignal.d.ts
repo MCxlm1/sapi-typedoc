@@ -1,15 +1,13 @@
 /* IMPORT */ import { PlayerInteractWithEntityBeforeEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to before a player
- * interacts with an entity.
+ * 管理与玩家与实体交互前相关的回调。
  */
 export class PlayerInteractWithEntityBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called before a player
-     * interacts with an entity.
+     * 添加一个回调，当玩家与实体交互前将被调用。
      *
      * @worldMutation
      *
@@ -21,8 +19,7 @@ export class PlayerInteractWithEntityBeforeEventSignal {
     ): (arg0: PlayerInteractWithEntityBeforeEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called before a player
-     * interacts with an entity.
+     * 移除一个回调，使其在玩家与实体交互前不再被调用。
      *
      * @worldMutation
      *

@@ -1,15 +1,13 @@
 /* IMPORT */ import { PlayerGameModeChangeBeforeEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to before a players
- * game mode is changed.
+ * 管理与玩家游戏模式更改前相关的回调。
  */
 export class PlayerGameModeChangeBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called before a players game
-     * mode is changed.
+     * 添加一个回调，当玩家游戏模式更改前将被调用。
      *
      * @worldMutation
      *
@@ -21,8 +19,7 @@ export class PlayerGameModeChangeBeforeEventSignal {
     ): (arg0: PlayerGameModeChangeBeforeEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called before a players game
-     * mode is changed.
+     * 移除一个回调，使其在玩家游戏模式更改前不再被调用。
      *
      * @worldMutation
      *

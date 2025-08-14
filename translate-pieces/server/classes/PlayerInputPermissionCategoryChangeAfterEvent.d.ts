@@ -1,7 +1,7 @@
 /* IMPORT */ import { InputPermissionCategory, Player } from '../index';
 
 /**
- * 包含玩家输入权限更改后事件的相关信息。
+ * 包含玩家输入权限更改后事件的信息。
  */
 export class PlayerInputPermissionCategoryChangeAfterEvent {
     private constructor();

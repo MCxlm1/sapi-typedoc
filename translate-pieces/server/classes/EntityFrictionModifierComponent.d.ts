@@ -1,17 +1,16 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * Defines how much friction affects this entity.
+ * 定义摩擦力对此实体的影响程度。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityFrictionModifierComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Current value of the friction modifier of the associated
-     * entity.
+     * 关联实体的摩擦力修正器当前值。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly value: number;
     static readonly componentId = 'minecraft:friction_modifier';

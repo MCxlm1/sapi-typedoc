@@ -1,13 +1,13 @@
 /* IMPORT */ import { ItemUseAfterEvent } from '../index';
 
 /**
- * 管理与玩家成功使用物品相关的回调。
+ * 管理与物品使用事件相关的回调。
  */
 export class ItemUseAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当玩家成功使用物品时将被调用。
+     * 添加一个回调，当物品被使用时将被调用。
      *
      * @worldMutation
      *
@@ -17,7 +17,7 @@ export class ItemUseAfterEventSignal {
     subscribe(callback: (arg0: ItemUseAfterEvent) => void): (arg0: ItemUseAfterEvent) => void;
     /**
      * @remarks
-     * 从玩家成功使用物品的回调中移除一个回调。
+     * 移除一个回调，当物品被使用时不再被调用。
      *
      * @worldMutation
      *

@@ -1,13 +1,13 @@
 /* IMPORT */ import { GameRuleChangeAfterEvent } from '../index';
 
 /**
- * 管理与游戏规则变化相关的回调。
+ * 管理与 world.gameRules 属性更改时相关的回调。
  */
 export class GameRuleChangeAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当 world.gameRules 属性发生变化时将被调用。
+     * 添加一个回调，当 world.gameRules 属性更改时将被调用。
      *
      * @worldMutation
      *
@@ -17,7 +17,7 @@ export class GameRuleChangeAfterEventSignal {
     subscribe(callback: (arg0: GameRuleChangeAfterEvent) => void): (arg0: GameRuleChangeAfterEvent) => void;
     /**
      * @remarks
-     * 从游戏规则变化的回调中移除一个回调。
+     * 移除一个回调，当 world.gameRules 属性更改时不再被调用。
      *
      * @worldMutation
      *

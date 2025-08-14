@@ -1,16 +1,13 @@
 /* IMPORT */ import { ExplosionBeforeEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to before an explosion
- * occurs.
+ * 管理与爆炸发生前相关的回调。
  */
 export class ExplosionBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called when before an explosion
-     * occurs. The callback can optionally change or cancel
-     * explosion behavior.
+     * 添加一个回调，当爆炸发生前将被调用。回调可以可选地更改或取消爆炸行为。
      *
      * @worldMutation
      *
@@ -20,8 +17,7 @@ export class ExplosionBeforeEventSignal {
     subscribe(callback: (arg0: ExplosionBeforeEvent) => void): (arg0: ExplosionBeforeEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called from before when an
-     * explosion would occur.
+     * 移除一个回调，使其在爆炸发生前不再被调用。
      *
      * @worldMutation
      *

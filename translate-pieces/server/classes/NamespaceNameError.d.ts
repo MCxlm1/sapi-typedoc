@@ -1,14 +1,14 @@
 /* IMPORT */ import { NamespaceNameErrorReason } from '../index';
 
 /**
- * Thrown when a name requires a namespace and an error occurs
- * when validating that namespace
+ * 当名称需要命名空间但在验证命名空间时发生错误时抛出
  */
-// @ts-ignore Class inheritance allowed for native defined classes
+// @ts-ignore 类继承允许用于原生定义的类
 export class NamespaceNameError extends Error {
     private constructor();
     /**
      * @remarks
+     * 错误原因。
      * @earlyExecution
      *
      */

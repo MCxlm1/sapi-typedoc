@@ -2,15 +2,13 @@
 
 /**
  * @beta
- * Manages callbacks that are connected to before a block is
- * placed by a player.
+ * 管理与玩家放置方块前相关的回调。
  */
 export class PlayerPlaceBlockBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called before a block is placed
-     * by a player.
+     * 添加一个回调，当玩家放置方块前将被调用。
      *
      * @worldMutation
      *
@@ -23,8 +21,7 @@ export class PlayerPlaceBlockBeforeEventSignal {
     ): (arg0: PlayerPlaceBlockBeforeEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called before an block is
-     * placed by a player.
+     * 移除一个回调，使其在玩家放置方块前不再被调用。
      *
      * @worldMutation
      *

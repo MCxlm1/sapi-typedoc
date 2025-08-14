@@ -1,12 +1,11 @@
 /**
- * Contains the custom component's JSON parameters
+ * Contains JSON parameters for custom components
  */
 export class CustomComponentParameters {
     private constructor();
     /**
      * @remarks
-     * JSON object containing the parameters from the custom
-     * component definition
+     * A JSON object containing parameters from the custom component definition
      *
      */
     readonly params: unknown;

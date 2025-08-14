@@ -1,13 +1,13 @@
 /* IMPORT */ import { WorldLoadAfterEvent } from '../index';
 
 /**
- * 管理与世界加载相关的回调。
+ * 管理世界加载后的回调事件。
  */
 export class WorldLoadAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当世界加载时将被调用。
+     * 添加一个回调，当世界加载后将被调用。
      *
      * @worldMutation
      *
@@ -17,7 +17,7 @@ export class WorldLoadAfterEventSignal {
     subscribe(callback: (arg0: WorldLoadAfterEvent) => void): (arg0: WorldLoadAfterEvent) => void;
     /**
      * @remarks
-     * 从世界加载的回调中移除一个回调。
+     * 移除一个回调，当世界加载后不再被调用。
      *
      * @worldMutation
      *

@@ -1,15 +1,13 @@
 /* IMPORT */ import { BlockEventOptions, PlayerBreakBlockBeforeEvent } from '../index';
 
 /**
- * Manages callbacks that are connected to before a player
- * breaks a block.
+ * 管理与玩家破坏方块前相关的回调。
  */
 export class PlayerBreakBlockBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a callback that will be called before a block is broken
-     * by a player.
+     * 添加一个回调，当玩家破坏方块前将被调用。
      *
      * @worldMutation
      *
@@ -22,8 +20,7 @@ export class PlayerBreakBlockBeforeEventSignal {
     ): (arg0: PlayerBreakBlockBeforeEvent) => void;
     /**
      * @remarks
-     * Removes a callback from being called before a player breaks
-     * a block.
+     * 移除一个回调，使其在玩家破坏方块前不再被调用。
      *
      * @worldMutation
      *

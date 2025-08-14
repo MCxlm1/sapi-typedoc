@@ -1,7 +1,7 @@
 /* IMPORT */ import { BlockEvent, Entity } from '../index';
 
 /**
- * 包含绊线被触发变化的相关信息。
+ * 包含与绊线被触发变化相关的信息。
  * @seeExample tripWireTripEvent.ts
  */
 // @ts-ignore Class inheritance allowed for native defined classes

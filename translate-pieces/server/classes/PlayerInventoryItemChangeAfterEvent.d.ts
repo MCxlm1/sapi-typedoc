@@ -1,13 +1,13 @@
 /* IMPORT */ import { ItemStack, Player, PlayerInventoryType } from '../index';
 
 /**
- * 包含玩家库存物品更改后事件的相关信息。
+ * 包含玩家库存物品更改后事件的信息。
  */
 export class PlayerInventoryItemChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 之前的物品堆。
+     * 之前的物品堆叠。
      *
      */
     readonly beforeItemStack?: ItemStack;
@@ -19,7 +19,7 @@ export class PlayerInventoryItemChangeAfterEvent {
     readonly inventoryType: PlayerInventoryType;
     /**
      * @remarks
-     * 新的物品堆。
+     * 新的物品堆叠。
      *
      */
     readonly itemStack?: ItemStack;

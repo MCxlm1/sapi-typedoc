@@ -2,66 +2,61 @@
 
 /**
  * @beta
- * When present on an item, this item is a book item. Can
- * access and modify the contents of the book and sign it.
+ * 当出现在物品上时，此物品是书本物品。可以访问和修改书本的内容并签名。
  */
-// @ts-ignore Class inheritance allowed for native defined classes
+// @ts-ignore 类继承允许用于原生定义的类
 export class ItemBookComponent extends ItemComponent {
     private constructor();
     /**
      * @remarks
-     * The name of the author of the book if it is signed,
-     * otherwise undefined.
+     * 如果书本已签名，则为作者的名称，否则为 undefined。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidItemStackError}
      */
     readonly author?: string;
     /**
      * @remarks
-     * The contents of pages in the book that are in string format.
-     * Entries not in string format will be undefined.
+     * 书本中页面的内容，以字符串格式表示。不是字符串格式的条目将为 undefined。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidItemStackError}
      */
     readonly contents: (string | undefined)[];
     /**
      * @remarks
-     * Determines whether the book has been signed or not.
+     * 确定书本是否已签名。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidItemStackError}
      */
     readonly isSigned: boolean;
     /**
      * @remarks
-     * The amount of pages the book has.
+     * 书本的页数。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidItemStackError}
      */
     readonly pageCount: number;
     /**
      * @remarks
-     * The contents of pages in the book that are in {@link
-     * RawMessage} format. Entries not in {@link RawMessage} format
-     * will be undefined.
+     * 书本中页面的内容，以 {@link RawMessage} 格式表示。不是 {@link RawMessage} 格式的条目将为 undefined。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidItemStackError}
      */
     readonly rawContents: (RawMessage | undefined)[];
     /**
      * @remarks
-     * The title of the book if it is signed, otherwise undefined.
+     * 如果书本已签名，则为书本的标题，否则为 undefined。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      *
      * {@link InvalidItemStackError}
      */
@@ -69,51 +64,43 @@ export class ItemBookComponent extends ItemComponent {
     static readonly componentId = 'minecraft:book';
     /**
      * @remarks
-     * Gets the string format content of a page for a given index.
+     * 获取给定索引页面的字符串格式内容。
      *
      * @param pageIndex
-     * The index of the page.
+     * 页面的索引。
      * @returns
-     * The content of the page if a valid index is provided and it
-     * is in string format, otherwise returns undefined.
-     * @throws This function can throw errors.
+     * 如果提供了有效索引且为字符串格式，则返回页面的内容，否则返回 undefined。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidItemStackError}
      */
     getPageContent(pageIndex: number): string | undefined;
     /**
      * @remarks
-     * Gets the {@link RawMessage} format content of a page for a
-     * given index.
+     * 获取给定索引页面的 {@link RawMessage} 格式内容。
      *
      * @param pageIndex
-     * The index of the page.
+     * 页面的索引。
      * @returns
-     * The content of the page if a valid index is provided and it
-     * is in {@link RawMessage} format, otherwise returns
-     * undefined.
-     * @throws This function can throw errors.
+     * 如果提供了有效索引且为 {@link RawMessage} 格式，则返回页面的内容，否则返回 undefined。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidItemStackError}
      */
     getRawPageContent(pageIndex: number): RawMessage | undefined;
     /**
      * @remarks
-     * Inserts a page at a given index. Empty pages will be created
-     * if the index is greater than the current book size.
-     * Pages have a maximum limit of 256 characters for strings as
-     * well as the JSON representation of a {@link RawMessage}.
-     * Books have a maximum limit of 50 pages.
+     * 在给定索引处插入页面。如果索引大于当前书本大小，则会创建空页面。
+     * 页面对于字符串和 {@link RawMessage} 的 JSON 表示形式最大限制为 256 个字符。
+     * 书本最大限制为 50 页。
      *
      * @worldMutation
      *
      * @param pageIndex
-     * The index of the page.
+     * 页面的索引。
      * @param content
-     * The content to set for the page. Can be a single string or
-     * {@link RawMessage} or an array of strings and/or {@link
-     * RawMessage}s
-     * @throws This function can throw errors.
+     * 要为页面设置的内容。可以是单个字符串或 {@link RawMessage} 或字符串和/或 {@link RawMessage} 的数组
+     * @throws 此函数可能抛出错误。
      *
      * {@link BookError}
      *
@@ -124,33 +111,28 @@ export class ItemBookComponent extends ItemComponent {
     insertPage(pageIndex: number, content: (RawMessage | string)[] | RawMessage | string): void;
     /**
      * @remarks
-     * Removes a page at a given index. Existing pages following
-     * this page will be moved backward to fill the empty space.
+     * 移除给定索引处的页面。此页面后面的现有页面将向后移动以填充空白空间。
      *
      * @worldMutation
      *
      * @param pageIndex
-     * The index of the page.
-     * @throws This function can throw errors.
+     * 页面的索引。
+     * @throws 此函数可能抛出错误。
      *
      * {@link InvalidItemStackError}
      */
     removePage(pageIndex: number): void;
     /**
      * @remarks
-     * Sets the contents of the book's pages. Pre-existing pages
-     * will be cleared.
-     * Pages have a maximum limit of 256 characters for strings as
-     * well as the JSON representation of a {@link RawMessage}.
-     * Books have a maximum limit of 50 pages.
+     * 设置书本页面的内容。预先存在的页面将被清除。
+     * 页面对于字符串和 {@link RawMessage} 的 JSON 表示形式最大限制为 256 个字符。
+     * 书本最大限制为 50 页。
      *
      * @worldMutation
      *
      * @param contents
-     * An array of each page's contents. Each page can be a single
-     * string or {@link RawMessage} or an array of strings and/or
-     * {@link RawMessage}s.
-     * @throws This function can throw errors.
+     * 每个页面内容的数组。每个页面可以是单个字符串或 {@link RawMessage} 或字符串和/或 {@link RawMessage} 的数组。
+     * @throws 此函数可能抛出错误。
      *
      * {@link BookError}
      *
@@ -161,22 +143,17 @@ export class ItemBookComponent extends ItemComponent {
     setContents(contents: ((RawMessage | string)[] | RawMessage | string)[]): void;
     /**
      * @remarks
-     * Sets or creates the content of a specific page. Empty pages
-     * will be created if the index is greater than the current
-     * book size.
-     * Pages have a maximum limit of 256 characters for strings as
-     * well as the JSON representation of a {@link RawMessage}.
-     * Books have a maximum limit of 50 pages.
+     * 设置或创建特定页面的内容。如果索引大于当前书本大小，则会创建空页面。
+     * 页面对于字符串和 {@link RawMessage} 的 JSON 表示形式最大限制为 256 个字符。
+     * 书本最大限制为 50 页。
      *
      * @worldMutation
      *
      * @param pageIndex
-     * The index of the page.
+     * 页面的索引。
      * @param content
-     * The content to set for the page. Can be a single string or
-     * {@link RawMessage} or an array of strings and/or {@link
-     * RawMessage}s
-     * @throws This function can throw errors.
+     * 要为页面设置的内容。可以是单个字符串或 {@link RawMessage} 或字符串和/或 {@link RawMessage} 的数组
+     * @throws 此函数可能抛出错误。
      *
      * {@link BookError}
      *
@@ -187,17 +164,16 @@ export class ItemBookComponent extends ItemComponent {
     setPageContent(pageIndex: number, content: (RawMessage | string)[] | RawMessage | string): void;
     /**
      * @remarks
-     * Signs a book giving it a title and author name. Once signed
-     * players can no longer directly edit the book.
-     * Titles have a maximum character limit of 16.
+     * 签名书本，给它一个标题和作者名称。签名后，玩家不能再直接编辑书本。
+     * 标题最大字符限制为 16。
      *
      * @worldMutation
      *
      * @param title
-     * The title to give the book.
+     * 要给书本的标题。
      * @param author
-     * The name of the book's author.
-     * @throws This function can throw errors.
+     * 书本作者的名称。
+     * @throws 此函数可能抛出错误。
      *
      * {@link BookError}
      *

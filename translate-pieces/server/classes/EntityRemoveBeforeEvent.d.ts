@@ -1,15 +1,13 @@
 /* IMPORT */ import { Entity } from '../index';
 
 /**
- * Data for an event that happens when an entity is being
- * removed from the world (for example, the entity is unloaded
- * because it is not close to players.)
+ * 实体从世界中移除时发生的事件数据（例如，因为实体离玩家较远而被卸载。）
  */
 export class EntityRemoveBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * Reference to an entity that is being removed.
+     * 指向正在被移除的实体的引用。
      *
      */
     readonly removedEntity: Entity;

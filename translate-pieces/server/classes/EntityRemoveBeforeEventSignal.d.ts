@@ -1,32 +1,27 @@
 /* IMPORT */ import { EntityRemoveBeforeEvent } from '../index';
 
 /**
- * Allows registration for an event that fires when an entity
- * is being removed from  the game (for example, unloaded, or a
- * few seconds after they are dead.)
+ * 允许注册一个事件，当实体从游戏中移除时触发（例如，卸载或死亡几秒钟后。）
  */
 export class EntityRemoveBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Will call your function every time an entity is being
-     * removed from the game.
+     * 每当实体从游戏中移除时都会调用你的函数。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      * @param callback
-     * Function to call.
+     * 要调用的函数。
      * @returns
-     * Returns a closure that can be used in subsequent unsubscribe
-     * operations.
+     * 返回一个闭包，可在后续的取消订阅操作中使用。
      */
     subscribe(callback: (arg0: EntityRemoveBeforeEvent) => void): (arg0: EntityRemoveBeforeEvent) => void;
     /**
      * @remarks
-     * Unsubscribes your function from subsequent calls when an
-     * entity is being removed.
+     * 当实体被移除时，取消订阅你的函数，使其不再被调用。
      *
      * @worldMutation
      *

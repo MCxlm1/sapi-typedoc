@@ -1,35 +1,32 @@
 /* IMPORT */ import { Entity } from '../index';
 
 /**
- * Additional configuration options for the {@link
- * Dimension.createExplosion} method.
+ * {@link Dimension.createExplosion} 方法的附加配置选项。
  * @seeExample createNoBlockExplosion.ts
  * @seeExample createExplosions.ts
  */
 export interface ExplosionOptions {
     /**
      * @remarks
-     * Whether parts of the explosion also impact underwater.
+     * 爆炸是否也影响水下部分。
      *
      */
     allowUnderwater?: boolean;
     /**
      * @remarks
-     * Whether the explosion will break blocks within the blast
-     * radius.
+     * 爆炸是否会破坏爆炸半径内的方块。
      *
      */
     breaksBlocks?: boolean;
     /**
      * @remarks
-     * If true, the explosion is accompanied by fires within or
-     * near the blast radius.
+     * 如果为 true，则爆炸伴随在爆炸半径内或附近的火焰。
      *
      */
     causesFire?: boolean;
     /**
      * @remarks
-     * Optional source of the explosion.
+     * 爆炸的可选来源。
      *
      */
     source?: Entity;

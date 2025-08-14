@@ -1,7 +1,7 @@
 /* IMPORT */ import { BlockEvent, BlockPistonComponent } from '../index';
 
 /**
- * 包含活塞伸出或缩回变化的相关信息。
+ * 包含与活塞伸展或缩回变化相关的信息。
  * @seeExample pistonAfterEvent.ts
  */
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -9,7 +9,7 @@ export class PistonActivateAfterEvent extends BlockEvent {
     private constructor();
     /**
      * @remarks
-     * 如果活塞正在伸出则为 true。
+     * 如果活塞正在伸展过程中则为 true。
      *
      */
     readonly isExpanding: boolean;

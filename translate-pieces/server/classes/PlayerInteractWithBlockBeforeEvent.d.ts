@@ -1,54 +1,49 @@
 /* IMPORT */ import { Block, Direction, ItemStack, Player, Vector3 } from '../index';
 
 /**
- * Contains information regarding an event before a player
- * interacts with a block.
+ * 包含玩家与方块交互前事件的信息。
  */
 export class PlayerInteractWithBlockBeforeEvent {
     private constructor();
     /**
      * @remarks
-     * The block that will be interacted with.
+     * 将与之交互的方块。
      *
      */
     readonly block: Block;
     /**
      * @remarks
-     * The face of the block that is being interacted with.
+     * 正在交互的方块面。
      *
      */
     readonly blockFace: Direction;
     /**
      * @remarks
-     * If set to true the interaction will be cancelled.
+     * 如果设置为 true，则取消交互。
      *
      */
     cancel: boolean;
     /**
      * @remarks
-     * Location relative to the bottom north-west corner of the
-     * block where the item is placed.
+     * 相对于方块的底部西北角，物品被放置的位置。
      *
      */
     readonly faceLocation: Vector3;
     /**
      * @remarks
-     * This value will be true if the event was triggered on
-     * players initial interaction button press and false on events
-     * triggered from holding the interaction button.
+     * 如果事件是在玩家初次按下交互按钮时触发则为 true，如果是按住交互按钮触发的事件则为 false。
      *
      */
     readonly isFirstEvent: boolean;
     /**
      * @remarks
-     * The item stack that is being used in the interaction, or
-     * undefined if empty hand.
+     * 交互中使用的物品堆叠，如果空手则为 undefined。
      *
      */
     readonly itemStack?: ItemStack;
     /**
      * @remarks
-     * Source Player for this event.
+     * 此事件的源玩家。
      *
      */
     readonly player: Player;

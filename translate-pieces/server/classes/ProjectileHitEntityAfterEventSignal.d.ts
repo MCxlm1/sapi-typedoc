@@ -1,13 +1,13 @@
 /* IMPORT */ import { ProjectileHitEntityAfterEvent } from '../index';
 
 /**
- * 管理与抛射物击中实体相关的回调。
+ * 管理与弹射物击中实体时相关的回调。
  */
 export class ProjectileHitEntityAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当抛射物击中实体时将被调用。
+     * 添加一个回调，当弹射物击中实体时将被调用。
      *
      * @worldMutation
      *
@@ -17,7 +17,7 @@ export class ProjectileHitEntityAfterEventSignal {
     subscribe(callback: (arg0: ProjectileHitEntityAfterEvent) => void): (arg0: ProjectileHitEntityAfterEvent) => void;
     /**
      * @remarks
-     * 从抛射物击中实体的回调中移除一个回调。
+     * 移除一个回调，当弹射物击中实体时不再被调用。
      *
      * @worldMutation
      *

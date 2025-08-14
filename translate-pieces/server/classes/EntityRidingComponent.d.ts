@@ -1,7 +1,7 @@
 /* IMPORT */ import { Entity, EntityComponent } from '../index';
 
 /**
- * 当实体骑乘另一个实体时，此组件会被添加到该实体上。
+ * 当实体骑乘另一个实体时，该组件会被添加到任何实体上。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityRidingComponent extends EntityComponent {

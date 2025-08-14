@@ -1,44 +1,42 @@
 /* IMPORT */ import { CommandPermissionLevel, CustomCommandParameter } from '../index';
 
 /**
- * Define the custom command, including name, permissions, and
- * parameters.
+ * 定义自定义命令，包括名称、权限和参数。
  */
 export interface CustomCommand {
     /**
      * @remarks
-     * Cheats must be enabled to run this command. Defaults to
-     * true.
+     * 必须启用作弊才能运行此命令。默认为 true。
      *
      */
     cheatsRequired?: boolean;
     /**
      * @remarks
-     * Command description as seen on the command line.
+     * 命令行中显示的命令描述。
      *
      */
     description: string;
     /**
      * @remarks
-     * List of mandatory command parameters.
+     * 必需的命令参数列表。
      *
      */
     mandatoryParameters?: CustomCommandParameter[];
     /**
      * @remarks
-     * The name of the command. A namespace is required.
+     * 命令的名称。需要命名空间。
      *
      */
     name: string;
     /**
      * @remarks
-     * List of optional command parameters.
+     * 可选的命令参数列表。
      *
      */
     optionalParameters?: CustomCommandParameter[];
     /**
      * @remarks
-     * The permission level required to execute the command.
+     * 执行命令所需的权限级别。
      *
      */
     permissionLevel: CommandPermissionLevel;

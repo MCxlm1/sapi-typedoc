@@ -17,7 +17,7 @@ export class ItemCompleteUseAfterEventSignal {
     subscribe(callback: (arg0: ItemCompleteUseAfterEvent) => void): (arg0: ItemCompleteUseAfterEvent) => void;
     /**
      * @remarks
-     * 从可充能物品完成充能的回调中移除一个回调。
+     * 移除一个回调，当可充能物品完成充能时不再被调用。
      *
      * @worldMutation
      *

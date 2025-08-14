@@ -1,122 +1,109 @@
 /* IMPORT */ import { EntityQueryPropertyOptions, EntityQueryScoreOptions, GameMode } from '../index';
 
 /**
- * Contains options for filtering entities.
+ * 包含过滤实体的选项。
  */
 export interface EntityFilter {
     /**
      * @remarks
-     * Excludes entities that match one or more of the specified
-     * families.
+     * 排除匹配一个或多个指定家族的实体。
      *
      */
     excludeFamilies?: string[];
     /**
      * @remarks
-     * Excludes entities if have a specific gamemode that matches
-     * the specified gamemode.
+     * 如果实体具有与指定游戏模式匹配的特定游戏模式，则排除这些实体。
      *
      */
     excludeGameModes?: GameMode[];
     /**
      * @remarks
-     * Excludes entities that have a name that match one of the
-     * specified values.
+     * 排除名称与指定值之一匹配的实体。
      *
      */
     excludeNames?: string[];
     /**
      * @remarks
-     * Excludes entities with a tag that matches one of the
-     * specified values.
+     * 排除带有与指定值之一匹配的标签的实体。
      *
      */
     excludeTags?: string[];
     /**
      * @remarks
-     * Excludes entities if they are one of the specified types.
+     * 如果实体是指定类型之一，则排除这些实体。
      *
      */
     excludeTypes?: string[];
     /**
      * @remarks
-     * If specified, includes entities that match all of the
-     * specified families.
+     * 如果指定，则包括匹配所有指定家族的实体。
      *
      */
     families?: string[];
     /**
      * @remarks
-     * If specified, includes entities with a gamemode that matches
-     * the specified gamemode.
+     * 如果指定，则包括具有与指定游戏模式匹配的游戏模式的实体。
      *
      */
     gameMode?: GameMode;
     /**
      * @remarks
-     * If specified, will only include entities that have at most
-     * this horizontal rotation.
+     * 如果指定，则仅包括最多具有此水平旋转角度的实体。
      *
      */
     maxHorizontalRotation?: number;
     /**
      * @remarks
-     * If defined, only players that have at most this level are
-     * returned.
+     * 如果定义，则仅返回最多具有此等级的玩家。
      *
      */
     maxLevel?: number;
     /**
      * @remarks
-     * If specified, only entities that have at most this vertical
-     * rotation are returned.
+     * 如果指定，则仅返回最多具有此垂直旋转角度的实体。
      *
      */
     maxVerticalRotation?: number;
     /**
      * @remarks
-     * If specified, will only include entities that have at a
-     * minimum this horizontal rotation.
+     * 如果指定，则仅包括至少具有此水平旋转角度的实体。
      *
      */
     minHorizontalRotation?: number;
     /**
      * @remarks
-     * If defined, only players that have at least this level are
-     * returned.
+     * 如果定义，则仅返回至少具有此等级的玩家。
      *
      */
     minLevel?: number;
     /**
      * @remarks
-     * If specified, will only include entities that have at least
-     * this vertical rotation.
+     * 如果指定，则仅包括至少具有此垂直旋转角度的实体。
      *
      */
     minVerticalRotation?: number;
     /**
      * @remarks
-     * Includes entities with the specified name.
+     * 包括具有指定名称的实体。
      *
      */
     name?: string;
     propertyOptions?: EntityQueryPropertyOptions[];
     /**
      * @remarks
-     * Gets/sets a collection of EntityQueryScoreOptions objects
-     * with filters for specific scoreboard objectives.
+     * 获取/设置 EntityQueryScoreOptions 对象集合，其中包含特定记分项的过滤器。
      *
      */
     scoreOptions?: EntityQueryScoreOptions[];
     /**
      * @remarks
-     * Includes entities that match all of the specified tags.
+     * 包括匹配所有指定标签的实体。
      *
      */
     tags?: string[];
     /**
      * @remarks
-     * If defined, entities that match this type are included.
+     * 如果定义，则包括匹配此类型的实体。
      *
      */
     type?: string;

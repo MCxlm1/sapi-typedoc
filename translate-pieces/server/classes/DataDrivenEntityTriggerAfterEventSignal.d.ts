@@ -1,23 +1,26 @@
-/* IMPORT */ import { DataDrivenEntityTriggerAfterEvent } from '../index';
+/* IMPORT */ import { DataDrivenEntityTriggerAfterEvent, EntityDataDrivenTriggerEventOptions } from '../index';
 
 /**
- * 管理与数据驱动实体触发事件相关的回调。
+ * 包含与数据驱动实体事件触发相关的事件注册 - 例如，鸡上的 minecraft:ageable_grow_up 事件。
  */
 export class DataDrivenEntityTriggerAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当数据驱动的实体触发事件发生时将被调用。
+     * 添加一个回调，当数据驱动实体事件触发后将被调用。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      */
-    subscribe(callback: (arg0: DataDrivenEntityTriggerAfterEvent) => void): (arg0: DataDrivenEntityTriggerAfterEvent) => void;
+    subscribe(
+        callback: (arg0: DataDrivenEntityTriggerAfterEvent) => void,
+        options?: EntityDataDrivenTriggerEventOptions,
+    ): (arg0: DataDrivenEntityTriggerAfterEvent) => void;
     /**
      * @remarks
-     * 从数据驱动的实体触发事件回调中移除一个回调。
+     * 移除一个回调，当数据驱动实体事件触发后不再被调用。
      *
      * @worldMutation
      *

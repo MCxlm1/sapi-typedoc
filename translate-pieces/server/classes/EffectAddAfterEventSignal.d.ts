@@ -1,7 +1,7 @@
-/* IMPORT */ import { EffectAddAfterEvent } from '../index';
+/* IMPORT */ import { EffectAddAfterEvent, EntityEventOptions } from '../index';
 
 /**
- * 管理与向实体添加效果相关的回调。
+ * 管理与向实体添加效果时相关的回调。
  */
 export class EffectAddAfterEventSignal {
     private constructor();
@@ -14,10 +14,13 @@ export class EffectAddAfterEventSignal {
      * @earlyExecution
      *
      */
-    subscribe(callback: (arg0: EffectAddAfterEvent) => void): (arg0: EffectAddAfterEvent) => void;
+    subscribe(
+        callback: (arg0: EffectAddAfterEvent) => void,
+        options?: EntityEventOptions,
+    ): (arg0: EffectAddAfterEvent) => void;
     /**
      * @remarks
-     * 从向实体添加效果的回调中移除一个回调。
+     * 移除一个回调，当向实体添加效果时不再被调用。
      *
      * @worldMutation
      *

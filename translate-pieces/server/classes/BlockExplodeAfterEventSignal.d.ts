@@ -1,7 +1,7 @@
 /* IMPORT */ import { BlockExplodeAfterEvent } from '../index';
 
 /**
- * 管理与爆炸影响单个方块相关的回调。
+ * 管理与爆炸影响单个方块时相关的回调。
  */
 export class BlockExplodeAfterEventSignal {
     private constructor();
@@ -17,7 +17,7 @@ export class BlockExplodeAfterEventSignal {
     subscribe(callback: (arg0: BlockExplodeAfterEvent) => void): (arg0: BlockExplodeAfterEvent) => void;
     /**
      * @remarks
-     * 从爆炸影响单个方块的回调中移除一个回调。
+     * 移除一个回调，当爆炸影响单个方块时不再被调用。
      *
      * @worldMutation
      *

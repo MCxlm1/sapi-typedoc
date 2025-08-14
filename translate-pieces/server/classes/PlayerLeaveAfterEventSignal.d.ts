@@ -17,7 +17,7 @@ export class PlayerLeaveAfterEventSignal {
     subscribe(callback: (arg0: PlayerLeaveAfterEvent) => void): (arg0: PlayerLeaveAfterEvent) => void;
     /**
      * @remarks
-     * 从玩家离开世界的回调中移除一个回调。
+     * 移除一个回调，当玩家离开世界时不再被调用。
      *
      * @worldMutation
      *

@@ -1,7 +1,7 @@
-/* IMPORT */ import { PlayerBreakBlockAfterEvent } from '../index';
+/* IMPORT */ import { BlockEventOptions, PlayerBreakBlockAfterEvent } from '../index';
 
 /**
- * 管理与玩家破坏方块相关的回调。
+ * 管理与玩家破坏方块时相关的回调。
  */
 export class PlayerBreakBlockAfterEventSignal {
     private constructor();
@@ -14,10 +14,13 @@ export class PlayerBreakBlockAfterEventSignal {
      * @earlyExecution
      *
      */
-    subscribe(callback: (arg0: PlayerBreakBlockAfterEvent) => void): (arg0: PlayerBreakBlockAfterEvent) => void;
+    subscribe(
+        callback: (arg0: PlayerBreakBlockAfterEvent) => void,
+        options?: BlockEventOptions,
+    ): (arg0: PlayerBreakBlockAfterEvent) => void;
     /**
      * @remarks
-     * 从玩家破坏方块的回调中移除一个回调。
+     * 移除一个回调，当玩家破坏方块时不再被调用。
      *
      * @worldMutation
      *

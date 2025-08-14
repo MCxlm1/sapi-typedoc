@@ -1,7 +1,7 @@
 /* IMPORT */ import { BlockPermutation, EntityComponent } from '../index';
 
 /**
- * 定义此实体可以在哪些方块中呼吸，并赋予它们窒息的能力。
+ * 定义此实体可以在哪些方块中呼吸并赋予它们窒息的能力。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityBreathableComponent extends EntityComponent {
@@ -14,7 +14,7 @@ export class EntityBreathableComponent extends EntityComponent {
      * @worldMutation
      *
      * @throws
-     * 如果空气供应量超出范围 [suffocationTime, maxAirSupply] 则抛出错误。
+     * 如果空气供应量超出范围 [suffocationTime, maxAirSupply] 将抛出错误。
      */
     airSupply: number;
     /**
@@ -62,21 +62,21 @@ export class EntityBreathableComponent extends EntityComponent {
     readonly generatesBubbles: boolean;
     /**
      * @remarks
-     * 恢复呼吸到最大值所需的时间（秒）。
+     * 恢复呼吸到最大值的时间（以秒为单位）。
      *
      * @throws 使用此属性时可能抛出异常。
      */
     readonly inhaleTime: number;
     /**
      * @remarks
-     * 窒息伤害之间的时间（秒）。
+     * 窒息伤害之间的时间（以秒为单位）。
      *
      * @throws 使用此属性时可能抛出异常。
      */
     readonly suffocateTime: number;
     /**
      * @remarks
-     * 实体可以屏住呼吸的时间（秒）。
+     * 实体可以屏住呼吸的时间（以秒为单位）。
      *
      * @throws 使用此属性时可能抛出异常。
      */

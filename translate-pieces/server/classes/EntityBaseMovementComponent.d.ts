@@ -1,16 +1,16 @@
 /* IMPORT */ import { EntityComponent } from '../index';
 
 /**
- * Base class for a family of entity movement events.
+ * 实体移动事件系列的基类。
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EntityBaseMovementComponent extends EntityComponent {
     private constructor();
     /**
      * @remarks
-     * Maximum turn rate for this movement modality of the mob.
+     * 此生物移动方式的最大转向速率。
      *
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly maxTurn: number;
 }

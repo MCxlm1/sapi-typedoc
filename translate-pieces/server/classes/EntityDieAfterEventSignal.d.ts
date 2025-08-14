@@ -1,23 +1,32 @@
-/* IMPORT */ import { EntityDieAfterEvent } from '../index';
+/* IMPORT */ import { EntityDieAfterEvent, EntityEventOptions } from '../index';
 
 /**
- * 管理与实体死亡相关的回调。
+ * 支持注册在实体死亡后触发的事件。
  */
 export class EntityDieAfterEventSignal {
     private constructor();
     /**
      * @remarks
-     * 添加一个回调，当实体死亡时将被调用。
+     * 订阅实体死亡时触发的事件。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
+     * @param callback
+     * 实体死亡时要调用的函数。
+     * @param options
+     * 订阅触发时的附加过滤选项。
+     * @returns
+     * 返回可以在未来的下游调用中用于取消订阅的闭包。
      */
-    subscribe(callback: (arg0: EntityDieAfterEvent) => void): (arg0: EntityDieAfterEvent) => void;
+    subscribe(
+        callback: (arg0: EntityDieAfterEvent) => void,
+        options?: EntityEventOptions,
+    ): (arg0: EntityDieAfterEvent) => void;
     /**
      * @remarks
-     * 从实体死亡的回调中移除一个回调。
+     * 停止此事件在实体死亡时调用您的函数。
      *
      * @worldMutation
      *

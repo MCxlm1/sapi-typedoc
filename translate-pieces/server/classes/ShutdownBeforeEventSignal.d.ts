@@ -1,23 +1,22 @@
 /* IMPORT */ import { ShutdownEvent } from '../index';
 
 /**
- * Provides an adaptable interface for callers to subscribe to
- * an event that fires before the game world shuts down. This
- * event occurs after players have left, but before the world
- * has closed.
+ * 为调用者提供一个可适配的接口，用于订阅在游戏世界关闭前触发的事件。
+ * 此事件在玩家离开后、世界关闭前发生。
  */
 export class ShutdownBeforeEventSignal {
     private constructor();
     /**
      * @remarks
-     * Adds a new subscriber callback to this event.
+     * 添加一个新的订阅者回调到此事件。
      *
      * @worldMutation
      *
      * @earlyExecution
      *
      * @param callback
-     * Function callback that is called when this event fires.
+     * 当此事件触发时调用的函数回调。
+     * @returns 用于取消订阅的回调函数引用。
      */
     subscribe(callback: (arg0: ShutdownEvent) => void): (arg0: ShutdownEvent) => void;
     /**

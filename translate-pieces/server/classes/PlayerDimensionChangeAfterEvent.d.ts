@@ -1,32 +1,38 @@
 /* IMPORT */ import { Dimension, Player, Vector3 } from '../index';
 
 /**
- * 包含玩家维度变化事件的相关信息。
+ * 包含与玩家维度更改相关的信息。
  */
 export class PlayerDimensionChangeAfterEvent {
     private constructor();
     /**
      * @remarks
-     * 玩家进入的维度。
+     * 玩家正在从中更改的维度。
      *
      */
     readonly fromDimension: Dimension;
     /**
      * @remarks
-     * 玩家离开的维度。
+     * 玩家在更改维度之前的位置。
      *
      */
-    readonly toDimension: Dimension;
+    readonly fromLocation: Vector3;
     /**
      * @remarks
-     * 发生维度变化的玩家。
+     * 正在更改维度的玩家句柄。
      *
      */
     readonly player: Player;
     /**
      * @remarks
-     * 玩家在目标维度中的位置。
+     * 玩家正在更改到的维度。
      *
      */
-    readonly toPosition: Vector3;
+    readonly toDimension: Dimension;
+    /**
+     * @remarks
+     * 玩家在更改维度后将生成到的位置。
+     *
+     */
+    readonly toLocation: Vector3;
 }

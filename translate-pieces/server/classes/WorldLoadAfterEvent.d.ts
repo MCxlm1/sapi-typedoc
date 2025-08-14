@@ -1,5 +1,5 @@
 /**
- * 包含世界加载事件的相关信息。
+ * 世界加载后事件。
  */
 export class WorldLoadAfterEvent {
     private constructor();

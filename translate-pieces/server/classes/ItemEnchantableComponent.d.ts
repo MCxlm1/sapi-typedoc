@@ -1,36 +1,30 @@
 /* IMPORT */ import { Enchantment, EnchantmentLevelOutOfBoundsError, EnchantmentSlot, EnchantmentType, EnchantmentTypeNotCompatibleError, EnchantmentTypeUnknownIdError, ItemComponent } from '../index';
 
 /**
- * When present on an item, this item can have enchantments
- * applied to it.
+ * 当出现在物品上时，此物品可以应用附魔。
  */
-// @ts-ignore Class inheritance allowed for native defined classes
+// @ts-ignore 类继承允许用于原生定义的类
 export class ItemEnchantableComponent extends ItemComponent {
     private constructor();
     /**
-     * @throws This property can throw when used.
+     * @throws 使用此属性时可能抛出异常。
      */
     readonly slots: EnchantmentSlot[];
     static readonly componentId = 'minecraft:enchantable';
     /**
      * @remarks
-     * Adds an enchantment to the item stack.
+     * 向物品堆叠添加附魔。
      *
      * @worldMutation
      *
      * @param enchantment
-     * The enchantment interface to be added.
+     * 要添加的附魔接口。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: Exception thrown if the
-     * enchantment type does not exist.
+     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出异常。
      *
-     * ScriptItemEnchantmentLevelOutOfBoundsError: Exception thrown
-     * if the enchantment level is outside the allowable range for
-     * the given enchantment type.
+     * ScriptItemEnchantmentLevelOutOfBoundsError: 如果附魔等级超出给定附魔类型的允许范围则抛出异常。
      *
-     * ScriptItemEnchantmentTypeNotCompatibleError: Exception
-     * thrown if the enchantment is not compatible with the item
-     * stack.
+     * ScriptItemEnchantmentTypeNotCompatibleError: 如果附魔与物品堆叠不兼容则抛出异常。
      *
      *
      * {@link EnchantmentLevelOutOfBoundsError}
@@ -44,23 +38,18 @@ export class ItemEnchantableComponent extends ItemComponent {
     addEnchantment(enchantment: Enchantment): void;
     /**
      * @remarks
-     * Adds a list of enchantments to the item stack.
+     * 向物品堆叠添加附魔列表。
      *
      * @worldMutation
      *
      * @param enchantments
-     * The list of enchantments to be added.
+     * 要添加的附魔列表。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: Exception thrown if any
-     * enchantment type does not exist.
+     * ScriptItemEnchantmentUnknownIdError: 如果任何附魔类型不存在则抛出异常。
      *
-     * ScriptItemEnchantmentLevelOutOfBoundsError: Exception thrown
-     * if any enchantment level is outside the allowable range for
-     * the given enchantment type.
+     * ScriptItemEnchantmentLevelOutOfBoundsError: 如果任何附魔等级超出给定附魔类型的允许范围则抛出异常。
      *
-     * ScriptItemEnchantmentTypeNotCompatibleError: Exception
-     * thrown if any enchantment is not compatible with the item
-     * stack.
+     * ScriptItemEnchantmentTypeNotCompatibleError: 如果任何附魔与物品堆叠不兼容则抛出异常。
      *
      *
      * {@link EnchantmentLevelOutOfBoundsError}
@@ -74,21 +63,16 @@ export class ItemEnchantableComponent extends ItemComponent {
     addEnchantments(enchantments: Enchantment[]): void;
     /**
      * @remarks
-     * Checks whether an enchantment can be added to the item
-     * stack.
+     * 检查附魔是否可以添加到物品堆叠。
      *
      * @param enchantment
-     * The enchantment interface to be added.
+     * 要添加的附魔接口。
      * @returns
-     * Returns true if the enchantment can be added to the item
-     * stack.
+     * 如果附魔可以添加到物品堆叠则返回 true。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: Exception thrown if the
-     * enchantment type does not exist.
+     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出异常。
      *
-     * ScriptItemEnchantmentLevelOutOfBoundsError: Exception thrown
-     * if the enchantment level is outside the allowable range for
-     * the given enchantment type.
+     * ScriptItemEnchantmentLevelOutOfBoundsError: 如果附魔等级超出给定附魔类型的允许范围则抛出异常。
      *
      *
      * {@link EnchantmentLevelOutOfBoundsError}
@@ -98,15 +82,14 @@ export class ItemEnchantableComponent extends ItemComponent {
     canAddEnchantment(enchantment: Enchantment): boolean;
     /**
      * @remarks
-     * Gets the enchantment of a given type from the item stack.
+     * 从物品堆叠中获取给定类型的附魔。
      *
      * @param enchantmentType
-     * The enchantment type to get.
+     * 要获取的附魔类型。
      * @returns
-     * Returns the enchantment if it exists on the item stack.
+     * 如果物品堆叠上存在附魔则返回该附魔。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: Exception thrown if the
-     * enchantment type does not exist.
+     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出异常。
      *
      *
      * {@link EnchantmentTypeUnknownIdError}
@@ -114,24 +97,23 @@ export class ItemEnchantableComponent extends ItemComponent {
     getEnchantment(enchantmentType: EnchantmentType | string): Enchantment | undefined;
     /**
      * @remarks
-     * Gets all enchantments on the item stack.
+     * 获取物品堆叠上的所有附魔。
      *
      * @returns
-     * Returns a list of enchantments on the item stack.
-     * @throws This function can throw errors.
+     * 返回物品堆叠上的附魔列表。
+     * @throws 此函数可能抛出错误。
      */
     getEnchantments(): Enchantment[];
     /**
      * @remarks
-     * Checks whether an item stack has a given enchantment type.
+     * 检查物品堆叠是否具有给定的附魔类型。
      *
      * @param enchantmentType
-     * The enchantment type to check for.
+     * 要检查的附魔类型。
      * @returns
-     * Returns true if the item stack has the enchantment type.
+     * 如果物品堆叠具有该附魔类型则返回 true。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: Exception thrown if the
-     * enchantment type does not exist.
+     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出异常。
      *
      *
      * {@link EnchantmentTypeUnknownIdError}
@@ -139,24 +121,23 @@ export class ItemEnchantableComponent extends ItemComponent {
     hasEnchantment(enchantmentType: EnchantmentType | string): boolean;
     /**
      * @remarks
-     * Removes all enchantments applied to this item stack.
+     * 移除此物品堆叠上的所有附魔。
      *
      * @worldMutation
      *
-     * @throws This function can throw errors.
+     * @throws 此函数可能抛出错误。
      */
     removeAllEnchantments(): void;
     /**
      * @remarks
-     * Removes an enchantment of the given type.
+     * 移除给定类型的附魔。
      *
      * @worldMutation
      *
      * @param enchantmentType
-     * The enchantment type to remove.
+     * 要移除的附魔类型。
      * @throws
-     * ScriptItemEnchantmentUnknownIdError: Exception thrown if the
-     * enchantment type does not exist.
+     * ScriptItemEnchantmentUnknownIdError: 如果附魔类型不存在则抛出异常。
      *
      *
      * {@link EnchantmentTypeUnknownIdError}
