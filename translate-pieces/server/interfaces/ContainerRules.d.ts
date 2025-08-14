@@ -1,35 +1,26 @@
 /**
  * @beta
- * Rules that if broken on container operations will throw an
- * error.
+ * 容器操作中如果违反这些规则将会抛出错误。
  */
 export interface ContainerRules {
     /**
      * @remarks
-     * Defines the items that are exclusively allowed in the
-     * container. If empty all items are allowed in the container.
-     *
+     * 定义容器中唯一允许的物品。如果为空，则容器中允许所有物品。
      */
     allowedItems: string[];
     /**
      * @remarks
-     * Determines whether other storage items can be placed into
-     * the container.
-     *
+     * 确定是否可以将其他存储物品放入容器中。
      */
     allowNestedStorageItems: boolean;
     /**
      * @remarks
-     * Defines the items that are not allowed in the container.
-     *
+     * 定义容器中不允许的物品。
      */
     bannedItems: string[];
     /**
      * @remarks
-     * Defines the maximum allowed total weight of all items in the
-     * storage item container. If undefined container has no weight
-     * limit.
-     *
+     * 定义存储物品容器中所有物品的最大允许总重量。如果未定义，则容器没有重量限制。
      */
     weightLimit?: number;
 }

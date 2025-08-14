@@ -1,21 +1,17 @@
 /* IMPORT */ import { Vector2, Vector3 } from '../index';
 
 /**
- * Options to control pivot points and offsets of the third
- * person boom preset.
+ * 控制第三人称视角预设的支点和偏移量的选项。
  */
 export interface CameraFixedBoomOptions {
     /**
      * @remarks
-     * Changes the pivot point to be <x, y, z> away from the
-     * player.
-     *
+     * 更改支点，使其距离玩家 <x, y, z>。
      */
     entityOffset?: Vector3;
     /**
      * @remarks
-     * Offsets the camera from center by <x, y>.
-     *
+     * 使摄像机从中心偏移 <x, y>。
      */
     viewOffset?: Vector2;
 }

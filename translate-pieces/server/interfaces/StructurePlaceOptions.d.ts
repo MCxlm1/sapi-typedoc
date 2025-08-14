@@ -1,72 +1,53 @@
 /* IMPORT */ import { StructureAnimationMode, StructureMirrorAxis, StructureRotation } from '../index';
 
 /**
- * Provides additional options for {@link
- * StructureManager.place}
+ * 为 {@link StructureManager.place} 提供附加选项
  */
 export interface StructurePlaceOptions {
     /**
      * @remarks
-     * How the Structure should be animated when placed.
-     *
+     * 放置时结构应如何动画化。
      */
     animationMode?: StructureAnimationMode;
     /**
      * @remarks
-     * How many seconds the animation should take.
-     *
+     * 动画应持续多少秒。
      */
     animationSeconds?: number;
     /**
      * @remarks
-     * Whether blocks should be included in the structure. Defaults
-     * to true.
-     *
+     * 结构中是否应包含方块。默认为 true。
      */
     includeBlocks?: boolean;
     /**
      * @remarks
-     * Whether entities should be included in the structure.
-     * Defaults to true.
-     *
+     * 结构中是否应包含实体。默认为 true。
      */
     includeEntities?: boolean;
     /**
      * @remarks
-     * What percentage of blocks should be placed. A value of 1
-     * will place 100% of the blocks while a value of 0 will place
-     * none. The blocks are chosen randomly based on the {@link
-     * StructurePlaceOptions.integritySeed}.
-     *
+     * 应放置的方块百分比。值为 1 将放置 100% 的方块，而值为 0 将不放置任何方块。
+     * 方块的选择基于 {@link StructurePlaceOptions.integritySeed} 随机确定。
      */
     integrity?: number;
     /**
      * @remarks
-     * Seed that determines which blocks are randomly chosen to be
-     * placed. Defaults to a random seed.
-     *
+     * 确定随机选择哪些方块放置的种子。默认为随机种子。
      */
     integritySeed?: string;
     /**
      * @remarks
-     * Which axes the Structure should be mirrored on when placed.
-     * Defaults to StructureMirrorAxis.None.
-     *
+     * 放置时结构应在哪些轴上镜像。默认为 StructureMirrorAxis.None。
      */
     mirror?: StructureMirrorAxis;
     /**
      * @remarks
-     * How the Structure should be rotated when placed. Defaults to
-     * AxisAlignedRotation.None.
-     *
+     * 放置时结构应如何旋转。默认为 AxisAlignedRotation.None。
      */
     rotation?: StructureRotation;
     /**
      * @remarks
-     * Whether the structure should be waterlogged when placed.
-     * Defaults to false. If true, blocks will become waterlogged
-     * when placed in water.
-     *
+     * 放置时结构是否应含水。默认为 false。如果为 true，方块在水中放置时将含水。
      */
     waterlogged?: boolean;
 }

@@ -1,11 +1,10 @@
 /**
- * Equal to operator.
+ * 等于运算符。
  */
 export interface EqualsComparison {
     /**
      * @remarks
-     * Threshold value compared against.
-     *
+     * 用于比较的阈值。
      */
     equals: boolean | number | string;
 }

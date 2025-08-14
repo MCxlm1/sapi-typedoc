@@ -1,26 +1,22 @@
 /* IMPORT */ import { Vector3 } from '../index';
 
 /**
- * Additional options for how a sound plays for a player.
+ * 玩家播放声音的附加选项。
  */
 export interface PlayerSoundOptions {
     /**
      * @remarks
-     * Location of the sound; if not specified, the sound is played
-     * near a player.
-     *
+     * 声音的位置；如果未指定，则在玩家附近播放声音。
      */
     location?: Vector3;
     /**
      * @remarks
-     * Optional pitch of the sound.
-     *
+     * 声音的可选音调。
      */
     pitch?: number;
     /**
      * @remarks
-     * Optional volume of the sound.
-     *
+     * 声音的可选音量。
      */
     volume?: number;
 }

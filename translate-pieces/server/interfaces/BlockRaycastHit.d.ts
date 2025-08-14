@@ -1,26 +1,22 @@
 /* IMPORT */ import { Block, Direction, Vector3 } from '../index';
 
 /**
- * Contains information for block raycast hit results.
+ * 包含方块射线检测命中结果的信息。
  */
 export interface BlockRaycastHit {
     /**
      * @remarks
-     * Block that was hit.
-     *
+     * 被命中的方块。
      */
     block: Block;
     /**
      * @remarks
-     * Face of the block that was hit.
-     *
+     * 被命中的方块面。
      */
     face: Direction;
     /**
      * @remarks
-     * Hit location relative to the bottom north-west corner of the
-     * block.
-     *
+     * 命中位置相对于方块底部西北角的坐标。
      */
     faceLocation: Vector3;
 }

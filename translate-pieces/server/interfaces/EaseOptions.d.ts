@@ -1,20 +1,17 @@
 /* IMPORT */ import { EasingType } from '../index';
 
 /**
- * Contains options associated with easing between positions
- * and/or rotations.
+ * 包含在位置和/或旋转之间缓动的相关选项。
  */
 export interface EaseOptions {
     /**
      * @remarks
-     * Time for the ease operation.
-     *
+     * 缓动操作的时间。
      */
     easeTime?: number;
     /**
      * @remarks
-     * Type of ease operation to use.
-     *
+     * 要使用的缓动操作类型。
      */
     easeType?: EasingType;
 }

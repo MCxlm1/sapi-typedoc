@@ -1,26 +1,22 @@
 /* IMPORT */ import { World } from '../index';
 
 /**
- * Additional configuration options for {@link
- * World.playMusic}/{@link World.queueMusic} methods.
+ * {@link World.playMusic}/{@link World.queueMusic} 方法的附加配置选项。
  */
 export interface MusicOptions {
     /**
      * @remarks
-     * Specifies a fade overlap for music at the end of play.
-     *
+     * 指定播放结束时音乐的淡出重叠。
      */
     fade?: number;
     /**
      * @remarks
-     * If set to true, this music track will play repeatedly.
-     *
+     * 如果设置为 true，此音乐曲目将重复播放。
      */
     loop?: boolean;
     /**
      * @remarks
-     * Relative volume level of the music.
-     *
+     * 音乐的相对音量级别。
      */
     volume?: number;
 }

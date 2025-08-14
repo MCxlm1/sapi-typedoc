@@ -1,19 +1,17 @@
 /* IMPORT */ import { Entity, Vector3 } from '../index';
 
 /**
- * Used to target an entity with a free camera.
+ * 用于使用自由摄像机瞄准实体。
  */
 export interface CameraTargetOptions {
     /**
      * @remarks
-     * Set an <x, y, z> offset from the target entity's center.
-     *
+     * 从目标实体中心设置 <x, y, z> 偏移量。
      */
     offsetFromTargetCenter?: Vector3;
     /**
      * @remarks
-     * The singular entity you want to target.
-     *
+     * 您想要瞄准的单个实体。
      */
     targetEntity: Entity;
 }

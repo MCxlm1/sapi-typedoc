@@ -1,10 +1,12 @@
 /* IMPORT */ import { BlockPermutation, minecraftvanilladata } from '../index';
 
 /**
- * Type alias used by the {@link BlockPermutation} matches and
- * resolve functions to narrow block state argument types to
- * those mapped by {@link
- * @minecraft/vanilla-data.BlockStateMapping}.
+ * 方块状态参数类型
+ * 
+ * 由 {@link BlockPermutation} 的 matches 和 resolve 函数使用的类型别名，
+ * 用于将方块状态参数类型缩小到 {@link @minecraft/vanilla-data.BlockStateMapping} 映射的类型。
+ * 
+ * @beta
  */
 export type BlockStateArg<T> = T extends `${minecraftvanilladata.MinecraftBlockTypes}`
     ? T extends keyof minecraftvanilladata.BlockStateMapping

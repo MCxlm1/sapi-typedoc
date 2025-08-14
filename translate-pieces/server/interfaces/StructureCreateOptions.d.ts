@@ -1,29 +1,22 @@
 /* IMPORT */ import { StructureSaveMode } from '../index';
 
 /**
- * Provides additional options for {@link
- * StructureManager.createFromWorld}
+ * 为 {@link StructureManager.createFromWorld} 提供附加选项
  */
 export interface StructureCreateOptions {
     /**
      * @remarks
-     * Whether blocks should be included in the structure. Defaults
-     * to true.
-     *
+     * 结构中是否应包含方块。默认为 true。
      */
     includeBlocks?: boolean;
     /**
      * @remarks
-     * Whether entities should be included in the structure.
-     * Defaults to true.
-     *
+     * 结构中是否应包含实体。默认为 true。
      */
     includeEntities?: boolean;
     /**
      * @remarks
-     * How the Structure should be saved. Defaults to
-     * StructureSaveMode.World.
-     *
+     * 结构应如何保存。默认为 StructureSaveMode.World。
      */
     saveMode?: StructureSaveMode;
 }

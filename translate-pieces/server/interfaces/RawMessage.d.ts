@@ -1,7 +1,7 @@
 /* IMPORT */ import { RawMessageScore } from '../index';
 
 /**
- * Defines a JSON structure that is used for more flexible.
+ * 定义用于更灵活的 JSON 结构。
  * @seeExample addTranslatedSign.ts 9d3a2d98
  * @seeExample showTranslatedMessageForm.ts
  * @seeExample addTranslatedSign.ts 604a92ba
@@ -9,37 +9,27 @@
 export interface RawMessage {
     /**
      * @remarks
-     * Provides a raw-text equivalent of the current message.
-     *
+     * 提供当前消息的原始文本等效内容。
      */
     rawtext?: RawMessage[];
     /**
      * @remarks
-     * Provides a token that will get replaced with the value of a
-     * score.
-     *
+     * 提供一个将被分数值替换的标记。
      */
     score?: RawMessageScore;
     /**
      * @remarks
-     * Provides a string literal value to use.
-     *
+     * 提供要使用的字符串文字值。
      */
     text?: string;
     /**
      * @remarks
-     * Provides a translation token where, if the client has an
-     * available resource in the players' language which matches
-     * the token, will get translated on the client.
-     *
+     * 提供翻译标记，如果客户端在玩家语言中有匹配该标记的可用资源，则会在客户端上进行翻译。
      */
     translate?: string;
     /**
      * @remarks
-     * Arguments for the translation token. Can be either an array
-     * of strings or RawMessage containing an array of raw text
-     * objects.
-     *
+     * 翻译标记的参数。可以是字符串数组或包含原始文本对象数组的 RawMessage。
      */
     with?: string[] | RawMessage;
 }

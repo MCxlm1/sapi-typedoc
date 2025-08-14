@@ -1,19 +1,17 @@
 /* IMPORT */ import { CameraFadeTimeOptions, RGB } from '../index';
 
 /**
- * Used to initiate a full-screen color fade.
+ * 用于启动全屏颜色淡出效果。
  */
 export interface CameraFadeOptions {
     /**
      * @remarks
-     * Fade color to use.
-     *
+     * 要使用的淡出颜色。
      */
     fadeColor?: RGB;
     /**
      * @remarks
-     * Time in seconds for the fade-in, hold, and fade-out seconds.
-     *
+     * 淡入、保持和淡出的秒数时间。
      */
     fadeTime?: CameraFadeTimeOptions;
 }

@@ -1,39 +1,30 @@
 /* IMPORT */ import { RawMessage, TicksPerSecond } from '../index';
 
 /**
- * Contains additional options for displaying a title and
- * optional subtitle.
+ * 包含显示标题和可选副标题的附加选项。
  */
 export interface TitleDisplayOptions {
     /**
      * @remarks
-     * Fade-in duration for the title and subtitle, in ticks. There
-     * are 20 ticks per second. Use {@link TicksPerSecond} constant
-     * to convert between ticks and seconds.
-     *
+     * 标题和副标题的淡入持续时间，以刻为单位。每秒有 20 刻。
+     * 使用 {@link TicksPerSecond} 常量在刻和秒之间进行转换。
      */
     fadeInDuration: number;
     /**
      * @remarks
-     * Fade-out time for the title and subtitle, in ticks. There
-     * are 20 ticks per second. Use {@link TicksPerSecond} constant
-     * to convert between ticks and seconds.
-     *
+     * 标题和副标题的淡出时间，以刻为单位。每秒有 20 刻。
+     * 使用 {@link TicksPerSecond} 常量在刻和秒之间进行转换。
      */
     fadeOutDuration: number;
     /**
      * @remarks
-     * Amount of time for the title and subtitle to stay in place,
-     * in ticks. There are 20 ticks per second. Use {@link
-     * TicksPerSecond} constant to convert between ticks and
-     * seconds.
-     *
+     * 标题和副标题保持在原位的时间，以刻为单位。每秒有 20 刻。
+     * 使用 {@link TicksPerSecond} 常量在刻和秒之间进行转换。
      */
     stayDuration: number;
     /**
      * @remarks
-     * Optional subtitle text.
-     *
+     * 可选的副标题文本。
      */
     subtitle?: (RawMessage | string)[] | RawMessage | string;
 }

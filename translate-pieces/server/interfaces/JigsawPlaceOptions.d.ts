@@ -1,30 +1,23 @@
 /* IMPORT */ import { LiquidSettings } from '../index';
 
 /**
- * Provides additional options for {@link
- * StructureManager.placeJigsaw}.
+ * 为 {@link StructureManager.placeJigsaw} 提供附加选项。
  */
 export interface JigsawPlaceOptions {
     /**
      * @remarks
-     * Whether entities should be included in the structure.
-     * Defaults to true.
-     *
+     * 结构中是否应包含实体。默认为 true。
      */
     includeEntities?: boolean;
     /**
      * @remarks
-     * Whether the jigsaw blocks should be kept when generating the
-     * structure. Defaults to false.
-     *
+     * 生成结构时是否应保留拼图方块。默认为 false。
      */
     keepJigsaws?: boolean;
     /**
      * @beta
      * @remarks
-     * Specifies how to handle waterloggable blocks overlapping
-     * with existing liquid. Defaults to `ApplyWaterlogging`.
-     *
+     * 指定如何处理与现有液体重叠的可水浸方块。默认为 `ApplyWaterlogging`。
      */
     liquidSettings?: LiquidSettings;
 }

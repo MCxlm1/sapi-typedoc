@@ -1,11 +1,10 @@
 /**
- * Not equal to operator.
+ * 不等于运算符。
  */
 export interface NotEqualsComparison {
     /**
      * @remarks
-     * Threshold value compared against.
-     *
+     * 用于比较的阈值。
      */
     notEquals: boolean | number | string;
 }

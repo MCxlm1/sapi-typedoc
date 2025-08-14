@@ -1,20 +1,17 @@
 /* IMPORT */ import { Entity } from '../index';
 
 /**
- * Additional options for when damage has been applied via a
- * projectile.
+ * 通过抛射物造成伤害时的附加选项。
  */
 export interface EntityApplyDamageByProjectileOptions {
     /**
      * @remarks
-     * Optional entity that fired the projectile.
-     *
+     * 发射抛射物的可选实体。
      */
     damagingEntity?: Entity;
     /**
      * @remarks
-     * Projectile that caused damage.
-     *
+     * 造成伤害的抛射物。
      */
     damagingProjectile: Entity;
 }

@@ -1,53 +1,42 @@
 /* IMPORT */ import { PlayerInventoryType } from '../index';
 
 /**
- * Contains additional filtering options for inventory item
- * events.
+ * 包含物品栏物品事件的附加过滤选项。
  */
 export interface InventoryItemEventOptions {
     /**
      * @remarks
-     * The slot indexes to consider. Values should be positive
-     * numbers. If not specified, all slots are considered.
-     *
+     * 要考虑的槽位索引。值应为正数。如果未指定，则考虑所有槽位。
      */
     allowedSlots?: number[];
     /**
      * @remarks
-     * The names for the items to exclude.
-     *
+     * 要排除的物品名称。
      */
     excludeItems?: string[];
     /**
      * @remarks
-     * The item tags to exclude.
-     *
+     * 要排除的物品标签。
      */
     excludeTags?: string[];
     /**
      * @remarks
-     * Flag to specify to ignore quantity changes only. True to
-     * ignore quantity changes, false to not ignore quantity
-     * changes.
-     *
+     * 指定仅忽略数量变化的标志。true 表示忽略数量变化，false 表示不忽略数量变化。
      */
     ignoreQuantityChange?: boolean;
     /**
      * @remarks
-     * The item names to consider.
-     *
+     * 要考虑的物品名称。
      */
     includeItems?: string[];
     /**
      * @remarks
-     * The item tags to consider.
-     *
+     * 要考虑的物品标签。
      */
     includeTags?: string[];
     /**
      * @remarks
-     * The player inventory type to consider.
-     *
+     * 要考虑的玩家物品栏类型。
      */
     inventoryType?: PlayerInventoryType;
 }

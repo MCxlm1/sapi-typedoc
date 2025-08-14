@@ -2,32 +2,27 @@
 
 /**
  * @beta
- * Settings relating to a player's aim-assist targeting.
+ * 与玩家瞄准辅助目标相关的设置。
  */
 export interface PlayerAimAssistSettings {
     /**
      * @remarks
-     * The view distance limit to use for aim-assist targeting.
-     *
+     * 用于瞄准辅助目标的视距限制。
      */
     distance?: number;
     /**
      * @remarks
-     * The Id of the aim-assist preset to activate. Must have a
-     * namespace.
-     *
+     * 要激活的瞄准辅助预设的 ID。必须有命名空间。
      */
     presetId: string;
     /**
      * @remarks
-     * The mode to use for aim-assist targeting.
-     *
+     * 用于瞄准辅助目标的模式。
      */
     targetMode?: AimAssistTargetMode;
     /**
      * @remarks
-     * The view angle limit to use for aim-assist targeting.
-     *
+     * 用于瞄准辅助目标的视角限制。
      */
     viewAngle?: Vector2;
 }

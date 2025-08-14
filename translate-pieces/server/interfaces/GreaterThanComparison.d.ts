@@ -1,11 +1,10 @@
 /**
- * Greater than operator.
+ * 大于运算符。
  */
 export interface GreaterThanComparison {
     /**
      * @remarks
-     * Threshold value compared against.
-     *
+     * 用于比较的阈值。
      */
     greaterThan: number;
 }

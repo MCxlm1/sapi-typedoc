@@ -1,21 +1,17 @@
 /* IMPORT */ import { BlockPermutation } from '../index';
 
 /**
- * Contains optional parameters for registering a block event.
+ * 包含注册方块事件的可选参数。
  */
 export interface BlockEventOptions {
     /**
      * @remarks
-     * If this value is set, this event will only fire if the
-     * impacted block's type matches this parameter.
-     *
+     * 如果设置了此值，则只有当受影响方块的类型与此参数匹配时才会触发此事件。
      */
     blockTypes?: string[];
     /**
      * @remarks
-     * If this value is set, this event will only fire if the
-     * impacted block's permutation matches this parameter.
-     *
+     * 如果设置了此值，则只有当受影响方块的方块状态与此参数匹配时才会触发此事件。
      */
     permutations?: BlockPermutation[];
 }

@@ -1,11 +1,10 @@
 /**
- * Less than operator.
+ * 小于运算符。
  */
 export interface LessThanComparison {
     /**
      * @remarks
-     * Threshold value compared against.
-     *
+     * 用于比较的阈值。
      */
     lessThan: number;
 }

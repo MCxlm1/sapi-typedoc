@@ -1,18 +1,15 @@
 /**
- * Operator represents a lower/upper bound structure for
- * expressing a potential range of numbers.
+ * 运算符表示用于表达潜在数字范围的下限/上限结构。
  */
 export interface RangeComparison {
     /**
      * @remarks
-     * Lower bound within a range.
-     *
+     * 范围内的下限。
      */
     lowerBound: number;
     /**
      * @remarks
-     * Upper bound within a range.
-     *
+     * 范围内的上限。
      */
     upperBound: number;
 }

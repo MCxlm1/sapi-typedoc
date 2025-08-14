@@ -1,19 +1,17 @@
 /* IMPORT */ import { Entity } from '../index';
 
 /**
- * Contains information for entity raycast hit results.
+ * 包含实体射线检测命中结果的信息。
  */
 export interface EntityRaycastHit {
     /**
      * @remarks
-     * Distance from ray origin to entity bounds.
-     *
+     * 从射线原点到实体边界的距离。
      */
     distance: number;
     /**
      * @remarks
-     * Entity that was hit.
-     *
+     * 被命中的实体。
      */
     entity: Entity;
 }

@@ -1,24 +1,18 @@
 /* IMPORT */ import { ButtonState, InputButton } from '../index';
 
 /**
- * An interface that is passed into {@link
- * @minecraft/Server.PlayerButtonInputAfterEventSignal.subscribe}
- * that filters out which events are passed to the provided
- * callback.
+ * 传递给 {@link @minecraft/Server.PlayerButtonInputAfterEventSignal.subscribe} 的接口，
+ * 用于过滤传递给提供回调函数的事件。
  */
 export interface InputEventOptions {
     /**
      * @remarks
-     * The buttons the callback should be called for. If undefined,
-     * the callback will be called for all buttons.
-     *
+     * 回调函数应被调用的按钮。如果未定义，则回调函数将为所有按钮调用。
      */
     buttons?: InputButton[];
     /**
      * @remarks
-     * The state the callback should be called for. If undefined,
-     * the callback will be called for all button states.
-     *
+     * 回调函数应被调用的状态。如果未定义，则回调函数将为所有按钮状态调用。
      */
     state?: ButtonState;
 }
